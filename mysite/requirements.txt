@@ -1,0 +1,12 @@
+Django==2.2.3
+et-xmlfile==1.0.1
+jdcal==1.4.1
+lxml==4.3.4
+openpyxl==2.6.2
+Pillow==6.0.0
+pypiwin32==223
+python-pptx==0.6.18
+pytz==2019.1
+pywin32==224
+sqlparse==0.3.0
+XlsxWriter==1.1.8
