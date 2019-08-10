@@ -1,6 +1,6 @@
 from django.http.response import HttpResponse,Http404
 from django.shortcuts import render
-from . import database
+from . import memoSearchDb
 import datetime
 import math
 
@@ -14,7 +14,7 @@ def resultListView(request):
     pageNum = request.POST.get('pageNum',None)
     partVal = request.POST.get('partVal',None)
     nameVal = request.POST.get('nameVal',None)
-    result = database.memoSearchSelect(None,pageNum,partVal,nameVal);
+    result = memoSearchDb.memoSearchSelect(None,pageNum,partVal,nameVal);
     
     # aタグ作成
     atag = ''
@@ -27,22 +27,22 @@ def resultListView(request):
       startPos = 1
     else:
       startPos = int(pageNum) - 1
-      startATag = '<a href="#" class="pager" onClick="pager(1,'"+ partVal +"',0)" >&laquo;</a>'
+      startATag = '<a href="#" class="pager" onClick="pager(1,\'' + partVal + '\',0)" >&laquo;</a>'
     
     if int(pageNum) == int(pageAll):
       endPos = int(pageAll) + 1
     else:
       endPos = (int(pageNum) - 1) + 3
-      endATag = '<a href="#" class="pager"  onClick="pager(' + str(pageAll) + ','"+ partVal +"',0)" >&raquo;</a>'
+      endATag = '<a href="#" class="pager"  onClick="pager(' + str(pageAll) + ',\'' + partVal + '\',0)" >&raquo;</a>'
     
     # aタグ生成
     atag = startATag
     
     for i in range(startPos,endPos):
       if int(pageNum) == i:
-        atag += '<a href="#" class="pager clicked" onClick="pager(' + str(i) + ','"+ partVal +"',0)" >' + str(i) + '</a>';
+        atag += '<a href="#" class="pager clicked" onClick="pager(' + str(i) + ',\'' + partVal + '\',0)" >' + str(i) + '</a>';
       else:
-        atag += '<a href="#" class="pager" onClick="pager(' + str(i) + ','"+ partVal +"',0)" >' + str(i) + '</a>';
+        atag += '<a href="#" class="pager" onClick="pager(' + str(i) + ',\'' + partVal + '\',0)" >' + str(i) + '</a>';
     
     atag += endATag
     
