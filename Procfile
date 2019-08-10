@@ -1,1 +1,1 @@
-"web: gunicorn memoProject.wsgi --log-file -" 
+web: gunicorn memoProject.wsgi --log-file - 
