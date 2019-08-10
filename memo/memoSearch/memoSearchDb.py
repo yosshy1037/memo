@@ -7,7 +7,7 @@ def memoSearchSelect(request='',pageNum=0,partVal='',nameVal=''):
   dateList = []
 
   try:
-    conn = psycopg2.connect("dbname=memo user=admin password=kanai")
+    conn = psycopg2.connect("dbname=d55hlkoc8p6llk user=mpwwqumdjipwfw password=60162450ab1fb5baf5c9c260b6fbde5823f0cb24a584b89be0ce2443bf9f855f")
     
     # ページャ設定
     if int(pageNum) == 1:
