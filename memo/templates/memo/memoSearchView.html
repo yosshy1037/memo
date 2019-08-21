@@ -1,10 +1,6 @@
 {% extends "common/base.html" %}
 
 {% block body %}
-  <div id="container">
-    <div id="header">
-      <h1>メモ管理システム</h1>
-    </div><!--id header-->
     
     <form name="memoForm" method="post" action="">
       <div id="searchErea">
@@ -49,6 +45,7 @@
       </div><!--id linkErea-->
       <div id="resultErea">
       </div><!--id resultErea-->
+      <input type="submit" value="新規登録" class="registPage" />
     {% csrf_token %}
     </form>
   </div><!--id container-->

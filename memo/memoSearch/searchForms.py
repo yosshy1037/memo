@@ -1,6 +1,6 @@
 from django import forms
 
-class MemoSearchForm(forms.Form):
+class searchForm(forms.Form):
     part = forms.CharField(
       label='役割',
       max_length=15,

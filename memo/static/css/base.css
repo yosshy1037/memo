@@ -1,0 +1,43 @@
+/*--body--*/
+body{
+  font-size:15px;
+  font-family:'メイリオ',Meiryo;
+}
+
+/*--header--*/
+#header{
+  color:#8E8E8E;
+  background-color:#222222;
+  border: solid 1px;
+  border-radius: 0px 0px 8px 8px;
+  margin:0px 0px 10px 0px;
+}
+#header_left{
+  float:left;
+}
+#header h1{
+  font-size:25px;
+  margin:5px 0 5px 20px;
+}
+#header_right{
+  float:right;
+  margin-top:10px;
+}
+#header a.logout{
+  border:1px solid #555555;
+  background-color:#555555;
+  color:#AEAEAE;
+  border-radius: 3px 3px 3px 3px;
+  padding:3px;
+  text-decoration: none;
+  font-size:15px;
+  margin:5px 40px 5px 20px;
+}
+#header a.logout:hover{
+  background-color:#777777;
+}
+#header::after {
+  content: "";
+  display: block;
+  clear: both;
+}

@@ -1,0 +1,28 @@
+{% extends "common/base.html" %}
+
+{% block body %}
+    
+    <form name="memoForm" method="post" action="">
+      <div id="formErea">
+        <div id="subHeader">
+          <h2>ログイン</h2>
+        </div><!--id subHeader-->
+        <table>
+          <tr>
+            <th>{{ form.loginUser.label }}</th>
+            <td>{{ form.loginUser }}</td>
+          </tr>
+          <tr>
+            <th>{{ form.loginPassword.label }}</th>
+            <td>{{ form.loginPassword }}</td>
+          </tr>
+          {{ errMes | safe }}
+        </table>
+        <div class="buttonErea">
+          <input type="submit" value="ログイン" class="login" />
+        </div><!--class buttonErea-->
+      </div><!--id formErea-->
+    {% csrf_token %}
+    </form>
+  </div><!--id container-->
+{% endblock%}

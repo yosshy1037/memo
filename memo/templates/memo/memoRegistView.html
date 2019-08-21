@@ -1,0 +1,45 @@
+{% extends "common/base.html" %}
+
+{% block body %}
+    
+    <form name="memoForm" method="post" action="">
+      <div id="registErea">
+        <div id="subHeader">
+          <h2>新規登録</h2>
+        </div><!--id subHeader-->
+        <table>
+          <tr>
+            <th>{{ form.part.label }}</th>
+            <td>{{ form.part }}</td>
+          </tr>
+          <tr>
+            <th>{{ form.name.label }}</th>
+            <td>{{ form.name }}</td>
+          </tr>
+          <tr>
+            <th>{{ form.gender.label }}</th>
+            <td>
+              {{ form.gender }}
+            </td>
+          </tr>
+          <tr>
+            <th>{{ form.contents.label }}</th>
+            <td>{{ form.contents }}</td>
+          </tr>
+          <tr>
+            <th>{{ form.biko.label }}</th>
+            <td>{{ form.biko }}</td>
+          </tr>
+        </table>
+        <div class="registMessage">
+        </div><!--class registMessage-->
+        <div class="buttonErea">
+          <input type="submit" value="登録" class="regist" />
+          <input type="submit" value="検索画面へ戻る" class="searchReturn" />
+          <input type="hidden" name="pageNum" />
+        </div><!--class buttonErea-->
+      </div><!--id registErea-->
+    {% csrf_token %}
+    </form>
+  </div><!--id container-->
+{% endblock%}

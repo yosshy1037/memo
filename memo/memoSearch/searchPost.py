@@ -1,6 +1,7 @@
 from django.http.response import HttpResponse,Http404
 from django.shortcuts import render
-from . import memoSearchDb
+from . import searchDb
+from ..common import dbMainClass,const,constDef
 import datetime
 import math
 
@@ -11,16 +12,46 @@ def resultListView(request):
     
     startPos = 0
     endPos = 0
-    pageNum = request.POST.get('pageNum',None)
-    partVal = request.POST.get('partVal',None)
-    nameVal = request.POST.get('nameVal',None)
-    result = memoSearchDb.memoSearchSelect(None,pageNum,partVal,nameVal);
+    pageNum = request.POST.get('pageNum',0)
+    partVal = request.POST.get('partVal','')
+    nameVal = request.POST.get('nameVal','')
+    
+    # DB処理
+    db = dbMainClass.dbMain()
+    db.dbConnection()
+    
+    sqlct = searchDb.searchSelectCountSql(None,pageNum,partVal,nameVal)
+    db.execute(sqlct,const.sel,const.fetchModeOne)
+    pageFull = db.result[0]
+    
+    sql = searchDb.searchSelectSql(None,pageNum,partVal,nameVal)
+    db.execute(sql,const.sel,const.fetchModeTwo)
+    db.dbClose()
+    
+    dateRow = {}
+    dataResult = {}
+    num = 0
+    
+    # ループして取得
+    for row in db.result:
+       dataResult["ID"] = row[0]
+       dataResult["PART"] = row[1]
+       dataResult["NAME"] = row[2]
+       dataResult["GENDER"] = row[3]
+       contents = row[4].replace('\n','<br>')
+       dataResult["CONTENTS"] = contents
+       biko = row[5].replace('\n','<br>')
+       dataResult["BIKO"] = biko
+       dataResult["REGIST_DATE"] = row[6]
+       dateRow[num] = dataResult
+       dataResult = {}
+       num += 1
     
     # aタグ作成
     atag = ''
     startATag = ''
     endATag = ''
-    pageAll = math.ceil(int(result[1][0])/3)
+    pageAll = math.ceil(int(pageFull)/3)
     
     # aタグ制御
     if int(pageNum) == 1:
@@ -58,13 +89,13 @@ def resultListView(request):
     tag += '  <th class="detailedConfirmHeader"></th>'
     tag += '</tr>'
     
-    for row in result[0]:
+    for row in dateRow:
       tag += '    <tr>'
-      tag += '      <td>' + row[1] + '</td>'
-      tag += '      <td>' + row[2] + '</td>'
-      tag += '      <td>' + str(row[6]) + '</td>'
-      tag += '      <td>' + row[4] + '</td>'
-      tag += '      <td>' + row[5] + '</td>'
+      tag += '      <td>' + str(dateRow[row]["PART"]) + '</td>'
+      tag += '      <td>' + str(dateRow[row]["NAME"]) + '</td>'
+      tag += '      <td>' + str(dateRow[row]["REGIST_DATE"]) + '</td>'
+      tag += '      <td>' + str(dateRow[row]["CONTENTS"]) + '</td>'
+      tag += '      <td>' + str(dateRow[row]["BIKO"]) + '</td>'
       tag += '      <td>'
       tag += '        <input type="submit" value="詳細確認" class="detailedConfirm" />'
       tag += '      </td>'
