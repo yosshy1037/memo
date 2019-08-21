@@ -1,11 +1,13 @@
 /*--searchErea--*/
 #searchErea{
+  width:100%;
   border: solid 1px #E6E6D6;
   border-radius: 8px 8px 8px 8px;
   margin:0px 20px 0px 20px;
 }
 /*---subHeader---*/
 #subHeader{
+  width:100%;
   color:#B4B4B4;
   background-color:#F5F5F5;
   border-bottom: solid 1px #E6E6D6;
@@ -19,6 +21,7 @@
 }
 /*---table---*/
 #searchErea table{
+  width:100%;
   margin-left:10px;
 }
 #searchErea table th{
@@ -47,6 +50,7 @@
 }
 /*---button---*/
 .buttonErea{
+  width:100%;
   text-align:center;
   margin:10px 0px;
 }
@@ -61,6 +65,7 @@
 
 /*--linkErea 後でページャいれる--*/
 #linkErea{
+  width:100%;
   padding:30px 0px 30px 20px;
   text-align:center;
 }
@@ -79,6 +84,7 @@
 
 /*--resultErea--*/
 #resultErea{
+  width:100%;
   /*border: solid 1px #E6E6D6;*/
   /*border-radius: 8px 8px 8px 8px;*/
   margin-bottom:40px;

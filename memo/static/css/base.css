@@ -1,11 +1,13 @@
 /*--body--*/
 body{
+  width:100%;
   font-size:15px;
   font-family:'メイリオ',Meiryo;
 }
 
 /*--header--*/
 #header{
+  width:100%;
   color:#8E8E8E;
   background-color:#222222;
   border: solid 1px;
