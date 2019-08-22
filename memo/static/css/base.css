@@ -45,23 +45,23 @@ body{
 }
 /*--formErea--*/
 #formErea{
-  width:97%;
+  width:98%;
   border: solid 1px #E6E6D6;
   border-radius: 8px 8px 8px 8px;
-  margin:0px 20px 0px 20px;
+  margin:0% 1% 0% 1%;
 }
 /*--registErea--*/
 #registErea{
-  width:97%;
+  width:98%;
   border: solid 1px #E6E6D6;
   border-radius: 8px 8px 8px 8px;
-  margin:0px 20px 20px 20px;
+  margin:0% 1% 1% 1%;
   padding-bottom:20px;
 }
 /*--searchErea--*/
 #searchErea{
-  width:97%;
+  width:98%;
   border: solid 1px #E6E6D6;
   border-radius: 8px 8px 8px 8px;
-  margin:0px 20px 0px 20px;
+  margin:0% 1% 0% 1%;
 }

@@ -14,11 +14,12 @@
 }
 /*---table---*/
 #formErea table{
-  width:50%;
+  width:100%;
   margin:0 auto;
 }
 #formErea table th{
   text-align:right;
+  width:25%;
 }
 #formErea table td input.loginUser,input.loginPassword{
   width:50%;
@@ -28,7 +29,7 @@
   border: 1px solid #ccc;
 }
 #formErea input.loginUser,input.loginPassword{
-  margin-left:30px;
+  margin-left:15%;
 }
 #formErea table th,#searchErea table td{
   vertical-align:middle;
@@ -39,11 +40,11 @@
   padding:10px 0px;
 }
 .buttonErea input.login{
-  margin-left:120px;
+  margin-left:15%;
   display:inline;
   text-align:center;
   font-size:14px;
-  width:16%;
+  width:25%;
   padding:5px;
   vertical-align:middle;
   border-radius: 3px 3px 3px 3px;
@@ -54,6 +55,6 @@
 }
 /*---errorMes---*/
 .errMes{
-  padding-left:30px;
+  padding-left:12%;
   color:red;
 }

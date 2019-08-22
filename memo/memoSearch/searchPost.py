@@ -55,7 +55,9 @@ def resultListView(request):
        else:
          biko_tmp = biko
        dataResult["BIKO"] = biko_tmp
-       dataResult["REGIST_DATE"] = row[6]
+       registDate = row[6].strftime("%Y/%m/%d %H:%M:%S")
+       
+       dataResult["REGIST_DATE"] = registDate
        dateRow[num] = dataResult
        dataResult = {}
        num += 1
@@ -112,7 +114,7 @@ def resultListView(request):
       tag += '      <td>' + str(dateRow[row]["CONTENTS"]) + '</td>'
       tag += '      <td>' + str(dateRow[row]["BIKO"]) + '</td>'
       tag += '      <td>'
-      tag += '        <input type="submit" value="詳細確認" class="detailedConfirm" />'
+      tag += '        <input type="submit" value="詳細" class="detailedConfirm" />'
       tag += '      </td>'
       tag += '    </tr>'
     
