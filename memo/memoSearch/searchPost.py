@@ -1,36 +1,41 @@
 from django.http.response import HttpResponse,Http404
-from django.shortcuts import render
-from . import searchDb
-from ..common import dbMainClass,const,constDef
-import datetime
-import math
+from . import searchDb,searchModel
+from ..common import dbMainClass,const,constDef,commonFuncClass
+import datetime,math,json
 
 def resultListView(request):
-  import json
-  
   if request.method == 'POST':
+    com = commonFuncClass.commonFunc()
+    model = searchModel.searchModel()
+    
+    # モデルへ値格納
+    model.request = request
+    model.collumList = ['part','name','registStartDate','registEndDate','gender','keyWord','pageNum']
+    model.valueListCreate()
     
     startPos = 0
     endPos = 0
-    pageNum = request.POST.get('pageNum',0)
-    partVal = request.POST.get('partVal','')
-    nameVal = request.POST.get('nameVal','')
+    pageNum = model.valueList['PAGENUM'][1]
     
     # DB処理
     db = dbMainClass.dbMain()
     db.dbConnection()
     
-    sqlct = searchDb.searchSelectCountSql(None,pageNum,partVal,nameVal)
+    sqlct = searchDb.searchSelectCountSql(model.valueList)
     db.execute(sqlct,const.sel,const.fetchModeOne)
     pageFull = db.result[0]
+    if pageFull == 0:
+      pageNum = 1
     
-    sql = searchDb.searchSelectSql(None,pageNum,partVal,nameVal)
+    sql = searchDb.searchSelectSql(model.valueList)
     db.execute(sql,const.sel,const.fetchModeTwo)
     db.dbClose()
     
     dateRow = {}
     dataResult = {}
     num = 0
+    
+    print(sql)
     
     # ループして取得
     for row in db.result:
@@ -39,9 +44,17 @@ def resultListView(request):
        dataResult["NAME"] = row[2]
        dataResult["GENDER"] = row[3]
        contents = row[4].replace('\n','<br>')
-       dataResult["CONTENTS"] = contents
+       if len(contents) > 30:
+         contents_tmp = com.mid(contents,1,30) + "・・・"
+       else:
+         contents_tmp = contents
+       dataResult["CONTENTS"] = contents_tmp
        biko = row[5].replace('\n','<br>')
-       dataResult["BIKO"] = biko
+       if len(biko) > 35:
+         biko_tmp = com.mid(biko,1,35) + "・・・"
+       else:
+         biko_tmp = biko
+       dataResult["BIKO"] = biko_tmp
        dataResult["REGIST_DATE"] = row[6]
        dateRow[num] = dataResult
        dataResult = {}
@@ -52,28 +65,30 @@ def resultListView(request):
     startATag = ''
     endATag = ''
     pageAll = math.ceil(int(pageFull)/3)
+    if pageAll == 0:
+      pageAll = 1
     
     # aタグ制御
     if int(pageNum) == 1:
       startPos = 1
     else:
       startPos = int(pageNum) - 1
-      startATag = '<a href="#" class="pager" onClick="pager(1,\'' + partVal + '\',0)" >&laquo;</a>'
+      startATag = '<a href="#" class="pager" onClick="pager(1)" >&laquo;</a>'
     
     if int(pageNum) == int(pageAll):
       endPos = int(pageAll) + 1
     else:
       endPos = (int(pageNum) - 1) + 3
-      endATag = '<a href="#" class="pager"  onClick="pager(' + str(pageAll) + ',\'' + partVal + '\',0)" >&raquo;</a>'
+      endATag = '<a href="#" class="pager"  onClick="pager(' + str(pageAll) + ')" >&raquo;</a>'
     
     # aタグ生成
     atag = startATag
     
     for i in range(startPos,endPos):
       if int(pageNum) == i:
-        atag += '<a href="#" class="pager clicked" onClick="pager(' + str(i) + ',\'' + partVal + '\',0)" >' + str(i) + '</a>';
+        atag += '<a href="#" class="pager clicked" onClick="pager(' + str(i) + ')" >' + str(i) + '</a>';
       else:
-        atag += '<a href="#" class="pager" onClick="pager(' + str(i) + ',\'' + partVal + '\',0)" >' + str(i) + '</a>';
+        atag += '<a href="#" class="pager" onClick="pager(' + str(i) + ')" >' + str(i) + '</a>';
     
     atag += endATag
     

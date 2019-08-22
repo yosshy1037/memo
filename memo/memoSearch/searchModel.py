@@ -1,11 +1,8 @@
-from django.http.response import HttpResponse
-from django.shortcuts import render
-from django.db import transaction
 from ..common import const,constDef
 from datetime import datetime
 import copy
 
-class registModel():
+class searchModel():
 
   # コンストラクタ
   def __init__(self):
@@ -32,6 +29,14 @@ class registModel():
           value = 1
         else:
           value = 0
+      elif col == "registStartDate":
+        type = 'date'
+        init = '1999-01-01 00:00:00'
+        value = self.__request.POST.get(col,init)
+      elif col == "registEndDate":
+        type = 'date'
+        init = '1999-01-01 00:00:00'
+        value = self.__request.POST.get(col,init)
       elif col == "regist_date":
         type = 'date'
         value = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
@@ -50,6 +55,10 @@ class registModel():
       elif col == "delete_flg":
         type = 'int'
         value = 0
+      elif col == "pageNum":
+        type = 'int'
+        init = 0
+        value = self.__request.POST.get(col,init)
       else:
         value = self.__request.POST.get(col,init)
       self.__valueList[col.upper()] = [type,value]

@@ -43,3 +43,25 @@ body{
   display: block;
   clear: both;
 }
+/*--formErea--*/
+#formErea{
+  width:97%;
+  border: solid 1px #E6E6D6;
+  border-radius: 8px 8px 8px 8px;
+  margin:0px 20px 0px 20px;
+}
+/*--registErea--*/
+#registErea{
+  width:97%;
+  border: solid 1px #E6E6D6;
+  border-radius: 8px 8px 8px 8px;
+  margin:0px 20px 20px 20px;
+  padding-bottom:20px;
+}
+/*--searchErea--*/
+#searchErea{
+  width:97%;
+  border: solid 1px #E6E6D6;
+  border-radius: 8px 8px 8px 8px;
+  margin:0px 20px 0px 20px;
+}

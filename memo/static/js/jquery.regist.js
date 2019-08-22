@@ -19,7 +19,7 @@ $(document).ready(function(){
       },
       'dataType':'json',
       'success':function(response){
-        $(".registMessage").html(response.result);
+        $(".registMessage").html("<p class='mes'>" + response.result + "</p>");
       },
       'error':function(XMLHttpRequest, textStatus, errorThrown){
         alert("XMLHttpRequest : " + XMLHttpRequest.status + "/" + "errorThrown    : " + errorThrown.message );

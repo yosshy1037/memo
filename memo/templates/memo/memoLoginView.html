@@ -17,10 +17,11 @@
             <td>{{ form.loginPassword }}</td>
           </tr>
           {{ errMes | safe }}
+          <tr>
+            <th></th>
+            <td class="buttonErea" ><input type="submit" value="ログイン" class="login" /></td>
+          </tr>
         </table>
-        <div class="buttonErea">
-          <input type="submit" value="ログイン" class="login" />
-        </div><!--class buttonErea-->
       </div><!--id formErea-->
     {% csrf_token %}
     </form>

@@ -1,10 +1,3 @@
-/*--searchErea--*/
-#searchErea{
-  width:100%;
-  border: solid 1px #E6E6D6;
-  border-radius: 8px 8px 8px 8px;
-  margin:0px 20px 0px 20px;
-}
 /*---subHeader---*/
 #subHeader{
   width:100%;
@@ -21,14 +14,14 @@
 }
 /*---table---*/
 #searchErea table{
-  width:100%;
-  margin-left:10px;
+  width:50%;
+  margin-left:20px;
 }
 #searchErea table th{
   text-align:right;
 }
 #searchErea table td input.part,input.name,input.registStartDate,input.registEndDate,input.keyWord{
-  width:300px;
+  width:35%;
   line-height:26px;
   padding-left:5px;
 }
@@ -54,13 +47,16 @@
   text-align:center;
   margin:10px 0px;
 }
-.buttonErea input.registPage,input.search,.buttonErea input.clear{
+.buttonErea input.search,.buttonErea input.clear{
   display:inline;
   text-align:center;
   font-size:14px;
-  width:60px;
+  width:7%;
   padding:5px;
   vertical-align:middle;
+}
+.buttonErea input.search:hover,.buttonErea input.clear:hover{
+  background-color:#D9EDF7;
 }
 
 /*--linkErea 後でページャいれる--*/
@@ -87,9 +83,10 @@
   width:100%;
   /*border: solid 1px #E6E6D6;*/
   /*border-radius: 8px 8px 8px 8px;*/
-  margin-bottom:40px;
+  margin-bottom:20px;
 }
 #resultErea table{
+  width:97%;
   margin-left:20px;
   margin-right:20px;
   border-collapse: separate;
@@ -126,4 +123,21 @@
 }
 #resultErea table td input{
   margin:2px;
+}
+/*----registButtonErea----*/
+.registButtonErea{
+  width:97%;
+  text-align:center;
+  padding-bottom:20px;
+}
+.registButtonErea input{
+  font-size:120%;
+  width:10%;
+  line-height:210%;
+  border-radius: 3px 3px 3px 3px;
+  border: 1px solid #ccc;
+  vertical-align:middle;
+}
+.registButtonErea input:hover{
+  background-color:#D9EDF7;
 }

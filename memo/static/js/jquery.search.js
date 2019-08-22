@@ -1,16 +1,22 @@
 <!--一覧の表示とAタグの制御-->
-function pager(pageNum,part,name){
-    if(pageNum == 0){
-      pageNum = 1;
-    }
-    $('input:hidden[name="pageNum"]').val(pageNum);
+function pager(pageNum){
+    var part = $('input[name="part"]').val();
+    var name = $('input[name="name"]').val();
+    var registStartDate = $('input[name="registStartDate"]').val();
+    var registEndDate = $('input[name="registEndDate"]').val();
+    var gender = $('select[name="gender"]').val();
+    var keyWord = $('input[name="keyWord"]').val();
     $.ajax({
       'url':'/memo/dataList/',
       'type':'POST',
       'data':{
         'pageNum':pageNum,
-        'partVal':part,
-        'nameVal':name,
+        'part':part,
+        'name':name,
+        'registStartDate':registStartDate,
+        'registEndDate':registEndDate,
+        'gender':gender,
+        'keyWord':keyWord,
       },
       'dataType':'json',
       'success':function(response){
