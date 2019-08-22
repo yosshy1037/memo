@@ -40,7 +40,7 @@ class dbMain():
   # DB接続
   def dbConnection(self):
     try:
-      self.__conn = psycopg2.connect("host=" + self.__host + "port=" + self.__port + "dbname=" + self.__dbname + " user=" + self.__user + " password=" + self.__password + "")
+      self.__conn = psycopg2.connect("host=" + self.__host + " port=" + self.__port + " dbname=" + self.__dbname + " user=" + self.__user + " password=" + self.__password + "")
     
       self.__conn.autocommit = False
       
