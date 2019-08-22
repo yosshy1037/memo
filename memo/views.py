@@ -55,33 +55,8 @@ def memoSearch(request):
   ses.loginCheckSession()
   if ses.loginFlg == False:
      return redirect("memo")
-  
-  part = ""
-  name = ""
-  pageNum = 1
-  if request.method == 'POST':
-    part = request.POST.get('part');
-    name = request.POST.get('name');
 
-    if request.POST.get('pageNum') == None:
-      part = "";
-    else:
-      part = request.POST.get('part');
-      
-    if request.POST.get('name') == None:
-      name = "";
-    else:
-      name = request.POST.get('name');
-    
-    if request.POST.get('pageNum') == None:
-      pageNum = 1;
-    else:
-      pageNum = request.POST.get('pageNum');
-
-  if part=="":
-    message = '入力してください'
-  else:
-    message = ''
+  #if request.method == 'POST':
   
   form = searchForms.searchForm(request.POST or None);
   css = 'search.css'
@@ -94,10 +69,6 @@ def memoSearch(request):
     'css' : css,
     'disp_js' : js,
     'resutList_js' : listJs,
-    'partErr' : message,
-    'pageNum' : pageNum,
-    'part' : part,
-    'name' : name,
   }
   return render(request, 'memo/memoSearchView.html', d )
 
@@ -110,32 +81,7 @@ def memoRegist(request):
   if ses.loginFlg == False:
      return redirect("memo")
 
-  part = ""
-  name = ""
-  pageNum = 1
-  if request.method == 'POST':
-    part = request.POST.get('part');
-    name = request.POST.get('name');
-    
-    if request.POST.get('pageNum') == None:
-      part = "";
-    else:
-      part = request.POST.get('part');
-      
-    if request.POST.get('name') == None:
-      name = "";
-    else:
-      name = request.POST.get('name');
-    
-    if request.POST.get('pageNum') == None:
-      pageNum = 1;
-    else:
-      pageNum = request.POST.get('pageNum');
-
-  if part=="":
-    message = '入力してください'
-  else:
-    message = ''
+  #if request.method == 'POST':
   
   form = registForms.registForm(request.POST or None);
   
@@ -145,10 +91,6 @@ def memoRegist(request):
     'css' : "regist.css",
     'disp_js' : '',
     'resutList_js' : '',
-    'partErr' : message,
-    'pageNum' : pageNum,
-    'part' : part,
-    'name' : name,
   }
   return render(request, 'memo/memoRegistView.html', d )
   
