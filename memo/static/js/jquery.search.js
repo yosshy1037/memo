@@ -31,7 +31,7 @@ function pager(pageNum){
 }
 <!--詳細画面へ遷移-->
 function detailSend(num){
-  //document.memoForm.action = '/memo/memoDetail/?detailNum=' + num
+  //$('form').attr('action', '/memo/memoDetail/?detailNum=' + num);
   //$('form').attr('method', 'GET');
   //$('form').submit();
   window.open('/memo/memoDetail/?detailNum=' + num, '_blank');

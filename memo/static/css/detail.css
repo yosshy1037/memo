@@ -75,7 +75,7 @@
   width:50%;
   margin:0 37%;
 }
-.buttonErea input.detail{
+.buttonErea input.update{
   display:inline;
   text-align:center;
   font-size:14px;
@@ -83,7 +83,7 @@
   padding:5px;
   vertical-align:middle;
 }
-.buttonErea input.searchReturn{
+.buttonErea input.detailClose{
   display:inline;
   text-align:center;
   font-size:14px;
@@ -91,6 +91,6 @@
   padding:5px;
   vertical-align:middle;
 }
-.buttonErea input.update:hover,.buttonErea input.searchReturn:hover{
+.buttonErea input.update:hover,.buttonErea input.detailClose:hover{
   background-color:#D9EDF7;
 }

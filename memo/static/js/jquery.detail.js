@@ -30,10 +30,8 @@ $(document).ready(function(){
   });
   
   <!--検索画面へ戻る-->
-  $('.searchReturn').on('click', function(){
-    var url = "/memo/memoSearch/";
-    $('form').attr('action', url);
-    $('form').submit();
+  $('.detailClose').on('click', function(){
+    window.open('about:blank','_self').close();
     return false;
   });
 });
