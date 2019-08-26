@@ -30,9 +30,8 @@ $(document).ready(function(){
   
   <!--検索画面へ戻る-->
   $('.searchReturn').on('click', function(){
-    var aTag = document.createElement("a");
     var url = "/memo/memoSearch/";
-    aTag.href = url;
+    window.location.href=url;
     return false;
   });
 });
