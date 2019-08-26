@@ -1,0 +1,45 @@
+{% extends "common/base.html" %}
+
+{% block body %}
+    
+    <form name="memoForm" method="post" action="">
+      <div id="detailErea">
+        <div id="subHeader">
+          <h2>詳細確認</h2>
+        </div><!--id subHeader-->
+        <table>
+          <tr>
+            <th>{{ form.detailPart.label }}</th>
+            <td>{{ form.detailPart }}</td>
+          </tr>
+          <tr>
+            <th>{{ form.detailName.label }}</th>
+            <td>{{ form.detailName }}</td>
+          </tr>
+          <tr>
+            <th>{{ form.detailGender.label }}</th>
+            <td>
+              {{ form.detailGender }}
+            </td>
+          </tr>
+          <tr>
+            <th>{{ form.detailContents.label }}</th>
+            <td>{{ form.detailContents }}</td>
+          </tr>
+          <tr>
+            <th>{{ form.detailBiko.label }}</th>
+            <td>{{ form.detailBiko }}</td>
+          </tr>
+        </table>
+        <div class="detailMessage">
+        </div><!--class detailMessage-->
+        <div class="buttonErea">
+          <input type="submit" value="更新" class="update" />
+          <input type="submit" value="検索画面へ戻る" class="searchReturn" />
+          <input type="hidden" name="pageNum" />
+        </div><!--class buttonErea-->
+      </div><!--id detailErea-->
+    {% csrf_token %}
+    </form>
+  </div><!--id container-->
+{% endblock%}

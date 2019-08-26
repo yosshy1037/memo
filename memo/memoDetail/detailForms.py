@@ -1,13 +1,13 @@
 from django import forms
 
-class registForm(forms.Form):
-    registPart = forms.CharField(
+class detailForm(forms.Form):
+    detailPart = forms.CharField(
       label='役割',
       max_length=15,
       widget=forms.TextInput(attrs={'class' : 'part'}),
       required=True,
     )
-    registName = forms.CharField(
+    detailName = forms.CharField(
       label='名称（人名）',
       max_length=15,
       widget=forms.TextInput(attrs={'class' : 'name'}),
@@ -18,19 +18,19 @@ class registForm(forms.Form):
       ('man', '男'),
       ('woman', '女')
     )
-    registGender = forms.ChoiceField(
+    detailGender = forms.ChoiceField(
       label='性別',
       widget=forms.Select,
       choices=GENDER_CHOICES,
       required=True,
     )
-    registContents = forms.CharField(
+    detailContents = forms.CharField(
       label='内容',
       max_length=8000,
       widget=forms.Textarea(attrs={'rows': 10,'cols': 110,'class' : 'contents'}),
       required=True,
     )
-    registBiko = forms.CharField(
+    detailBiko = forms.CharField(
       label='備考',
       max_length=8000,
       widget=forms.Textarea(attrs={'rows': 10,'cols': 110,'class' : 'contents'}),

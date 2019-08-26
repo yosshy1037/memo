@@ -1,14 +1,14 @@
 $(document).ready(function(){
-  <!--登録-->
-  $('.regist').on('click', function(){
-    var part = $('input[name="registPart"]').val();
-    var name = $('input[name="registName"]').val();
-    var gender = $('select[name="registGender"]').val();
-    var contents = $('textarea[name="registContents"]').val();
-    var biko = $('textarea[name="registBiko"]').val();
-    
+  <!--更新-->
+  $('.update').on('click', function(){
+    var part = $('input[name="detailPart"]').val();
+    var name = $('input[name="detailName"]').val();
+    var gender = $('select[name="detailGender"]').val();
+    var contents = $('textarea[name="detailContents"]').val();
+    var biko = $('textarea[name="detailBiko"]').val();
+    var detailQuery = $(location).attr('search');
     $.ajax({
-      'url':'/memo/regist/',
+      'url':'/memo/update/',
       'type':'POST',
       'data':{
         'part': part,
@@ -16,10 +16,11 @@ $(document).ready(function(){
         'gender': gender,
         'contents': contents,
         'biko': biko,
+        'detailQuery': detailQuery,
       },
       'dataType':'json',
       'success':function(response){
-        $(".registMessage").html("<p class='mes'>" + response.result + "</p>");
+        $(".detailMessage").html("<p class='mes'>" + response.result + "</p>");
       },
       'error':function(XMLHttpRequest, textStatus, errorThrown){
         alert("XMLHttpRequest : " + XMLHttpRequest.status + "/" + "errorThrown    : " + errorThrown.message );
@@ -30,9 +31,9 @@ $(document).ready(function(){
   
   <!--検索画面へ戻る-->
   $('.searchReturn').on('click', function(){
-    var aTag = document.createElement("a");
     var url = "/memo/memoSearch/";
-    aTag.href = url;
+    $('form').attr('action', url);
+    $('form').submit();
     return false;
   });
 });

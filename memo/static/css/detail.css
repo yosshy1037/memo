@@ -1,0 +1,96 @@
+/*---subHeader---*/
+#subHeader{
+  width:100%;
+  color:#B4B4B4;
+  background-color:#F5F5F5;
+  border-bottom: solid 1px #E6E6D6;
+  border-radius: 8px 8px 0px 0px;
+  margin-bottom:15px;
+}
+#subHeader h2{
+  font-size:18px;
+  padding-top:5px;
+  margin:0px 0px 5px 5px;
+}
+/*---table---*/
+#detailErea table{
+  text-align:center;
+  width:100%;
+  margin:0 auto;
+}
+#detailErea table th{
+  width:25%;
+  text-align:right;
+}
+#detailErea table td{
+  text-align:left;
+}
+#detailErea table td select,input.part,input.name{
+  width:85%;
+  line-height:26px;
+  padding-left:1%;
+}
+#detailErea table td .contents,.biko{
+  line-height:26px;
+  padding-left:1%;
+}
+#detailErea table td select,input
+{
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  border: 1px solid #ccc;
+}
+#detailErea table td select{
+  line-height:26px;
+  padding-left:5px;
+}
+#detailErea table td input.part,input.name,select,.contents,.biko,input.search{
+  margin-left:30px;
+}
+#detailErea table td textarea.biko,textarea.contents{
+  width:85%;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+}
+#detailErea table th,#detailErea table td{
+  vertical-align:middle;
+  padding:10px 0px;
+}
+#detailErea table th,#detailErea table td textarea.biko{
+  padding:5px 0px;
+}
+/*---detailMessage---*/
+.detailMessage{
+  width:50%;
+  margin:0 37%;
+}
+.detailMessage p.mes{
+  color:red;
+  margin-bottom:1% 0;
+}
+/*---button---*/
+.buttonErea{
+  width:50%;
+  margin:0 37%;
+}
+.buttonErea input.detail{
+  display:inline;
+  text-align:center;
+  font-size:14px;
+  width:25%;
+  padding:5px;
+  vertical-align:middle;
+}
+.buttonErea input.searchReturn{
+  display:inline;
+  text-align:center;
+  font-size:14px;
+  width:65%;
+  padding:5px;
+  vertical-align:middle;
+}
+.buttonErea input.update:hover,.buttonErea input.searchReturn:hover{
+  background-color:#D9EDF7;
+}

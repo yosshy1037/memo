@@ -34,6 +34,8 @@ class dbMain():
         self.__result = self.dbFetchAll()
     elif sqlMode == const.ins:
       self.__cur.execute(self.__sql)
+    elif sqlMode == const.upd:
+      self.__cur.execute(self.__sql)
       
     self.__cur.close()
 
@@ -94,3 +96,11 @@ class dbMain():
   @property
   def result(self):
     return self.__result
+    
+  @property
+  def bindVal(self):
+    return self.__bindVal
+
+  @bindVal.setter
+  def bindVal(self,bindVal):
+    self.__bindVal = bindVal

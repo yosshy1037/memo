@@ -35,8 +35,6 @@ def resultListView(request):
     dataResult = {}
     num = 0
     
-    print(sql)
-    
     # ループして取得
     for row in db.result:
        dataResult["ID"] = row[0]
@@ -114,7 +112,7 @@ def resultListView(request):
       tag += '      <td>' + str(dateRow[row]["CONTENTS"]) + '</td>'
       tag += '      <td>' + str(dateRow[row]["BIKO"]) + '</td>'
       tag += '      <td>'
-      tag += '        <input type="submit" value="詳細" class="detailedConfirm" />'
+      tag += '        <input type="submit" value="詳細" class="detailedConfirm" onClick="detailSend(' + str(dateRow[row]["ID"]) + ')" />'
       tag += '      </td>'
       tag += '    </tr>'
     
