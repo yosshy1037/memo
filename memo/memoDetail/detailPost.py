@@ -29,8 +29,10 @@ def detailList(request):
     db.dbConnection()
     
     ddSql.valueList = model.valueList
+    db.bindVal = ddSql.bindVal
     ddSql.detailUpdateSql()
     db.execute(ddSql.sql,const.upd,'')
+    
     db.dbCommitOrRollback()
     db.dbClose()
 

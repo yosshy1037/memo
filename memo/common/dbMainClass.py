@@ -14,6 +14,7 @@ class dbMain():
     self.__cur = ""
     self.__sql = ""
     self.__result = ""
+    self.__bindVal = []
     self.__host = "ec2-50-19-222-129.compute-1.amazonaws.com"
     self.__port = "5432"
     self.__dbname = "d55hlkoc8p6llk"
@@ -35,7 +36,7 @@ class dbMain():
     elif sqlMode == const.ins:
       self.__cur.execute(self.__sql)
     elif sqlMode == const.upd:
-      self.__cur.execute(self.__sql)
+      self.__cur.execute(self.__sql,self.__bindVal)
       
     self.__cur.close()
 

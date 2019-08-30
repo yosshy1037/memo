@@ -8,7 +8,7 @@ class detailSql():
     self.__sql = ""
     self.__collum = ""
     self.__where = " WHERE 1 = 1 "
-    self.__bindValList = {}
+    self.__bindVal = []
     self.__valueList = ""
     self.__detailNum = 0
   
@@ -20,25 +20,27 @@ class detailSql():
     ct = 0
     for colName in self.__valueList:
       if colName == "DELETE_FLG":
-        self.__where += " AND " + colName + " = " + str(self.__valueList[colName][1])
+        self.__where += " AND " + colName + " = %s"
+        self.__bindVal += [int(self.__valueList[colName][1])]
         continue
       elif colName == "DETAILQUERY":
-        self.__where += " AND ID = " + str(self.__valueList[colName][1]).replace('?detailNum=', '')
+        self.__where += " AND ID = %s"
+        self.__bindVal += [int((self.__valueList[colName][1]).replace('?detailNum=', ''))]
       else:
         if ct == 0:
-          if self.__valueList[colName][0] == "str" :
-            self.__collum = colName + " = '" + str(self.__valueList[colName][1]) + "'"
+          if self.__valueList[colName][0] == "str" or self.__valueList[colName][0] == "date":
+            self.__collum = colName + " = %s"
+            self.__bindVal += [str(self.__valueList[colName][1])]
           elif self.__valueList[colName][0] == "int" :
-            self.__collum = colName + " = " + str(self.__valueList[colName][1])
-          elif self.__valueList[colName][0] == "date":
-            self.__collum = colName + " = '" + str(self.__valueList[colName][1]) + "'"
+            self.__collum = colName + " = %s"
+            self.__bindVal += [int(self.__valueList[colName][1])]
         else:
-          if self.__valueList[colName][0] == "str" :
-            self.__collum += "," + colName + " = '" + str(self.__valueList[colName][1]) + "'"
+          if self.__valueList[colName][0] == "str" or self.__valueList[colName][0] == "date":
+            self.__collum += "," + colName + " = %s"
+            self.__bindVal += [str(self.__valueList[colName][1])]
           elif self.__valueList[colName][0] == "int" :
-            self.__collum += "," + colName + " = " + str(self.__valueList[colName][1])
-          elif self.__valueList[colName][0] == "date":
-            self.__collum += "," + colName + " = '" + str(self.__valueList[colName][1]) + "'"
+            self.__collum += "," + colName + " = %s"
+            self.__bindVal += [int(self.__valueList[colName][1])]
         ct += 1
     
     self.__sql +=  self.__collum + self.__where + ";"
@@ -71,3 +73,11 @@ class detailSql():
   @sql.setter
   def sql(self,sql):
     self.__sql = sql
+    
+  @property
+  def bindVal(self):
+    return self.__bindVal
+
+  @bindVal.setter
+  def bindVal(self,bindVal):
+    self.__bindVal = bindVal
