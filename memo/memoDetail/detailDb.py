@@ -1,37 +1,73 @@
 # 更新クエリ
-def detailUpdate(request='',valueList=''):
-  sql = "UPDATE memo SET "
-  collum = ""
-  where = " WHERE 1 = 1 "
+class detailSql():
   
-  # ループして取得
-  ct = 0
-  for colName in valueList:
-    if colName == "DELETE_FLG":
-      where += " AND " + colName + " = " + str(valueList[colName][1])
-      continue
-    elif colName == "DETAILQUERY":
-      where += " AND ID = " + str(valueList[colName][1]).replace('?detailNum=', '')
-    else:
-      if ct == 0:
-        if valueList[colName][0] == "str" :
-          collum = colName + " = '" + str(valueList[colName][1]) + "'"
-        elif valueList[colName][0] == "int" :
-          collum = colName + " = " + str(valueList[colName][1])
-        elif valueList[colName][0] == "date":
-          collum = colName + " = '" + str(valueList[colName][1]) + "'"
+  # コンストラクタ
+  def __init__(self):
+  
+    # プライベート変数
+    self.__sql = ""
+    self.__collum = ""
+    self.__where = " WHERE 1 = 1 "
+    self.__bindValList = {}
+    self.__valueList = ""
+    self.__detailNum = 0
+  
+  # 更新クエリ
+  def detailUpdateSql(self):
+    self.__sql = "UPDATE memo SET "
+    
+    # ループして取得
+    ct = 0
+    for colName in self.__valueList:
+      if colName == "DELETE_FLG":
+        self.__where += " AND " + colName + " = " + str(self.__valueList[colName][1])
+        continue
+      elif colName == "DETAILQUERY":
+        self.__where += " AND ID = " + str(self.__valueList[colName][1]).replace('?detailNum=', '')
       else:
-        if valueList[colName][0] == "str" :
-          collum += "," + colName + " = '" + str(valueList[colName][1]) + "'"
-        elif valueList[colName][0] == "int" :
-          collum += "," + colName + " = " + str(valueList[colName][1])
-        elif valueList[colName][0] == "date":
-          collum += "," + colName + " = '" + str(valueList[colName][1]) + "'"
-      ct += 1
+        if ct == 0:
+          if self.__valueList[colName][0] == "str" :
+            self.__collum = colName + " = '" + str(self.__valueList[colName][1]) + "'"
+          elif self.__valueList[colName][0] == "int" :
+            self.__collum = colName + " = " + str(self.__valueList[colName][1])
+          elif self.__valueList[colName][0] == "date":
+            self.__collum = colName + " = '" + str(self.__valueList[colName][1]) + "'"
+        else:
+          if self.__valueList[colName][0] == "str" :
+            self.__collum += "," + colName + " = '" + str(self.__valueList[colName][1]) + "'"
+          elif self.__valueList[colName][0] == "int" :
+            self.__collum += "," + colName + " = " + str(self.__valueList[colName][1])
+          elif self.__valueList[colName][0] == "date":
+            self.__collum += "," + colName + " = '" + str(self.__valueList[colName][1]) + "'"
+        ct += 1
+    
+    self.__sql +=  self.__collum + self.__where + ";"
   
-  sql +=  collum + where + ";"
-  return sql
+  # 取得クエリ
+  def detailSelectSql(self):
+    self.__sql = "SELECT ID,PART,NAME,GENDER,CONTENTS,BIKO,REGIST_DATE FROM memo WHERE ID = "
+    self.__sql += self.detailNum
+    
+  @property
+  def valueList(self):
+    return self.__valueList
+
+  @valueList.setter
+  def valueList(self,valueList):
+    self.__valueList = valueList
+    
+  @property
+  def detailNum(self):
+    return self.__detailNum
+
+  @detailNum.setter
+  def detailNum(self,detailNum):
+    self.__detailNum = detailNum
   
-def detailSelect(detailNum):
-  sql = "SELECT ID,PART,NAME,GENDER,CONTENTS,BIKO,REGIST_DATE FROM memo WHERE ID = " + detailNum
-  return sql
+  @property
+  def sql(self):
+    return self.__sql
+
+  @sql.setter
+  def sql(self,sql):
+    self.__sql = sql

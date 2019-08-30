@@ -1,7 +1,6 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic import View
-from html import unescape
 from .common import dbMainClass,const,constDef,formValidateClass,sessionClass,commonFuncClass
 from .memoLogin import loginForms,loginModel
 from .memoSearch import searchForms
@@ -179,6 +178,7 @@ class memoDetail(View):
     self.__ses = sessionClass.session()
     self.__com = commonFuncClass.commonFunc()
     self.__db = dbMainClass.dbMain()
+    self.__ddSql = detailDb.detailSql()
     self.errMes = {}
     self.__detailForm = "";
     self.__css = 'detail.css'
@@ -192,8 +192,7 @@ class memoDetail(View):
     self.__ses.request = request
     self.__detailForm = detailForms.detailForm(None);
     # DB取得処理
-    sql = detailDb.detailSelect(request.GET.get('detailNum'))
-    self.__detailForm = self.__initVal(sql)
+    self.__initVal()
     
     # ログイン情報チェック
     self.__ses.loginCheckSession()
@@ -215,8 +214,7 @@ class memoDetail(View):
     self.__detailForm = detailForms.detailForm(request.POST);
     
     # DB取得処理
-    sql = detailDb.detailSelect(request.GET.get('detailNum'))
-    self.__detailForm = self.__initVal(sql)
+    self.__initVal()
     
     d = {
       'logout' : self.__logoutAtag,
@@ -228,10 +226,11 @@ class memoDetail(View):
     return render(request, self.__veiwUrl, d)
 
   # DB初期値取得
-  def __initVal(self,sql):
+  def __initVal(self):
     self.__db.dbConnection()
-    sql = detailDb.detailSelect(self.__ses.request.GET.get('detailNum'))
-    self.__db.execute(sql,const.sel,const.fetchModeTwo)
+    self.__ddSql.detailNum = self.__ses.request.GET.get('detailNum')
+    self.__ddSql.detailSelectSql()
+    self.__db.execute(self.__ddSql.sql,const.sel,const.fetchModeTwo)
     self.__db.dbClose()
 
     self.__detailForm.fields['detailPart'].initial = self.__db.result[0][1]
@@ -240,9 +239,6 @@ class memoDetail(View):
     self.__detailForm.fields['detailContents'].initial = self.__db.result[0][4]
     self.__detailForm.fields['detailBiko'].initial = self.__db.result[0][5]
     
-    print(self.__ses.request.POST.get('detailPart'))
-    return self.__detailForm
-
 ## ログアウト
 class logout(View):
   # POSTMethod
