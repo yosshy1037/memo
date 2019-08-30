@@ -25,10 +25,12 @@ def detailList(request):
     
     # DB更新処理
     db = dbMainClass.dbMain()
+    ddSql = detailDb.detailSql()
     db.dbConnection()
     
-    sql = detailDb.detailUpdate(None,model.valueList)
-    db.execute(sql,const.upd,'')
+    ddSql.valueList = model.valueList
+    ddSql.detailUpdateSql()
+    db.execute(ddSql.sql,const.upd,'')
     db.dbCommitOrRollback()
     db.dbClose()
 
@@ -36,4 +38,4 @@ def detailList(request):
     return HttpResponse(response)
     
   else:
-    raise Http404  # GETリクエストを404扱いにしているが、実際は別にしなくてもいいかも
+    raise Http404 
