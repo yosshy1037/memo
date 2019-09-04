@@ -28,7 +28,7 @@ class dbMain():
     
     self.__dbCursor()
     if sqlMode == const.sel:
-      self.__cur.execute(self.__sql)
+      self.__cur.execute(self.__sql,self.__bindVal)
       if fetchStatus == const.fetchModeOne:
         self.__result = self.dbFetchOne()
       elif fetchStatus == const.fetchModeTwo:

@@ -13,6 +13,12 @@ class searchModel():
     self.__collumAddList = []
     self.__valueList = {}
     
+    self.__com = ""
+    self.__result = ""
+    self.__dateRow = {}
+    self.__dataResult = {}
+    self.__num = 0
+    
     self.Tmp = []
 
   # 値配列作成処理
@@ -63,6 +69,33 @@ class searchModel():
         value = self.__request.POST.get(col,init)
       self.__valueList[col.upper()] = [type,value]
   
+  # 一覧表示用値整形
+  def viewListCreate(self):
+    # ループして取得
+    for row in self.__result:
+      self.__dataResult["ID"] = row[0]
+      self.__dataResult["PART"] = row[1]
+      self.__dataResult["NAME"] = row[2]
+      self.__dataResult["GENDER"] = row[3]
+      contents = row[4].replace('\n','<br>')
+      if len(contents) > 30:
+        contents_tmp = self.__com.mid(contents,1,30) + "・・・"
+      else:
+        contents_tmp = contents
+      self.__dataResult["CONTENTS"] = contents_tmp
+      biko = row[5].replace('\n','<br>')
+      if len(biko) > 35:
+        biko_tmp = self.__com.mid(biko,1,35) + "・・・"
+      else:
+        biko_tmp = biko
+      self.__dataResult["BIKO"] = biko_tmp
+      registDate = row[6].strftime("%Y/%m/%d %H:%M:%S")
+      
+      self.__dataResult["REGIST_DATE"] = registDate
+      self.__dateRow[self.__num] = self.__dataResult
+      self.__dataResult = {}
+      self.__num += 1
+  
   # カラム配列
   @property
   def collumList(self):
@@ -99,3 +132,30 @@ class searchModel():
   @valueList.setter
   def valueList(self,valueList):
     self.__valueList = valueList
+
+  # 共通関数インスタンス
+  @property
+  def com(self):
+    return self.__com
+
+  @com.setter
+  def com(self,com):
+    self.__com = com
+
+  # DB値取得
+  @property
+  def result(self):
+    return self.__result
+
+  @result.setter
+  def result(self,result):
+    self.__result = result
+    
+  # 一覧表示用値
+  @property
+  def dateRow(self):
+    return self.__dateRow
+
+  @dateRow.setter
+  def dateRow(self,dateRow):
+    self.__dateRow = dateRow
