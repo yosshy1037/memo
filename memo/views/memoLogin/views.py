@@ -3,7 +3,7 @@ from django.views.generic import View
 import traceback
 import logging
 from ...common import const,constDef,formValidateClass,sessionClass,commonFuncClass,exceptionClass,logClass
-from ...memoLogin import loginViewClass,loginForms,loginModel
+from ...memoLogin import loginForms,loginModel
 
 ## ログイン画面
 class memoLogin(View):
