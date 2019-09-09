@@ -15,11 +15,11 @@ class dbMain():
     self.__sql = ""
     self.__result = ""
     self.__bindVal = []
-    self.__host = "ec2-50-19-222-129.compute-1.amazonaws.com"
-    self.__port = "5432"
-    self.__dbname = "d55hlkoc8p6llk"
-    self.__user = "mpwwqumdjipwfw"
-    self.__password = "60162450ab1fb5baf5c9c260b6fbde5823f0cb24a584b89be0ce2443bf9f855f"
+    self.__host = const.dbHost
+    self.__port = const.dbPort
+    self.__dbname = const.dbName
+    self.__user = const.dbUser
+    self.__password = const.dbPassword
 
   # メイン処理
   def execute(self,sql,sqlMode,fetchStatus):

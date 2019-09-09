@@ -1,14 +1,16 @@
 from django.http.response import HttpResponse,Http404
 from . import searchDb,searchModel
 from ..common import dbMainClass,const,constDef,commonFuncClass
-import datetime,math,json
+import math,json
 
 def resultListView(request):
   if request.method == 'POST':
+  
+    # インスタンス生成
     com = commonFuncClass.commonFunc()
-    model = searchModel.searchModel()
     
     # モデルへ値格納
+    model = searchModel.searchModel()
     model.request = request
     model.collumList = ['part','name','registStartDate','registEndDate','gender','keyWord','pageNum']
     model.valueListCreate()
@@ -22,20 +24,18 @@ def resultListView(request):
     ssSql = searchDb.searchSql()
     db.dbConnection()
     
+    # 件数取得クエリ
     ssSql.valueList = model.valueList
     ssSql.searchSelectCountSql()
     db.bindVal = ssSql.bindVal
-    
-    # 件数取得クエリ実行
     db.execute(ssSql.sql,const.sel,const.fetchModeOne)
     pageFull = db.result[0]
     if pageFull == 0:
       pageNum = 1
     
+    # 値取得クエリ
     ssSql.searchSelectSql()
     db.bindVal = ssSql.bindVal
-    
-    # 値取得クエリ実行
     db.execute(ssSql.sql,const.sel,const.fetchModeTwo)
     
     # DB閉じる
@@ -107,9 +107,9 @@ def resultListView(request):
     
     tag += '</table>'
     
+    # レスポンス返却
     response = json.dumps({'result':tag,'atag':atag})
-        
     return HttpResponse(response)
     
   else:
-    raise Http404  # GETリクエストを404扱いにしているが、実際は別にしなくてもいいかも
+    raise Http404

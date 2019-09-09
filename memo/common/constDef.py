@@ -1,10 +1,18 @@
 from . import const
 
+# DB接続情報
+const.dbName = "memo"
+const.dbUser = "admin"
+const.dbPassword = "kanai"
+
+# SQL構文種類
 const.sel = 'select'
 const.upd = 'update'
 const.ins = 'insert'
 
+# フェッチMODE
 const.fetchModeOne = 'fetchOne'
 const.fetchModeTwo = 'fetchAll'
 
+# ページャーの表示件数
 const.intervalPageNum = 5

@@ -36,12 +36,12 @@ class detailModel():
         type = 'date'
         value = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
       elif col == "regist_name":
-        value = 'kanai'
+        value = str(self.__request.session['LOGINUSER'])
       elif col == "update_date":
         type = 'date'
         value = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
       elif col == "update_name":
-        value = 'kanai'
+        value = str(self.__request.session['LOGINUSER'])
       elif col == "delete_date":
         type = 'date'
         value = '1999-01-01 00:00:00'

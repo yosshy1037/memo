@@ -1,12 +1,11 @@
 from django.http.response import HttpResponse,Http404
-from django.shortcuts import render
 from . import registDb,registModel
 from ..common import dbMainClass,const,constDef,formValidateClass
-from datetime import datetime
-import math,json
+import json
 
 def registList(request):
   if request.method == 'POST':
+    
     # モデルへ値格納
     model = registModel.registModel()
     model.request = request
@@ -26,15 +25,19 @@ def registList(request):
     
     # DB登録処理
     db = dbMainClass.dbMain()
+    riSql = registDb.insertSql()
     db.dbConnection()
     
-    sql = registDb.registInsert(None,model.valueList)
-    db.execute(sql,const.ins,'')
+    riSql.valueList = model.valueList
+    riSql.registInsert()
+    db.bindVal = riSql.bindVal
+    db.execute(riSql.sql,const.ins,'')
     db.dbCommitOrRollback()
     db.dbClose()
 
+    # レスポンス返却
     response = json.dumps({'result':'登録完了'})
     return HttpResponse(response)
     
   else:
-    raise Http404  # GETリクエストを404扱いにしているが、実際は別にしなくてもいいかも
+    raise Http404
