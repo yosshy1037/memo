@@ -26,24 +26,27 @@ class dbMain():
 
     self.__sql = sql
     
+    # カーソルOPEN
     self.__dbCursor()
+    # 実行
+    self.__cur.execute(self.__sql,self.__bindVal)
+    
+    # 選択/登録/更新別の処理
     if sqlMode == const.sel:
-      self.__cur.execute(self.__sql,self.__bindVal)
       if fetchStatus == const.fetchModeOne:
         self.__result = self.dbFetchOne()
       elif fetchStatus == const.fetchModeTwo:
         self.__result = self.dbFetchAll()
-    elif sqlMode == const.ins:
-      self.__cur.execute(self.__sql)
-    elif sqlMode == const.upd:
-      self.__cur.execute(self.__sql,self.__bindVal)
-      
+    # カーソルCLOSE
     self.__cur.close()
 
   # DB接続
   def dbConnection(self):
     try:
-      self.__conn = psycopg2.connect("host=" + self.__host + " port=" + self.__port + " dbname=" + self.__dbname + " user=" + self.__user + " password=" + self.__password + "")
+      if self.__host != "" and self.__port != "":
+        self.__conn = psycopg2.connect("host=" + self.__host + " port=" + self.__port + " dbname=" + self.__dbname + " user=" + self.__user + " password=" + self.__password + "")
+      else:
+        self.__conn = psycopg2.connect("dbname=" + self.__dbname + " user=" + self.__user + " password=" + self.__password + "")
     
       self.__conn.autocommit = False
       
