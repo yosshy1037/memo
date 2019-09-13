@@ -18,15 +18,17 @@ class logger():
   
   # ログファイル選択
   def __open(self):
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+  
     # 過去ログ削除
     for day in range(3, 11):
       retentionPeriod = datetime.now() - timedelta(day)
-      deleteLog = r"../../memoProject/logs/memo_" + retentionPeriod.strftime("%Y%m%d") +  ".log"
+      deleteLog = BASE_DIR + "memoProject/logs/memo_" + retentionPeriod.strftime("%Y%m%d") +  ".log"
       if os.path.exists(deleteLog) == True:
         os.remove(deleteLog)
     
     # オープン処理
-    self.__logfile = r"../../memoProject/logs/memo_" + datetime.now().strftime("%Y%m%d") +  ".log"
+    self.__logfile = BASE_DIR + "memoProject/logs/memo_" + datetime.now().strftime("%Y%m%d") +  ".log"
     self.__logging = logging
     self.__logging.basicConfig(
       filename=self.__logfile,
