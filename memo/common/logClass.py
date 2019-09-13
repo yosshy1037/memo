@@ -21,12 +21,12 @@ class logger():
     # 過去ログ削除
     for day in range(3, 11):
       retentionPeriod = datetime.now() - timedelta(day)
-      deleteLog = r"C:\Work\python\pythonSource\djagoWork\project\memoProject\logs\memo_" + retentionPeriod.strftime("%Y%m%d") +  ".log"
+      deleteLog = r"../../memoProject/logs/memo_" + retentionPeriod.strftime("%Y%m%d") +  ".log"
       if os.path.exists(deleteLog) == True:
         os.remove(deleteLog)
     
     # オープン処理
-    self.__logfile = r"C:\Work\python\pythonSource\djagoWork\project\memoProject\logs\memo_" + datetime.now().strftime("%Y%m%d") +  ".log"
+    self.__logfile = r"../../memoProject/logs/memo_" + datetime.now().strftime("%Y%m%d") +  ".log"
     self.__logging = logging
     self.__logging.basicConfig(
       filename=self.__logfile,
