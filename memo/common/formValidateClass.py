@@ -4,6 +4,7 @@ from django.db import transaction
 from ..memoLogin import loginDb
 from . import dbMainClass,const,constDef
 
+## 入力値チェック用クラス ##
 class formValidate():
 
   # コンストラクタ
@@ -13,18 +14,23 @@ class formValidate():
     self.__valueList = ""
     self.__collumList = []
     self.__messageList = {}
+    self.__db = dbMainClass.dbMain()
+    self.__llSql = loginDb.loginSelectSql()
 
   # チェック処理
   def validateCheck(self):
     for col in self.__collumList:
       if col.upper() == "LOGINUSER" and self.__valueList[col.upper()][1] != '':
         # ログイン情報確認
-        db = dbMainClass.dbMain()
-        db.dbConnection()
-        sqlct = loginDb.loginSelectSql(None,self.__collumList,self.__valueList)
-        db.execute(sqlct,const.sel,const.fetchModeOne)
-        loginCt = db.result[0]
-        db.dbClose()
+        self.__db.dbConnection()
+        
+        self.__llSql.valueList = self.__valueList
+        self.__llSql.collumList = self.__collumList
+        self.__llSql.loginSelect();
+        self.__db.bindVal = self.__llSql.bindVal
+        self.__db.execute(self.__llSql.sql,const.sel,const.fetchModeOne)
+        loginCt = self.__db.result[0]
+        self.__db.dbClose()
         
         if loginCt == 0:
           self.__messageList[col.upper() + "_ERR"] = 'ログイン情報が存在しません'

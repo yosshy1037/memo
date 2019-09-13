@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
-from ...common import dbMainClass,const,constDef,formValidateClass,sessionClass,commonFuncClass
+from ...common import dbMainClass,const,constDef,formValidateClass,sessionClass,commonFuncClass,exceptionClass,logClass
 from ...memoDetail import detailForms,detailDb
 
 ## 詳細画面
 class memoDetail(View):
   # initMethod
   def __init__(self, **kwargs):
+  
+    # インスタンス用変数
     self.__ses = sessionClass.session()
     self.__com = commonFuncClass.commonFunc()
     self.__db = dbMainClass.dbMain()
@@ -21,34 +23,67 @@ class memoDetail(View):
     
   # GetMethod
   def get(self, request, *args, **kwargs):
-    self.__ses.request = request
-    self.__detailForm = detailForms.detailForm(None);
-    # DB取得処理
-    self.__initVal()
     
-    # ログイン情報チェック
-    self.__ses.loginCheckSession()
-    # ログイン情報が存在しない場合
-    if self.__ses.loginFlg == False:
-      return redirect("memo")
-    else:
-      d = {
-        'logout' : self.__logoutAtag,
-        'form': self.__detailForm,
-        'css' : self.__css,
-        'disp_js' : self.__js,
-        'resutList_js' : self.__listJs,
-      }
-      return render(self.__ses.request, self.__veiwUrl, d)
+    # request情報を格納
+    self.__ses.request = request
+    
+    try:
+
+      # ログイン情報チェック
+      self.__ses.loginCheckSession()
+      # ログイン情報が存在しない場合
+      if self.__ses.loginFlg == False:
+        return redirect("memo")
+      
+      # フォーム生成
+      self.__detailForm = detailForms.detailForm(None);
+      
+      # DB取得処理
+      self.__initVal()
+    
+    except exceptionClass.OriginException as e:
+      # Exception継承処理
+      self.__com.postExceptDispos(e, self.__log, e, traceback.format_exc())
+      return redirect("error")
+    except Exception as e:
+      # Exception処理
+      self.__com.postExceptDispos(self.__exc, self.__log, e, traceback.format_exc())
+      return redirect("error")
+    
+    # 詳細画面を描画する処理
+    d = {
+      'logout' : self.__logoutAtag,
+      'form': self.__detailForm,
+      'css' : self.__css,
+      'disp_js' : self.__js,
+      'resutList_js' : self.__listJs,
+    }
+    return render(self.__ses.request, self.__veiwUrl, d)
 
   # POSTMethod
   def post(self, request, *args, **kwargs):
+    
+    # request情報を格納
     self.__ses.request = request
-    self.__detailForm = detailForms.detailForm(request.POST);
     
-    # DB取得処理
-    self.__initVal()
+    try:
+      
+      # フォーム生成
+      self.__detailForm = detailForms.detailForm(request.POST);
     
+      # DB取得処理
+      self.__initVal()
+    
+    except exceptionClass.OriginException as e:
+      # Exception継承処理
+      self.__com.postExceptDispos(e, self.__log, e, traceback.format_exc())
+      return redirect("error")
+    except Exception as e:
+      # Exception処理
+      self.__com.postExceptDispos(self.__exc, self.__log, e, traceback.format_exc())
+      return redirect("error")
+    
+    # 詳細画面を描画する処理
     d = {
       'logout' : self.__logoutAtag,
       'form': self.__detailForm,

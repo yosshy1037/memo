@@ -1,0 +1,57 @@
+/*---subHeader---*/
+#subHeader{
+  width:100%;
+  color:#B4B4B4;
+  background-color:#F5F5F5;
+  border-bottom: solid 1px #E6E6D6;
+  border-radius: 8px 8px 0px 0px;
+  margin-bottom:15px;
+}
+#subHeader h2{
+  font-size:18px;
+  padding-top:5px;
+  margin:0px 0px 5px 5px;
+}
+/*---table---*/
+#formErea table{
+  text-align:center;
+  width:100%;
+  margin:0 auto;
+}
+#formErea table th{
+  width:16%;
+  text-align:right;
+}
+#formErea table td{
+  text-align:left;
+}
+#formErea table td.errorMes{
+  color:red;
+  font-weight:bold;
+  font-size:115%;
+}
+#formErea table td select,input
+{
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  border: 1px solid #ccc;
+}
+/*---button---*/
+.buttonErea{
+  width:50%;
+  margin:0 37%;
+  padding-top:1%;
+  padding-bottom:1%;
+}
+.buttonErea input.loginReturn{
+  display:inline;
+  text-align:center;
+  font-size:14px;
+  width:50%;
+  padding:5px;
+  vertical-align:middle;
+}
+.buttonErea input.loginReturn:hover{
+  background-color:#D9EDF7;
+}

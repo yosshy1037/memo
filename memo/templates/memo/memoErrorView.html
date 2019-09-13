@@ -1,0 +1,24 @@
+{% extends "common/base.html" %}
+
+{% block body %}
+    
+    <form name="errorForm" method="post" action="">
+      <div id="formErea">
+        <div id="subHeader">
+          <h2>エラー</h2>
+        </div><!--id subHeader-->
+        <table>
+          <tr>
+            <th></th>
+            <td class="errorMes" >システムエラーが発生しました。</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td class="buttonErea" ><input type="submit" value="ログイン画面へ戻る" class="loginReturn" /></td>
+          </tr>
+        </table>
+      </div><!--id formErea-->
+    {% csrf_token %}
+    </form>
+  </div><!--id container-->
+{% endblock%}

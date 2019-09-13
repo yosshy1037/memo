@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
 import traceback
-import logging
 from ...common import const,constDef,formValidateClass,sessionClass,commonFuncClass,exceptionClass,logClass
 from ...memoLogin import loginForms,loginModel
 
@@ -29,26 +28,26 @@ class memoLogin(View):
   # GetMethod
   def get(self, request, *args, **kwargs):
     
+    # request情報を格納
+    self.__ses.request = request
+    
     try:
-      self.__ses.request = request
       
       # ログイン情報(session)チェック
       self.__ses.loginCheckSession()
       if self.__ses.loginFlg == True:
          return redirect("memoSearch")
-      else:
-        # ログイン情報が存在しない場合
-        d = {
-          'css' : self.__css,
-          'form': self.__searchForm,
-          'errMes' : self.__errMesHtml,
-        }
-        return render(self.__ses.request, self.__veiwUrl, d)
 
-    except exceptionClass.parentException as e:
-      print(e.value)
-      
-    # ログイン情報が存在しない場合
+    except exceptionClass.OriginException as e:
+      # Exception継承処理
+      self.__com.postExceptDispos(e, self.__log, e, traceback.format_exc())
+      return redirect("error")
+    except Exception as e:
+      # Exception処理
+      self.__com.postExceptDispos(self.__exc, self.__log, e, traceback.format_exc())
+      return redirect("error")
+    
+    # ログイン画面を描画する処理
     d = {
       'css' : self.__css,
       'form': self.__searchForm,
@@ -75,8 +74,8 @@ class memoLogin(View):
       self.__validate.collumList = self.__model.collumList
       self.__validate.valueList = self.__model.valueList
       self.__validate.validateCheck()
-      # ログイン情報に不備あり
       if len(self.__validate.messageList) > 0:
+        # ログイン情報に不備あり
         self.__errMes = self.__validate.messageList
         self.__mes = self.__errMes['LOGINUSER_ERR']
       else:
@@ -86,16 +85,16 @@ class memoLogin(View):
         # 検索画面へ遷移
         return redirect("memoSearch")
     
-    # エラー処理
-    except (NameError, SyntaxError, TypeError, ValueError, ZeroDivisionError, IndexError) as e:
-      self.__exc.log = self.__log
-      self.__exc.dispatch(e, traceback.format_exc())
+    except exceptionClass.OriginException as e:
+      # Exception継承処理
+      self.__com.postExceptDispos(e, self.__log, e, traceback.format_exc())
+      return redirect("error")
+    except Exception as e:
+      # Exception処理
+      self.__com.postExceptDispos(self.__exc, self.__log, e, traceback.format_exc())
+      return redirect("error")
       
-    except exceptionClass.parentException as e:
-      e.errMes = e.value
-      e.logOutput()
-
-    # ログイン画面を描画する前処理
+    # ログイン画面を描画する処理
     self.__errMesHtml = "<tr><th></th><td class='errMes'>" + self.__mes + "</td></tr>"
     
     d = {

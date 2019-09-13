@@ -9,6 +9,17 @@ class commonFunc():
     # プライベート変数
     self.__request = ""
 
+  # ajax処理exception発生時の処理
+  def postExceptDispos(self, exp, self_log, e, traceback, mes):
+    exp.log = self_log
+    exp.dispatch(e, traceback)
+    return mes
+    
+  # ajax処理exception発生時の処理(オーバーロード)
+  def postExceptDispos(self, exp, self_log, e, traceback):
+    exp.log = self_log
+    exp.dispatch(e, traceback)
+
   # 文字分割処理
   def left(self,text, n):
     return text[:n]

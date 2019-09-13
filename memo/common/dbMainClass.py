@@ -1,8 +1,9 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render
 from django.db import transaction
-from . import const,constDef
+from . import logClass,const,constDef
 import psycopg2
+from psycopg2.extensions import STATUS_BEGIN, STATUS_READY
 
 class dbMain():
 
@@ -14,6 +15,7 @@ class dbMain():
     self.__cur = ""
     self.__sql = ""
     self.__result = ""
+    self.__log = logClass.logger()
     self.__bindVal = []
     self.__host = const.dbHost
     self.__port = const.dbPort
@@ -27,9 +29,14 @@ class dbMain():
     self.__sql = sql
     
     # カーソルOPEN
-    self.__dbCursor()
-    # 実行
-    self.__cur.execute(self.__sql,self.__bindVal)
+    self.__dbCursorOpen()
+    try:
+      # 実行
+      self.__cur.execute(self.__sql,self.__bindVal)
+    except psycopg2.Error as e:
+      self.__log.value = 'psycopg2.Error occurred:' + e.args[0]
+      self.__log.write('error')
+      
     
     # 選択/登録/更新別の処理
     if sqlMode == const.sel:
@@ -38,7 +45,11 @@ class dbMain():
       elif fetchStatus == const.fetchModeTwo:
         self.__result = self.dbFetchAll()
     # カーソルCLOSE
-    self.__cur.close()
+    self.__dbCursorClose()
+    
+    # ログ書き込み
+    self.__log.value = self.__sql
+    self.__log.write('info')
 
   # DB接続
   def dbConnection(self):
@@ -51,47 +62,82 @@ class dbMain():
       self.__conn.autocommit = False
       
     except psycopg2.Error as e:
-      print('psycopg2.Error occurred:', e.args[0])
+      self.__log.value = 'psycopg2.Error occurred:' + e.args[0]
+      self.__log.write('error')
+
+  # DBカーソルOPEN
+  def __dbCursorOpen(self):
+    try:
+      if self.__conn != "":
+        self.__cur = self.__conn.cursor()
+    
+    except psycopg2.Error as e:
+      self.__log.value = 'psycopg2.Error occurred:' + e.args[0]
+      self.__log.write('error')
+
+  # DBカーソルCLOSE
+  def __dbCursorClose(self):
+    try:
+      if self.__cur != "":
+        self.__cur.close()
+    
+    except psycopg2.Error as e:
+      self.__log.value = 'psycopg2.Error occurred:' + e.args[0]
+      self.__log.write('error')
 
   # コミット
-  def dbCommitOrRollback(self):
+  def dbCommit(self):
     try:
-      self.__conn.commit()
+      if self.__conn != "" and self.__conn.status == STATUS_BEGIN:
+        self.__conn.commit()
     
     except psycopg2.Error as e:
-      self.__conn.rollback()
-
-  # DBカーソル
-  def __dbCursor(self):
+      self.__log.value = 'psycopg2.Error occurred:' + e.args[0]
+      self.__log.write('error')
+      
+  # ロールバック
+  def dbRollback(self):
     try:
-      self.__cur = self.__conn.cursor()
+      if self.__conn != "" and self.__conn.status == STATUS_BEGIN:
+        self.__conn.rollback()
     
     except psycopg2.Error as e:
-      print('psycopg2.Error occurred:', e.args[0])
+      self.__log.value = 'psycopg2.Error occurred:' + e.args[0]
+      self.__log.write('error')
 
   # fetchOne
   def dbFetchOne(self):
     try:
-      return self.__cur.fetchone()
-    
+      if self.__cur != "":
+        return self.__cur.fetchone()
+      else:
+        return ""
+        
     except psycopg2.Error as e:
-      print('psycopg2.Error occurred:', e.args[0])
+      self.__log.value = 'psycopg2.Error occurred:' + e.args[0]
+      self.__log.write('error')
 
   # fetchAll
   def dbFetchAll(self):
     try:
-      return self.__cur.fetchall()
+      if self.__cur != "":
+        return self.__cur.fetchall()
+      else:
+        return ""
     
     except psycopg2.Error as e:
-      print('psycopg2.Error occurred:', e.args[0])
+      self.__log.value = 'psycopg2.Error occurred:' + e.args[0]
+      self.__log.write('error')
 
   # DBクローズ
   def dbClose(self):
     try:
-      self.__conn.close()
+      if self.__conn != "":
+        self.__conn.close()
       
     except psycopg2.Error as e:
-      print('psycopg2.Error occurred:', e.args[0])
+      self.__log.value = 'psycopg2.Error occurred:' + e.args[0]
+      self.__log.write('error')
 
   @property
   def conn(self):

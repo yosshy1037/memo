@@ -38,4 +38,11 @@ $(document).ready(function(){
     $('form').submit();
     return false;
   });
+  <!--ログイン画面へ戻る-->
+  $('.loginReturn').on('click', function(){
+    var url = "/memo/logout/";
+    $('form').attr('action', url);
+    $('form').submit();
+    return false;
+  });
 });
