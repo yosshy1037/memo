@@ -34,6 +34,8 @@ class dbMain():
       # 実行
       self.__cur.execute(self.__sql,self.__bindVal)
     except psycopg2.Error as e:
+      print(self.__sql)
+      print(self.__bindVal)
       self.__log.value = 'psycopg2.Error occurred:' + e.args[0]
       self.__log.write('error')
       
