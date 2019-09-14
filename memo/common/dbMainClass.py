@@ -24,7 +24,7 @@ class dbMain():
     self.__password = const.dbPassword
 
   # メイン処理
-  def execute(self,sql,sqlMode,fetchStatus):
+  def executer(self,sql,sqlMode,fetchStatus):
 
     self.__sql = sql
     
