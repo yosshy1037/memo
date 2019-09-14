@@ -15,19 +15,21 @@ class logger():
     self.__com = commonFuncClass.commonFunc()
     self.__value = ""
     self.__level = ""
+    self.__dir = ""
   
   # ログファイル選択
   def __open(self):
     # 過去ログ削除
     for day in range(3, 11):
       retentionPeriod = datetime.now() - timedelta(day)
-      deleteLog = r"C:\Work\python\pythonSource\djagoWork\project\memoProject\logs\memo_" + retentionPeriod.strftime("%Y%m%d") +  ".log"
+      self.__dir = os.path.dirname(os.path.dirname(__file__))
+      deleteLog = self.__dir + "\static\logs\memo_" + retentionPeriod.strftime("%Y%m%d") +  ".log"
       if os.path.exists(deleteLog) == True:
         os.remove(deleteLog)
     
     # オープン処理
-    self.__logfile = r"C:\Work\python\pythonSource\djagoWork\project\memoProject\logs\memo_" + datetime.now().strftime("%Y%m%d") +  ".log"
-    if os.path.exists(self.__logfile) == True:
+    self.__logfile = self.__dir + "\static\logs\memo_" + datetime.now().strftime("%Y%m%d") +  ".log"
+    if os.path.exists(self.__logfile) == False:
       self.__logging = logging
       self.__logging.basicConfig(
         filename=self.__logfile,
