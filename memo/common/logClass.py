@@ -21,7 +21,7 @@ class logger():
     # 過去ログ削除
     for day in range(3, 11):
       retentionPeriod = datetime.now() - timedelta(day)
-      deleteLog = static "C:\Work\python\pythonSource\djagoWork\project\memoProject\logs\memo_" + retentionPeriod.strftime("%Y%m%d") +  ".log"
+      deleteLog = r"C:\Work\python\pythonSource\djagoWork\project\memoProject\logs\memo_" + retentionPeriod.strftime("%Y%m%d") +  ".log"
       if os.path.exists(deleteLog) == True:
         os.remove(deleteLog)
     
