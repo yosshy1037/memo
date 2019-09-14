@@ -27,7 +27,7 @@ class logger():
     
     # オープン処理
     self.__logfile = r"C:\Work\python\pythonSource\djagoWork\project\memoProject\logs\memo_" + datetime.now().strftime("%Y%m%d") +  ".log"
-    if if os.path.exists(self.__logfile) == True:
+    if os.path.exists(self.__logfile) == True:
       self.__logging = logging
       self.__logging.basicConfig(
         filename=self.__logfile,
