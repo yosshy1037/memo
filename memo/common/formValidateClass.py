@@ -28,8 +28,6 @@ class formValidate():
         self.__llSql.collumList = self.__collumList
         self.__llSql.loginSelect();
         self.__db.bindVal = self.__llSql.bindVal
-        print(self.__llSql.sql)
-        print(self.__db.bindVal)
         self.__db.execute(self.__llSql.sql,const.sel,const.fetchModeOne)
         loginCt = self.__db.result[0]
         self.__db.dbClose()

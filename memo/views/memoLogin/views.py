@@ -92,7 +92,6 @@ class memoLogin(View):
     except Exception as e:
       # Exception処理
       self.__com.postExceptDispos(self.__exc, self.__log, e, traceback.format_exc())
-      print(traceback.format_exc())
       return redirect("error")
       
     # ログイン画面を描画する処理

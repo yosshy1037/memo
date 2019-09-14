@@ -31,8 +31,6 @@ class dbMain():
     # カーソルOPEN
     self.__dbCursorOpen()
     try:
-      print(self.__sql)
-      print(self.__bindVal)
       # 実行
       self.__cur.execute(self.__sql,self.__bindVal)
     except psycopg2.Error as e:
