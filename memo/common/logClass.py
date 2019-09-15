@@ -27,16 +27,19 @@ class logger():
       if os.path.exists(deleteLog) == True:
         os.remove(deleteLog)
     
+    # ログディレクトリ作成
+    new_dir_path = self.__dir + "\static\logs"
+    if os.path.exists(new_dir_path) == False:
+      os.mkdir(new_dir_path)
     # オープン処理
     self.__logfile = self.__dir + "\static\logs\memo_" + datetime.now().strftime("%Y%m%d") +  ".log"
-    if os.path.exists(self.__logfile) == False:
-      self.__logging = logging
-      self.__logging.basicConfig(
-        filename=self.__logfile,
-        format = '%(asctime)s %(levelname)s %(message)s',
-        level=logging.DEBUG,
-        filemode = 'a'
-      )
+    self.__logging = logging
+    self.__logging.basicConfig(
+      filename=self.__logfile,
+      format = '%(asctime)s %(levelname)s %(message)s',
+      level=logging.DEBUG,
+      filemode = 'a'
+    )
   
   
   

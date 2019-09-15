@@ -1,7 +1,7 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render
 from django.db import transaction
-from . import logClass,const,constDef
+from . import logClass,const,constDef,constDb
 import psycopg2
 from psycopg2.extensions import STATUS_BEGIN, STATUS_READY
 
@@ -24,7 +24,7 @@ class dbMain():
     self.__password = const.dbPassword
 
   # メイン処理
-  def executer(self,sql,sqlMode,fetchStatus):
+  def execute(self,sql,sqlMode,fetchStatus):
 
     self.__sql = sql
     

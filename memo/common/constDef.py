@@ -1,12 +1,5 @@
 from . import const
 
-# DB接続情報
-const.dbHost = ""
-const.dbPort = ""
-const.dbName = "memo"
-const.dbUser = "postgres"
-const.dbPassword = "kanai"
-
 # SQL構文種類
 const.sel = 'select'
 const.upd = 'update'
