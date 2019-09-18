@@ -28,14 +28,7 @@ class searchModel():
       value = ''
       init = ''
       type = 'str'
-      if col == "gender":
-        init = 1
-        type = 'int'
-        if self.__request.POST.get(col,init) == "man":
-          value = 1
-        else:
-          value = 0
-      elif col == "registStartDate":
+      if col == "registStartDate":
         type = 'date'
         init = '1999-01-01 00:00:00'
         value = self.__request.POST.get(col,init)
@@ -76,20 +69,19 @@ class searchModel():
       self.__dataResult["ID"] = row[0]
       self.__dataResult["PART"] = row[1]
       self.__dataResult["NAME"] = row[2]
-      self.__dataResult["GENDER"] = row[3]
-      contents = row[4].replace('\n','<br>')
+      contents = row[3].replace('\n','<br>')
       if len(contents) > 30:
         contents_tmp = self.__com.mid(contents,1,30) + "・・・"
       else:
         contents_tmp = contents
       self.__dataResult["CONTENTS"] = contents_tmp
-      biko = row[5].replace('\n','<br>')
+      biko = row[4].replace('\n','<br>')
       if len(biko) > 35:
         biko_tmp = self.__com.mid(biko,1,35) + "・・・"
       else:
         biko_tmp = biko
       self.__dataResult["BIKO"] = biko_tmp
-      registDate = row[6].strftime("%Y/%m/%d %H:%M:%S")
+      registDate = row[5].strftime("%Y/%m/%d %H:%M:%S")
       
       self.__dataResult["REGIST_DATE"] = registDate
       self.__dateRow[self.__num] = self.__dataResult

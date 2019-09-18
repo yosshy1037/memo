@@ -2,7 +2,7 @@ from django import forms
 
 class searchForm(forms.Form):
     part = forms.CharField(
-      label='役割',
+      label='タイトル',
       max_length=15,
       widget=forms.TextInput(attrs={'class' : 'part'}),
       required=False,
@@ -22,17 +22,6 @@ class searchForm(forms.Form):
       label='登録日',
       widget=forms.DateInput(attrs={'type':'date','class' : 'registEndDate'}),
       required=False,
-    )
-    
-    GENDER_CHOICES = (
-      ('man', '男'),
-      ('woman', '女')
-    )
-    gender = forms.ChoiceField(
-        label='性別',
-        widget=forms.Select,
-        choices=GENDER_CHOICES,
-        required=False,
     )
     keyWord = forms.CharField(
       label='キーワード',

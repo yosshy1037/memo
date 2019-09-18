@@ -25,14 +25,7 @@ class loginModel():
       value = ''
       init = ''
       type = 'str'
-      if col == "gender":
-        init = 0
-        type = 'int'
-        if self.__request.POST.get(col,init) == "man":
-          value = 0
-        else:
-          value = 1
-      elif col == "regist_date":
+      if col == "regist_date":
         type = 'date'
         value = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
       elif col == "regist_name":

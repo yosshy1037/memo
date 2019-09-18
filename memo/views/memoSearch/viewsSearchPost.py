@@ -38,6 +38,7 @@ class searchListPost(View):
       self.__db.dbConnection()
       
       # 件数取得クエリ
+      self.__ssSql.request = request
       self.__ssSql.valueList = self.__model.valueList
       self.__ssSql.searchSelectCountSql()
       self.__db.bindVal = self.__ssSql.bindVal
@@ -98,7 +99,7 @@ class searchListPost(View):
       tag = '<table>'
       
       tag += '<tr>'
-      tag += '  <th class="partHeader">役割</th>'
+      tag += '  <th class="partHeader">タイトル</th>'
       tag += '  <th class="nameHeader">名称（人名）</th>'
       tag += '  <th class="registDateHeader">登録日</th>'
       tag += '  <th class="contentsHeader">内容</th>'

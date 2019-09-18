@@ -47,7 +47,7 @@ class detailSql():
   
   # 取得クエリ
   def detailSelectSql(self):
-    self.__sql = "SELECT ID,PART,NAME,GENDER,CONTENTS,BIKO,REGIST_DATE FROM memo WHERE ID = "
+    self.__sql = "SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE FROM memo WHERE ID = "
     self.__sql += self.detailNum
     
   @property

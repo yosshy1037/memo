@@ -15,6 +15,7 @@ class searchSql():
     self.__bindVal = []
     self.__valueList = ""
     self.__detailNum = 0
+    self.__request = ""
 
   # 件数クエリ
   def searchSelectCountSql(self):
@@ -26,7 +27,7 @@ class searchSql():
 
   # 値取得クエリ
   def searchSelectSql(self):
-    self.__sql = "SELECT ID,PART,NAME,GENDER,CONTENTS,BIKO,REGIST_DATE FROM memo"
+    self.__sql = "SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE FROM memo"
     # 条件設定
     self.__bindVal = []
     self.__whereCreate()
@@ -77,6 +78,10 @@ class searchSql():
           else:
             pos = str((int(self.__valueList[col][1])-1) * const.intervalPageNum)
           self.__offset = " offset " + pos + " limit " + str(const.intervalPageNum)
+    
+    # ログインユーザが作成したデータのみ取得
+    self.__bindVal += [str(self.__request.session['LOGINUSER'])]
+    self.__where += " AND REGIST_NAME = %s"
   
   @property
   def valueList(self):
@@ -101,3 +106,11 @@ class searchSql():
   @bindVal.setter
   def bindVal(self,bindVal):
     self.__bindVal = bindVal
+    
+  @property
+  def request(self):
+    return self.__request
+
+  @request.setter
+  def request(self,request):
+    self.__request = request

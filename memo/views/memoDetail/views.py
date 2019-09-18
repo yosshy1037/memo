@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
+import traceback
 from ...common import dbMainClass,const,constDef,formValidateClass,sessionClass,commonFuncClass,exceptionClass,logClass
 from ...memoDetail import detailForms,detailDb
 
@@ -11,6 +12,8 @@ class memoDetail(View):
     # インスタンス用変数
     self.__ses = sessionClass.session()
     self.__com = commonFuncClass.commonFunc()
+    self.__log = logClass.logger()
+    self.__exc = exceptionClass.dispatchException()
     self.__db = dbMainClass.dbMain()
     self.__ddSql = detailDb.detailSql()
     self.errMes = {}
@@ -103,6 +106,5 @@ class memoDetail(View):
 
     self.__detailForm.fields['detailPart'].initial = self.__db.result[0][1]
     self.__detailForm.fields['detailName'].initial = self.__db.result[0][2]
-    self.__detailForm.fields['detailGender'].initial = self.__db.result[0][3]
-    self.__detailForm.fields['detailContents'].initial = self.__db.result[0][4]
-    self.__detailForm.fields['detailBiko'].initial = self.__db.result[0][5]
+    self.__detailForm.fields['detailContents'].initial = self.__db.result[0][3]
+    self.__detailForm.fields['detailBiko'].initial = self.__db.result[0][4]

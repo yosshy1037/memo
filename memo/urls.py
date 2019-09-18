@@ -8,6 +8,7 @@ from .views.memoRegist.viewsRegistPost import registPost
 from .views.memoSearch.viewsSearchPost import searchListPost
 from .views.logout.views import logout
 from .views.error.views import error
+from .views.memoTest.views import memoTest
 
 urlpatterns = [
     url(r'^$', memoLogin.as_view(), name='memo'),
@@ -19,4 +20,5 @@ urlpatterns = [
     url(r'^update/$', detailPost.as_view(), name='detailPost'),
     url(r'^logout/$', logout.as_view(), name='logout'),
     url(r'^error/$', error.as_view(), name='error'),
+    url(r'^memoTest/$', memoTest.as_view(), name='memoTest')
 ]

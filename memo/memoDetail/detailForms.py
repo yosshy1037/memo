@@ -2,7 +2,7 @@ from django import forms
 
 class detailForm(forms.Form):
     detailPart = forms.CharField(
-      label='役割',
+      label='タイトル',
       max_length=15,
       widget=forms.TextInput(attrs={'class' : 'part'}),
       required=True,
@@ -11,17 +11,6 @@ class detailForm(forms.Form):
       label='名称（人名）',
       max_length=15,
       widget=forms.TextInput(attrs={'class' : 'name'}),
-      required=True,
-    )
-    
-    GENDER_CHOICES = (
-      ('man', '男'),
-      ('woman', '女')
-    )
-    detailGender = forms.ChoiceField(
-      label='性別',
-      widget=forms.Select,
-      choices=GENDER_CHOICES,
       required=True,
     )
     detailContents = forms.CharField(

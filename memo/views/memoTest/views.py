@@ -1,83 +1,82 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
 import traceback
-from ...common import const,constDef,formValidateClass,sessionClass,commonFuncClass,exceptionClass,logClass
-from ...memoRegist import registForms
+from ...common import const,constDef,sessionClass,commonFuncClass,exceptionClass,logClass,unitTestClass
 
-## 登録画面
-class memoRegist(View):
+## テスト処理
+class memoTest(View):
   # initMethod
   def __init__(self, **kwargs):
   
     # インスタンス用変数
     self.__ses = sessionClass.session()
+    self.__model = ""
     self.__com = commonFuncClass.commonFunc()
+    self.__unit = unitTestClass.unitTest()
     self.__log = logClass.logger()
     self.__exc = exceptionClass.dispatchException()
     self.errMes = {}
-    self.__registForm = "";
-    self.__css = 'regist.css'
-    self.__js = ''
-    self.__listJs = ''
-    self.__veiwUrl = 'memo/memoRegistView.html'
-    self.__logoutAtag = '<a class="logout" href="#">ログアウト</a>'
-
+    self.__form = "";
+    self.__css = 'search.css'
+    self.__js = '<script src="/static/js/jquery.unitTest.js"></script>'
+    self.__veiwUrl = 'memo/memoTestView.html'
+    self.__logoutAtag = ''
+  
   # GetMethod
   def get(self, request, *args, **kwargs):
-    
+  
     # request情報を格納
-    self.__ses.request = request
+    self.__unit.request = request
     
     try:
-    
-      # ログイン情報チェック
-      self.__ses.loginCheckSession()
-      # ログイン情報が存在しない場合
-      if self.__ses.loginFlg == False:
-        return redirect("memo")
       
-      # フォーム生成
-      self.__registForm = registForms.registForm(None);
-
+      # ログイン実施テスト
+      self.__unit.loginTest()
+      
     except exceptionClass.OriginException as e:
       # Exception継承処理
       self.__com.postExceptDispos(e, self.__log, e, traceback.format_exc())
       return redirect("error")
     except Exception as e:
       # Exception処理
+      print(traceback.format_exc())
       self.__com.postExceptDispos(self.__exc, self.__log, e, traceback.format_exc())
       return redirect("error")
-
+      
+    # テスト完了画面を描画する処理
     d = {
       'logout' : self.__logoutAtag,
-      'form': self.__registForm,
+      'form': self.__form,
       'css' : self.__css,
       'disp_js' : self.__js,
-      'resutList_js' : self.__listJs,
     }
-    return render(self.__ses.request, self.__veiwUrl, d)
-  
+    return render(request, self.__veiwUrl, d)
+
   # POSTMethod
   def post(self, request, *args, **kwargs):
     
+    self.__unit.request = request
+    
     try:
-      # フォーム生成
-      self.__registForm = registForms.registForm(request.POST);
-
+      
+      # ログイン実施テスト
+      self.__unit.loginTest()
+      
     except exceptionClass.OriginException as e:
       # Exception継承処理
       self.__com.postExceptDispos(e, self.__log, e, traceback.format_exc())
       return redirect("error")
     except Exception as e:
       # Exception処理
+      print(traceback.format_exc())
       self.__com.postExceptDispos(self.__exc, self.__log, e, traceback.format_exc())
       return redirect("error")
       
+    # テスト完了画面を描画する処理
     d = {
       'logout' : self.__logoutAtag,
-      'form': self.__registForm,
+      'form': self.__form,
       'css' : self.__css,
       'disp_js' : self.__js,
-      'resutList_js' : self.__listJs,
     }
     return render(request, self.__veiwUrl, d)

@@ -25,14 +25,7 @@ class detailModel():
       value = ''
       init = ''
       type = 'str'
-      if col == "gender":
-        init = 1
-        type = 'int'
-        if self.__request.POST.get(col,init) == "man":
-          value = 1
-        else:
-          value = 0
-      elif col == "regist_date":
+      if col == "regist_date":
         type = 'date'
         value = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
       elif col == "regist_name":

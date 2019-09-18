@@ -27,7 +27,7 @@ class registPost(View):
     try:
       # モデルへ値格納
       self.__model.request = request
-      self.__model.collumList = ['part','name','gender','contents','biko']
+      self.__model.collumList = ['part','name','contents','biko']
       self.__model.collumAddList = ['regist_date','regist_name','update_date','update_name','delete_date','delete_name','delete_flg']
       self.__model.valueListCreate()
       
