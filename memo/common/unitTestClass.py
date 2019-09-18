@@ -21,7 +21,10 @@ class unitTest():
   # テスト対象サイトOpen
   def __openTestSite(self):
     # driverSET
-    self.__chromeBrowser = webdriver.Chrome(self.__chromeDriver)
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    self.__chromeBrowser = webdriver.Chrome('options=' + options, 'executable_path=' + self.__chromeDriver)
+    
     # memoサイト
     self.__chromeBrowser.get(self.__targetSiteUrl)
   

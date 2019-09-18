@@ -11,6 +11,7 @@ Pillow==6.0.0
 psycopg2==2.8.3
 python-pptx==0.6.18
 pytz==2019.1
+selenium==3.141.0
 sqlparse==0.3.0
 static3==0.7.0
 whitenoise==3.3.1
