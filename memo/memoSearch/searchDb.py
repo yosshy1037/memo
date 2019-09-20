@@ -82,6 +82,10 @@ class searchSql():
     # ログインユーザが作成したデータのみ取得
     self.__bindVal += [str(self.__request.session['LOGINUSER'])]
     self.__where += " AND REGIST_NAME = %s"
+    
+    # 論削フラグアクティブ
+    self.__bindVal += [0]
+    self.__where += " AND DELETE_FLG = %s"
   
   @property
   def valueList(self):

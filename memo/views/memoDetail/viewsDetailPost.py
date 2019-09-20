@@ -25,34 +25,59 @@ class detailPost(View):
     successMes = ""
     
     try:
+      # DB接続
+      self.__db.dbConnection()
+
       # モデルへ値格納
       self.__model.request = request
-      self.__model.collumList = ['part','name','contents','biko']
-      self.__model.collumAddList = ['update_date','update_name','delete_flg','detailQuery']
-      self.__model.valueListCreate()
+      self.__model.json = json
       
-      # 値チェック
-      self.__validate.collumList = self.__model.Tmp
-      self.__validate.valueList = self.__model.valueList
-      self.__validate.validateCheck()
-      if len(self.__validate.messageList) > 0:
-        response = json.dumps({'result':'すべて入力してください。','err':self.__validate.messageList})
-        return HttpResponse(response)
-      
-      # DB更新処理
-      self.__db.dbConnection()
-      
-      # 更新クエリ
-      self.__ddSql.valueList = self.__model.valueList
-      self.__db.bindVal = self.__ddSql.bindVal
-      self.__ddSql.detailUpdateSql()
-      self.__db.execute(self.__ddSql.sql,const.upd,'')
-      
-      # コミット処理
-      self.__db.dbCommit()
+      # 更新処理
+      if str(json.loads(request.POST.get('postData'))['status']) == const.upd:
+        # 値生成
+        self.__model.collumList = ['part','name','contents','biko']
+        self.__model.collumAddList = ['update_date','update_name','delete_flg','detailQuery']
+        self.__model.valueListCreate()
+        
+        # 値チェック
+        self.__validate.collumList = self.__model.Tmp
+        self.__validate.valueList = self.__model.valueList
+        self.__validate.validateCheck()
+        if len(self.__validate.messageList) > 0:
+          response = json.dumps({'result':'すべて入力してください。','err':self.__validate.messageList})
+          return HttpResponse(response)
+        
+        # 更新実行
+        self.__ddSql.valueList = self.__model.valueList
+        self.__db.bindVal = self.__ddSql.bindVal
+        self.__ddSql.detailUpdateSql()
+        self.__db.execute(self.__ddSql.sql,const.upd,'')
+        
+        # コミット処理
+        self.__db.dbCommit()
+        
+        successMes = '更新完了'
+        
+      else:
+      # 削除処理
+        
+        # 値生成
+        self.__model.collumList = ['update_date','update_name','delete_flg','detailQuery']
+        self.__model.valueListCreate()
+        
+        # 削除実行
+        self.__ddSql.valueList = self.__model.valueList
+        self.__db.bindVal = self.__ddSql.bindVal
+        self.__ddSql.detailUpdDeleteSql()
+        self.__db.execute(self.__ddSql.sql,const.upd,'')
+        
+        # コミット処理
+        self.__db.dbCommit()
+        
+        successMes = '削除完了'
+    
+      # DB閉脚
       self.__db.dbClose()
-      
-      successMes = '更新完了'
     
     except exceptionClass.OriginException as e:
       # Exception継承処理

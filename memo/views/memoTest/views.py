@@ -17,7 +17,7 @@ class memoTest(View):
     self.__exc = exceptionClass.dispatchException()
     self.errMes = {}
     self.__form = "";
-    self.__css = 'search.css'
+    self.__css = 'test.css'
     self.__js = '<script src="/static/js/jquery.unitTest.js"></script>'
     self.__veiwUrl = 'memo/memoTestView.html'
     self.__logoutAtag = ''

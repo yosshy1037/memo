@@ -1,4 +1,4 @@
-from . import const,constDef
+from . import const,constDef,constTest
 from selenium import webdriver
 import os,time,re
 
@@ -10,8 +10,9 @@ class unitTest():
   
     # プライベート変数
     self.__chromeBrowser = ""
-    self.__chromeDriver = '/app/.chromedriver/bin/chromedriver'
-    self.__targetSiteUrl = 'https://thawing-citadel-82373.herokuapp.com/memo'
+    self.__opt = ""
+    self.__chromeDriver = const.chromeDriver
+    self.__targetSiteUrl = const.targetSiteUrl
     self.__uriInfo = ""
     self.__testSuccessStatus = False
     
@@ -21,9 +22,11 @@ class unitTest():
   # テスト対象サイトOpen
   def __openTestSite(self):
     # driverSET
-    opt = webdriver.ChromeOptions()
-    opt.add_argument('--headless')
-    self.__chromeBrowser = webdriver.Chrome(options=opt, executable_path=self.__chromeDriver)
+    self.__opt = webdriver.ChromeOptions()
+    if const.viewDisable:
+      self.__opt.add_argument('--headless')
+    self.__opt.add_argument('--disable-gpu')
+    self.__chromeBrowser = webdriver.Chrome(options=self.__opt, executable_path=self.__chromeDriver)
     
     # memoサイト
     self.__chromeBrowser.get(self.__targetSiteUrl)

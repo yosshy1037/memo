@@ -23,6 +23,8 @@ class memoDetail(View):
     self.__listJs = ''
     self.__veiwUrl = 'memo/memoDetailView.html'
     self.__logoutAtag = '<a class="logout" href="#">ログアウト</a>'
+    self.__updateButton = '<input type="submit" value="更新" class="update" />'
+    self.__deleteButton = '<input type="submit" value="削除" class="delete" />'
     
   # GetMethod
   def get(self, request, *args, **kwargs):
@@ -60,6 +62,8 @@ class memoDetail(View):
       'css' : self.__css,
       'disp_js' : self.__js,
       'resutList_js' : self.__listJs,
+      'updateButton' : self.__updateButton,
+      'deleteButton' : self.__deleteButton
     }
     return render(self.__ses.request, self.__veiwUrl, d)
 
@@ -93,6 +97,8 @@ class memoDetail(View):
       'css' : self.__css,
       'disp_js' : self.__js,
       'resutList_js' : self.__listJs,
+      'updateButton' : self.__updateButton,
+      'deleteButton' : self.__deleteButton
     }
     return render(request, self.__veiwUrl, d)
 
@@ -108,3 +114,11 @@ class memoDetail(View):
     self.__detailForm.fields['detailName'].initial = self.__db.result[0][2]
     self.__detailForm.fields['detailContents'].initial = self.__db.result[0][3]
     self.__detailForm.fields['detailBiko'].initial = self.__db.result[0][4]
+    
+    # 更新ボタン制御
+    self.__com.userRoleDispos(self.__ses.request, self.__updateButton)
+    self.__updateButton = self.__com.result
+    
+    # 削除ボタン制御
+    self.__com.userRoleDispos(self.__ses.request, self.__deleteButton)
+    self.__deleteButton = self.__com.result

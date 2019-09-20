@@ -22,6 +22,7 @@ class memoSearch(View):
     self.__listJs = '<script src="/static/js/jquery.listResult.js"></script>'
     self.__veiwUrl = 'memo/memoSearchView.html'
     self.__logoutAtag = '<a class="logout" href="#">ログアウト</a>'
+    self.__registButton = '<input type="submit" value="新規登録" class="registPage" />'
   
   # GetMethod
   def get(self, request, *args, **kwargs):
@@ -40,6 +41,10 @@ class memoSearch(View):
       # フォーム生成
       self.__form = searchForms.searchForm(None);
       
+      # 登録ボタン制御
+      self.__com.userRoleDispos(self.__ses.request, self.__registButton)
+      self.__registButton = self.__com.result
+      
     except exceptionClass.OriginException as e:
       # Exception継承処理
       self.__com.postExceptDispos(e, self.__log, e, traceback.format_exc())
@@ -56,6 +61,7 @@ class memoSearch(View):
       'css' : self.__css,
       'disp_js' : self.__js,
       'resutList_js' : self.__listJs,
+      'registButton' : self.__registButton
     }
     return render(self.__ses.request, self.__veiwUrl, d)
 
@@ -66,6 +72,10 @@ class memoSearch(View):
       # フォーム生成
       self.__form = searchForms.searchForm(request.POST);
       
+      # 登録ボタン制御
+      self.__com.userRoleDispos(request, self.__registButton)
+      self.__registButton = self.__com.result
+      
     except exceptionClass.OriginException as e:
       # Exception継承処理
       self.__com.postExceptDispos(e, self.__log, e, traceback.format_exc())
@@ -82,5 +92,6 @@ class memoSearch(View):
       'css' : self.__css,
       'disp_js' : self.__js,
       'resutList_js' : self.__listJs,
+      'registButton' : self.__registButton
     }
     return render(request, self.__veiwUrl, d)

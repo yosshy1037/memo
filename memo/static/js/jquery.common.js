@@ -46,3 +46,21 @@ $(document).ready(function(){
     return false;
   });
 });
+
+// AjaxPost用関数
+function ajaxPost(url,postData,mesErea){
+    $.ajax({
+      'url':url,
+      'type':'POST',
+      'data':{
+        'postData': JSON.stringify(postData),
+      },
+      'dataType':'json',
+      'success':function(response){
+        $(mesErea).html("<p class='mes'>" + response.result + "</p>");
+      },
+      'error':function(XMLHttpRequest, textStatus, errorThrown){
+        alert("XMLHttpRequest : " + XMLHttpRequest.status + "/" + "errorThrown    : " + errorThrown.message );
+      },
+    });
+}

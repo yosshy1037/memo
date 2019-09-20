@@ -1,31 +1,27 @@
 $(document).ready(function(){
   <!--更新-->
   $('.update').on('click', function(){
-    var part = $('input[name="detailPart"]').val();
-    var name = $('input[name="detailName"]').val();
-    var gender = $('select[name="detailGender"]').val();
-    var contents = $('textarea[name="detailContents"]').val();
-    var biko = $('textarea[name="detailBiko"]').val();
-    var detailQuery = $(location).attr('search');
-    $.ajax({
-      'url':'/memo/update/',
-      'type':'POST',
-      'data':{
-        'part': part,
-        'name': name,
-        'gender': gender,
-        'contents': contents,
-        'biko': biko,
-        'detailQuery': detailQuery,
-      },
-      'dataType':'json',
-      'success':function(response){
-        $(".detailMessage").html("<p class='mes'>" + response.result + "</p>");
-      },
-      'error':function(XMLHttpRequest, textStatus, errorThrown){
-        alert("XMLHttpRequest : " + XMLHttpRequest.status + "/" + "errorThrown    : " + errorThrown.message );
-      },
-    });
+    var url = '/memo/update/'
+    var mesErea = '.detailMessage'
+    postData = {}
+    postData['part'] = $('input[name="detailPart"]').val();
+    postData['name'] = $('input[name="detailName"]').val();
+    postData['contents'] = $('textarea[name="detailContents"]').val();
+    postData['biko'] = $('textarea[name="detailBiko"]').val();
+    postData['detailQuery'] = $(location).attr('search');
+    postData['status'] = 'update'
+    ajaxPost(url,postData,mesErea);
+    return false;
+  });
+  
+  <!--削除-->
+  $('.delete').on('click', function(){
+    var url = '/memo/update/'
+    var mesErea = '.detailMessage'
+    postData = {}
+    postData['detailQuery'] = $(location).attr('search');
+    postData['status'] = 'delete'
+    ajaxPost(url,postData,mesErea);
     return false;
   });
   

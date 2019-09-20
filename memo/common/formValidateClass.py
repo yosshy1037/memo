@@ -11,7 +11,7 @@ class formValidate():
   def __init__(self):
   
     # プライベート変数
-    self.__valueList = ""
+    self.__valueList = {}
     self.__collumList = []
     self.__messageList = {}
     self.__db = dbMainClass.dbMain()
@@ -29,7 +29,12 @@ class formValidate():
         self.__llSql.loginSelect();
         self.__db.bindVal = self.__llSql.bindVal
         self.__db.execute(self.__llSql.sql,const.sel,const.fetchModeOne)
-        loginCt = self.__db.result[0]
+        if self.__db.result == None:
+          loginCt = 0
+        else:
+          loginCt = self.__db.result[0]
+          # 権限取得
+          self.__valueList['ROLE'] = ['str',str(self.__db.result[1])]
         self.__db.dbClose()
         
         if loginCt == 0:

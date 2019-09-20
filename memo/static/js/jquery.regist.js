@@ -1,30 +1,14 @@
 $(document).ready(function(){
   <!--登録-->
   $('.regist').on('click', function(){
-    var part = $('input[name="registPart"]').val();
-    var name = $('input[name="registName"]').val();
-    var gender = $('select[name="registGender"]').val();
-    var contents = $('textarea[name="registContents"]').val();
-    var biko = $('textarea[name="registBiko"]').val();
-    
-    $.ajax({
-      'url':'/memo/regist/',
-      'type':'POST',
-      'data':{
-        'part': part,
-        'name': name,
-        'gender': gender,
-        'contents': contents,
-        'biko': biko,
-      },
-      'dataType':'json',
-      'success':function(response){
-        $(".registMessage").html("<p class='mes'>" + response.result + "</p>");
-      },
-      'error':function(XMLHttpRequest, textStatus, errorThrown){
-        alert("XMLHttpRequest : " + XMLHttpRequest.status + "/" + "errorThrown    : " + errorThrown.message );
-      },
-    });
+    var url = '/memo/regist/'
+    var mesErea = '.registMessage'
+    postData = {}
+    postData['part'] = $('input[name="registPart"]').val();
+    postData['name'] = $('input[name="registName"]').val();
+    postData['contents'] = $('textarea[name="registContents"]').val();
+    postData['biko'] = $('textarea[name="registBiko"]').val();
+    ajaxPost(url,postData,mesErea);
     return false;
   });
   

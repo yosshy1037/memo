@@ -44,6 +44,25 @@ class detailSql():
         ct += 1
     
     self.__sql +=  self.__collum + self.__where + ";"
+    
+  # 削除クエリ(論理削除)
+  def detailUpdDeleteSql(self):
+    self.__sql = "UPDATE memo SET "
+    
+    # ループして取得
+    ct = 0
+    for colName in self.__valueList:
+      if colName == "DELETE_FLG":
+        self.__collum = colName + " = %s"
+        self.__bindVal += [1]
+        self.__where += " AND " + colName + " = %s"
+        self.__bindVal += [0]
+        continue
+      elif colName == "DETAILQUERY":
+        self.__where += " AND ID = %s"
+        self.__bindVal += [int((self.__valueList[colName][1]).replace('?detailNum=', ''))]
+    
+    self.__sql +=  self.__collum + self.__where + ";"
   
   # 取得クエリ
   def detailSelectSql(self):

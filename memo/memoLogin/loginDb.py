@@ -4,7 +4,7 @@ class loginSelectSql():
   # コンストラクタ
   def __init__(self):
     self.__where = ""
-    self.__sql = "SELECT COUNT(LOGINUSER) FROM memoLogin WHERE 1 = 1 "
+    self.__sql = "SELECT COUNT(LOGINUSER) OVER() CT,ROLE FROM memoLogin WHERE 1 = 1 "
     self.__bindVal = []
     self.__valueList = ""
     self.__collumList = ""

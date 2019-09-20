@@ -46,7 +46,7 @@
       <div id="resultErea">
       </div><!--id resultErea-->
       <div class="registButtonErea">
-        <input type="submit" value="新規登録" class="registPage" />
+        {{ registButton | safe }}
       </div><!--id registButtonErea-->
     {% csrf_token %}
     </form>

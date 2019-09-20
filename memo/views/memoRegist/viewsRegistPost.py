@@ -25,8 +25,14 @@ class registPost(View):
     successMes = ""
     
     try:
-      # モデルへ値格納
+      # DB接続
+      self.__db.dbConnection()
+      
+      # モデルセット
       self.__model.request = request
+      self.__model.json = json
+      
+      # 値生成
       self.__model.collumList = ['part','name','contents','biko']
       self.__model.collumAddList = ['regist_date','regist_name','update_date','update_name','delete_date','delete_name','delete_flg']
       self.__model.valueListCreate()
@@ -40,7 +46,6 @@ class registPost(View):
         return HttpResponse(response)
       
       # DB登録処理
-      self.__db.dbConnection()
       self.__riSql.valueList = self.__model.valueList
       # 登録SQL用意
       self.__riSql.registInsert()

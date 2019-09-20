@@ -34,8 +34,9 @@
         <div class="detailMessage">
         </div><!--class detailMessage-->
         <div class="buttonErea">
-          <input type="submit" value="更新" class="update" />
+          {{ updateButton | safe }}
           <input type="submit" value="詳細を閉じる" class="detailClose" />
+          {{ deleteButton | safe }}
           <input type="hidden" name="pageNum" />
         </div><!--class buttonErea-->
       </div><!--id detailErea-->

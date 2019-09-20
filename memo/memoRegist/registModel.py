@@ -12,6 +12,7 @@ class registModel():
   
     # プライベート変数
     self.__request = ""
+    self.__json = ""
     self.__collumList = []
     self.__collumAddList = []
     self.__valueList = {}
@@ -44,7 +45,8 @@ class registModel():
         type = 'int'
         value = 0
       else:
-        value = self.__request.POST.get(col,init)
+        postData = self.__json.loads(self.__request.POST.get('postData'))
+        value = postData[col]
       self.__valueList[col.upper()] = [type,value]
   
   # カラム配列
@@ -74,6 +76,15 @@ class registModel():
   @request.setter
   def request(self,request):
     self.__request = request
+  
+  # JSON
+  @property
+  def json(self):
+    return self.__json
+
+  @json.setter
+  def json(self,json):
+    self.__json = json
   
   # 整形後配列
   @property
