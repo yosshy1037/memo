@@ -151,6 +151,10 @@
   border: 1px solid #ccc;
   vertical-align:middle;
 }
-.registButtonErea input:hover{
+.detailedConfirm{
+  width:60%;
+  margin:1%;
+}
+.registButtonErea input:hover,.detailedConfirm:hover{
   background-color:#D9EDF7;
 }

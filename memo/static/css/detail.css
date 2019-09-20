@@ -91,6 +91,15 @@
   padding:5px;
   vertical-align:middle;
 }
-.buttonErea input.update:hover,.buttonErea input.detailClose:hover{
+.buttonErea input.delete{
+  display:inline;
+  text-align:center;
+  font-size:14px;
+  width:25%;
+  padding:5px;
+  margin-top:1%;
+  vertical-align:middle;
+}
+.buttonErea input.update:hover,.buttonErea input.detailClose:hover,.buttonErea input.delete:hover{
   background-color:#D9EDF7;
 }
