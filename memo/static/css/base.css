@@ -73,3 +73,11 @@ body{
   margin:0% 1% 1% 1%;
   padding-bottom:20px;
 }
+/*--adminErea--*/
+#adminErea{
+  width:98%;
+  border: solid 1px #E6E6D6;
+  border-radius: 8px 8px 8px 8px;
+  margin:0% 1% 1% 1%;
+  padding-bottom:20px;
+}
