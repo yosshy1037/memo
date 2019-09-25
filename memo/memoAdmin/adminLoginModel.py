@@ -5,14 +5,13 @@ from ..common import const,constDef
 from datetime import datetime
 import copy
 
-class detailModel():
+class loginModel():
 
   # コンストラクタ
   def __init__(self):
   
     # プライベート変数
     self.__request = ""
-    self.__json = ""
     self.__collumList = []
     self.__collumAddList = []
     self.__valueList = {}
@@ -38,15 +37,14 @@ class detailModel():
         value = str(self.__request.session['LOGINUSER'])
       elif col == "delete_date":
         type = 'date'
-        value = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
+        value = '1999-01-01 00:00:00'
       elif col == "delete_name":
-        value = str(self.__request.session['LOGINUSER'])
+        value = ''
       elif col == "delete_flg":
         type = 'int'
         value = 0
       else:
-        postData = self.__json.loads(self.__request.POST.get('postData'))
-        value = postData[col]
+        value = self.__request.POST.get(col,init)
       self.__valueList[col.upper()] = [type,value]
   
   # カラム配列
@@ -76,15 +74,6 @@ class detailModel():
   @request.setter
   def request(self,request):
     self.__request = request
-
-  # JSON
-  @property
-  def json(self):
-    return self.__json
-
-  @json.setter
-  def json(self,json):
-    self.__json = json
   
   # 整形後配列
   @property

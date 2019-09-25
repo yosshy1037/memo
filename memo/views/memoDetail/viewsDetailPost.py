@@ -62,7 +62,7 @@ class detailPost(View):
       # 削除処理
         
         # 値生成
-        self.__model.collumList = ['update_date','update_name','delete_flg','detailQuery']
+        self.__model.collumList = ['update_date','update_name','delete_date','delete_name','delete_flg','detailQuery']
         self.__model.valueListCreate()
         
         # 削除実行

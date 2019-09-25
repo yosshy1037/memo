@@ -31,9 +31,18 @@ $.ajaxSetup({
 });
 
 $(document).ready(function(){
-  <!--ログアウト-->
-  $('.logout').on('click', function(){
+  <!--ログアウト管理画面-->
+  $('#logoutAdmin').on('click', function(){
     var url = "/memo/logout/";
+    url = url + "?status=" + 'admin';
+    $('form').attr('action', url);
+    $('form').submit();
+    return false;
+  });
+  <!--ログアウト-->
+  $('#logoutNormal').on('click', function(){
+    var url = "/memo/logout/";
+    url = url + "?status=" + 'normal';
     $('form').attr('action', url);
     $('form').submit();
     return false;
@@ -58,6 +67,26 @@ function ajaxPost(url,postData,mesErea){
       'dataType':'json',
       'success':function(response){
         $(mesErea).html("<p class='mes'>" + response.result + "</p>");
+      },
+      'error':function(XMLHttpRequest, textStatus, errorThrown){
+        alert("XMLHttpRequest : " + XMLHttpRequest.status + "/" + "errorThrown    : " + errorThrown.message );
+      },
+    });
+}
+
+// AjaxPost用関数
+function ajaxPost(url,postData,listErea,atagErea,mesErea){
+    $.ajax({
+      'url':url,
+      'type':'POST',
+      'data':{
+        'postData': JSON.stringify(postData),
+      },
+      'dataType':'json',
+      'success':function(response){
+        $(atagErea).html(response.atag);
+        $(listErea).html(response.result);
+        $(mesErea).html(response.status);
       },
       'error':function(XMLHttpRequest, textStatus, errorThrown){
         alert("XMLHttpRequest : " + XMLHttpRequest.status + "/" + "errorThrown    : " + errorThrown.message );

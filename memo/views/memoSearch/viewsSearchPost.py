@@ -22,12 +22,15 @@ class searchListPost(View):
   # POSTMethod
   def post(self, request, *args, **kwargs):
     successMes = ""
+    tag = ""
+    atag = ""
     
     try:
       # モデルへ値格納
       self.__model = searchModel.searchModel()
       self.__model.request = request
-      self.__model.collumList = ['part','name','registStartDate','registEndDate','gender','keyWord','pageNum']
+      self.__model.json = json
+      self.__model.collumList = ['part','name','registStartDate','registEndDate','keyWord','pageNum']
       self.__model.valueListCreate()
       
       startPos = 0

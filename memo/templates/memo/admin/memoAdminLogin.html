@@ -1,0 +1,29 @@
+{% extends "common/baseAdmin.html" %}
+
+{% block body %}
+    
+    <form name="memoForm" method="post" action="">
+      <div id="adminErea">
+        <div id="subHeader">
+          <h2>ログイン</h2>
+        </div><!--id subHeader-->
+        <table>
+          <tr>
+            <th>{{ form.adLoginUser.label }}</th>
+            <td>{{ form.adLoginUser }}</td>
+          </tr>
+          <tr>
+            <th>{{ form.adLoginPassword.label }}</th>
+            <td>{{ form.adLoginPassword }}</td>
+          </tr>
+          {{ errMes | safe }}
+          <tr>
+            <th></th>
+            <td class="buttonErea" ><input type="submit" value="ログイン" class="login" /></td>
+          </tr>
+        </table>
+      </div><!--id adminErea-->
+    {% csrf_token %}
+    </form>
+  </div><!--id container-->
+{% endblock%}

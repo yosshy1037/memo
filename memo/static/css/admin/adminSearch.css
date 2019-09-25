@@ -1,0 +1,160 @@
+/*---subHeader---*/
+#subHeader{
+  width:100%;
+  color:#B4B4B4;
+  background-color:#F5F5F5;
+  border-bottom: solid 1px #E6E6D6;
+  border-radius: 8px 8px 0px 0px;
+  margin-bottom:15px;
+}
+#subHeader h2{
+  font-size:18px;
+  padding-top:5px;
+  margin:0px 0px 5px 5px;
+}
+/*---table---*/
+#searchErea table{
+  width:100%;
+  margin-left:20px;
+}
+#searchErea table th{
+  width:25%;
+  text-align:right;
+}
+#searchErea table td input.part,input.name,input.registStartDate,input.registEndDate,input.keyWord{
+  width:45%;
+  line-height:26px;
+  padding-left:1%;
+}
+#searchErea table th.registDate{
+  line-height:200%;
+  vertical-align:-50%;
+}
+#searchErea table td input.registEndDate{
+  margin-top:3%;
+}
+#searchErea table td select,input
+{
+  border-radius: 3px 3px 3px 3px;
+  border: 1px solid #ccc;
+}
+#searchErea table td select{
+  line-height:26px;
+  padding-left:1%;
+}
+#searchErea table td input.part,input.name,input.registStartDate,input.registEndDate,input.keyWord,select,input.search{
+  margin-left:30px;
+}
+#searchErea table th,#searchErea table td{
+  vertical-align:middle;
+  padding:10px 0px;
+}
+/*---button---*/
+.buttonErea{
+  width:100%;
+  text-align:center;
+  margin:10px 0px;
+}
+.buttonErea input.search,.buttonErea input.clear{
+  display:inline;
+  text-align:center;
+  font-size:14px;
+  width:15%;
+  padding:5px;
+  vertical-align:middle;
+}
+.buttonErea input.search:hover,.buttonErea input.clear:hover{
+  background-color:#D9EDF7;
+}
+
+/*--linkErea 後でページャいれる--*/
+#linkErea{
+  width:100%;
+  padding:30px 0px 30px 20px;
+  text-align:center;
+}
+#linkErea a.pager{
+  border:1px solid #E6E6D6;
+  padding:5px;
+  margin:0px 5px;
+  width:100px;
+}
+#linkErea a.pager:hover{
+  background-color:#D9EDF7;
+}
+#linkErea a.clicked{
+  border:1px solid #E2E2D2;
+}
+
+/*--resultErea--*/
+#resultErea{
+  width:100%;
+  /*border: solid 1px #E6E6D6;*/
+  /*border-radius: 8px 8px 8px 8px;*/
+  margin-bottom:20px;
+}
+#resultErea table{
+  width:98%;
+  margin-left:1%;
+  margin-right:1%;
+  border-collapse: separate;
+  border-radius: 5px;
+  border-spacing: 0;
+}
+#resultErea table tr{
+  border-radius: 3px 3px 3px 3px;
+}
+#resultErea table th{
+  border: solid 1px #E6E6D6;
+  background-color:#D9EDF7;
+  border-radius: 3px 3px 3px 3px;
+  vertical-align:middle;
+  padding:3px;
+}
+/*----resultErea table header width----*/
+#resultErea table th.partHeader{
+  min-width:5%;
+}
+#resultErea table th.nameHeader{
+  min-width:5%;
+}
+#resultErea table th.registDateHeader{
+  min-width:5%;
+}
+#resultErea table th.contentsHeader{
+  width:25%;
+}
+#resultErea table th.bikoHeader{
+  width:25%;
+}
+#resultErea table th.detailedConfirmHeader{
+  width:5%;
+}
+#resultErea table td{
+  border: solid 1px #E6E6D6;
+  border-radius: 3px 3px 3px 3px;
+  padding:2px;
+}
+/*----registButtonErea----*/
+.registButtonErea{
+  width:98%;
+  margin-left:1%;
+  margin-right:1%;
+  text-align:center;
+  padding-bottom:20px;
+}
+.registButtonErea input{
+  font-size:120%;
+  width:35%;
+  line-height:210%;
+  border-radius: 3px 3px 3px 3px;
+  border: 1px solid #ccc;
+  vertical-align:middle;
+}
+.detailedConfirm{
+  width:60%;
+  margin:1%;
+}
+.registButtonErea input:hover,.detailedConfirm:hover{
+  background-color:#D9EDF7;
+}

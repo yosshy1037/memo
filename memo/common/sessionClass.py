@@ -32,7 +32,18 @@ class session():
       del self.__request.session['LOGINUSER']
     elif 'LOGINPASSWORD' in self.__request.session and not self.__request.session['LOGINPASSWORD'] != '' and  self.__request.session['LOGINPASSWORD'] is not None:
       del self.__request.session['LOGINPASSWORD']
+    elif 'ADLOGINUSER' in self.__request.session and not self.__request.session['ADLOGINUSER'] == '' and self.__request.session['ADLOGINUSER'] is not None:
+      del self.__request.session['ADLOGINUSER']
+    elif 'ADLOGINPASSWORD' in self.__request.session and not self.__request.session['ADLOGINPASSWORD'] != '' and  self.__request.session['ADLOGINPASSWORD'] is not None:
+      del self.__request.session['ADLOGINPASSWORD']
     self.__request.session.clear()
+    
+  # 管理ログイン情報確認処理
+  def adminLoginCheckSession(self):
+    if 'ADLOGINUSER' in self.__request.session and not self.__request.session['ADLOGINUSER'] == '' and self.__request.session['ADLOGINUSER'] is not None:
+      self.__loginFlg = True
+    elif 'ADLOGINPASSWORD' in self.__request.session and not self.__request.session['ADLOGINPASSWORD'] != '' and  self.__request.session['ADLOGINPASSWORD'] is not None:
+      self.__loginFlg = True
     
   # リクエスト
   @property

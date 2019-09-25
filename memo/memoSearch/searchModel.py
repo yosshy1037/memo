@@ -31,21 +31,29 @@ class searchModel():
       if col == "registStartDate":
         type = 'date'
         init = '1999-01-01 00:00:00'
-        value = self.__request.POST.get(col,init)
+        postData = self.__json.loads(self.__request.POST.get('postData'))
+        value = postData[col]
       elif col == "registEndDate":
         type = 'date'
         init = '1999-01-01 00:00:00'
-        value = self.__request.POST.get(col,init)
+        postData = self.__json.loads(self.__request.POST.get('postData'))
+        value = postData[col]
       elif col == "regist_date":
         type = 'date'
         value = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
       elif col == "regist_name":
-        value = 'kanai'
+        if 'LOGINUSER' in self.__request.session:
+          value = str(self.__request.session['LOGINUSER'])
+        else:
+          value = str(self.__request.session['ADLOGINUSER'])
       elif col == "update_date":
         type = 'date'
         value = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
       elif col == "update_name":
-        value = 'kanai'
+        if 'LOGINUSER' in self.__request.session:
+          value = str(self.__request.session['LOGINUSER'])
+        else:
+          value = str(self.__request.session['ADLOGINUSER'])
       elif col == "delete_date":
         type = 'date'
         value = '1999-01-01 00:00:00'
@@ -57,9 +65,11 @@ class searchModel():
       elif col == "pageNum":
         type = 'int'
         init = 0
-        value = self.__request.POST.get(col,init)
+        postData = self.__json.loads(self.__request.POST.get('postData'))
+        value = postData[col]
       else:
-        value = self.__request.POST.get(col,init)
+        postData = self.__json.loads(self.__request.POST.get('postData'))
+        value = postData[col]
       self.__valueList[col.upper()] = [type,value]
   
   # 一覧表示用値整形
@@ -82,8 +92,8 @@ class searchModel():
         biko_tmp = biko
       self.__dataResult["BIKO"] = biko_tmp
       registDate = row[5].strftime("%Y/%m/%d %H:%M:%S")
-      
       self.__dataResult["REGIST_DATE"] = registDate
+      self.__dataResult["DELETE_DATE"] = row[6].strftime("%Y/%m/%d %H:%M:%S")
       self.__dateRow[self.__num] = self.__dataResult
       self.__dataResult = {}
       self.__num += 1
@@ -142,6 +152,15 @@ class searchModel():
   @result.setter
   def result(self,result):
     self.__result = result
+    
+  # JSON
+  @property
+  def json(self):
+    return self.__json
+
+  @json.setter
+  def json(self,json):
+    self.__json = json
     
   # 一覧表示用値
   @property

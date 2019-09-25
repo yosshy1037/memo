@@ -27,7 +27,7 @@ class searchSql():
 
   # 値取得クエリ
   def searchSelectSql(self):
-    self.__sql = "SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE FROM memo"
+    self.__sql = "SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo"
     # 条件設定
     self.__bindVal = []
     self.__whereCreate()
@@ -80,12 +80,17 @@ class searchSql():
           self.__offset = " offset " + pos + " limit " + str(const.intervalPageNum)
     
     # ログインユーザが作成したデータのみ取得
-    self.__bindVal += [str(self.__request.session['LOGINUSER'])]
-    self.__where += " AND REGIST_NAME = %s"
+    if 'LOGINUSER' in self.__request.session and not self.__request.session['LOGINUSER'] == '':
+      self.__bindVal += [str(self.__request.session['LOGINUSER'])]
+      self.__where += " AND REGIST_NAME = %s"
     
     # 論削フラグアクティブ
-    self.__bindVal += [0]
-    self.__where += " AND DELETE_FLG = %s"
+    if 'LOGINUSER' in self.__request.session and not self.__request.session['LOGINUSER'] == '':
+      self.__bindVal += [0]
+      self.__where += " AND DELETE_FLG = %s"
+    elif 'ADLOGINUSER' in self.__request.session and not self.__request.session['ADLOGINUSER'] == '':
+      self.__bindVal += [1]
+      self.__where += " AND DELETE_FLG = %s"
   
   @property
   def valueList(self):

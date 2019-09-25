@@ -22,7 +22,7 @@ class memoDetail(View):
     self.__js = ''
     self.__listJs = ''
     self.__veiwUrl = 'memo/memoDetailView.html'
-    self.__logoutAtag = '<a class="logout" href="#">ログアウト</a>'
+    self.__logoutAtag = '<a class="logout" id="logoutNormal" href="#">ログアウト</a>'
     self.__updateButton = '<input type="submit" value="更新" class="update" />'
     self.__deleteButton = '<input type="submit" value="削除" class="delete" />'
     

@@ -52,12 +52,17 @@ class detailSql():
     # ループして取得
     ct = 0
     for colName in self.__valueList:
-      if colName == "DELETE_FLG":
-        self.__collum = colName + " = %s"
+      if colName == "DELETE_DATE":
+        self.__collum += colName + " = %s"
+        self.__bindVal += [str(self.__valueList[colName][1])]
+      elif colName == "DELETE_NAME":
+        self.__collum += "," + colName + " = %s"
+        self.__bindVal += [str(self.__valueList[colName][1])]
+      elif colName == "DELETE_FLG":
+        self.__collum += "," + colName + " = %s"
         self.__bindVal += [1]
         self.__where += " AND " + colName + " = %s"
         self.__bindVal += [0]
-        continue
       elif colName == "DETAILQUERY":
         self.__where += " AND ID = %s"
         self.__bindVal += [int((self.__valueList[colName][1]).replace('?detailNum=', ''))]

@@ -21,7 +21,7 @@ class memoSearch(View):
     self.__js = '<script src="/static/js/jquery.search.js"></script>'
     self.__listJs = '<script src="/static/js/jquery.listResult.js"></script>'
     self.__veiwUrl = 'memo/memoSearchView.html'
-    self.__logoutAtag = '<a class="logout" href="#">ログアウト</a>'
+    self.__logoutAtag = '<a class="logout" id="logoutNormal" href="#">ログアウト</a>'
     self.__registButton = '<input type="submit" value="新規登録" class="registPage" />'
   
   # GetMethod

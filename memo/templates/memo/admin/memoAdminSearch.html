@@ -1,0 +1,43 @@
+{% extends "common/baseAdmin.html" %}
+
+{% block body %}
+    
+    <form name="memoForm" method="post" action="">
+      <div id="adminErea">
+        <div id="subHeader">
+          <h2>検索条件</h2>
+        </div><!--id subHeader-->
+        <table>
+          <tr>
+            <th class="registDate">{{ form.registStartDate.label }}</th>
+            <td>{{ form.registStartDate }}&emsp;～&emsp;{{ form.registEndDate }}</td>
+          </tr>
+          <tr>
+            <th>{{ form.keyWord.label }}</th>
+            <td>{{ form.keyWord }}</td>
+          </tr>
+        </table>
+        <div class="buttonErea">
+          <input type="submit" value="検索" class="search" />
+          <input type="submit" value="クリア" class="clear" />
+          <input type="hidden" name="pageNum" />
+        </div><!--class buttonErea-->
+      </div><!--id adminErea-->
+      <div id="linkErea">
+        {% autoescape off %}
+        <div id="atag">
+        </div><!--id atag-->
+        {% endautoescape %}
+      </div><!--id linkErea-->
+      <div id="resultErea">
+      </div><!--id resultErea-->
+      <div id="mes">
+      </div><!--class registMessage-->
+      <div class="registButtonErea">
+        <input type="submit" value="データ復帰" class="relive" />
+        <input type="submit" value="完全削除" class="delete" />
+      </div><!--id registButtonErea-->
+    {% csrf_token %}
+    </form>
+  </div><!--id container-->
+{% endblock%}
