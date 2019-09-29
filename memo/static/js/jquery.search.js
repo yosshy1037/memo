@@ -19,9 +19,10 @@ function pager(pageNum){
 }
 <!--詳細画面へ遷移-->
 function detailSend(num){
-  //$('form').attr('action', '/memo/memoDetail/?detailNum=' + num);
-  //$('form').attr('method', 'GET');
-  //$('form').submit();
-  window.open('/memo/memoDetail/?detailNum=' + num, '_blank');
+  // atagClicked番号取得
+  var atagNum = $('.clicked').data('link');
+  var url = '/memo/memoDetail/?detailNum=' + num + '&pageNum=' + atagNum;
+  eurl = encodeURI(url);
+  window.open(eurl, '_blank');
   return false;
 }

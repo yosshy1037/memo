@@ -1,0 +1,28 @@
+{% extends "common/baseAdmin.html" %}
+
+{% block body %}
+    
+    <form name="memoForm" method="post" action="">
+      <div id="adminErea">
+        <div id="subHeader">
+          <h2>メニュー一覧</h2>
+        </div><!--id subHeader-->
+        <table>
+          <tr>
+            <th class="title" >画面タイトル</th>
+            <td class="title" >リンク</td>
+          </tr>
+          <tr>
+            <th class="titleName">メモ復帰画面</th>
+            <td class="link"><a href="#" class="linkClick" data-link="/memo/memoAdSearch/" >メモ復帰画面</a></td>
+          </tr>
+          <tr>
+            <th class="titleNameSec">テスト実行</th>
+            <td class="linkSec"><a href="#" class="linkClick" data-link="/memo/memoAdTest/" >テスト実行</a></td>
+          </tr>
+        </table>
+      </div><!--id adminErea-->
+    {% csrf_token %}
+    </form>
+  </div><!--id container-->
+{% endblock%}

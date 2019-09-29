@@ -23,6 +23,8 @@ class searchModel():
 
   # 値配列作成処理
   def valueListCreate(self):
+    self.__valueList = {}
+    self.__postData = self.__json.loads(self.__request.POST.get('postData'))
     self.__collumList.extend(self.__collumAddList)
     for col in self.__collumList:
       value = ''
@@ -31,13 +33,11 @@ class searchModel():
       if col == "registStartDate":
         type = 'date'
         init = '1999-01-01 00:00:00'
-        postData = self.__json.loads(self.__request.POST.get('postData'))
-        value = postData[col]
+        value = self.__postData[col]
       elif col == "registEndDate":
         type = 'date'
         init = '1999-01-01 00:00:00'
-        postData = self.__json.loads(self.__request.POST.get('postData'))
-        value = postData[col]
+        value = self.__postData[col]
       elif col == "regist_date":
         type = 'date'
         value = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
@@ -65,11 +65,9 @@ class searchModel():
       elif col == "pageNum":
         type = 'int'
         init = 0
-        postData = self.__json.loads(self.__request.POST.get('postData'))
-        value = postData[col]
+        value = self.__postData[col]
       else:
-        postData = self.__json.loads(self.__request.POST.get('postData'))
-        value = postData[col]
+        value = self.__postData[col]
       self.__valueList[col.upper()] = [type,value]
   
   # 一覧表示用値整形
@@ -105,6 +103,7 @@ class searchModel():
 
   @collumList.setter
   def collumList(self,collumList):
+    self.__collumList = []
     self.__collumList = collumList
     self.Tmp = copy.deepcopy(collumList)
     
@@ -115,6 +114,7 @@ class searchModel():
 
   @collumList.setter
   def collumAddList(self,collumAddList):
+    self.__collumAddList = []
     self.__collumAddList = collumAddList
   
   # リクエスト

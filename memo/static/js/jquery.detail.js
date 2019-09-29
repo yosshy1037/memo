@@ -27,6 +27,14 @@ $(document).ready(function(){
   
   <!--検索画面へ戻る-->
   $('.detailClose').on('click', function(){
+    // 親Windowを操作
+    if (window.opener) {
+      var urlParam = $(location).attr('search');
+      urlParam = urlParam.replace( '?', '' ).split('&');
+      pageNum = urlParam[1].split('=')[1];
+      window.opener.pager(pageNum);
+    }
+    // 自身閉じる
     window.open('about:blank','_self').close();
     return false;
   });

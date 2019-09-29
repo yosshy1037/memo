@@ -76,25 +76,25 @@ class searchListPost(View):
         startPos = 1
       else:
         startPos = int(pageNum) - 1
-        startATag = '<a href="#" class="pager" onClick="pager(1)" >&laquo;</a>'
+        startATag = '<a href="#" class="pager" data-link="1" onClick="pager(1)" >&laquo;</a>'
       
       if int(pageNum) == int(pageAll):
         endPos = int(pageAll) + 1
       elif const.intervalPageNum > int(pageAll):
         endPos = int(pageAll) + 1
-        endATag = '<a href="#" class="pager"  onClick="pager(' + str(pageAll) + ')" >&raquo;</a>'
+        endATag = '<a href="#" class="pager" data-link="' + str(pageAll) + '"  onClick="pager(' + str(pageAll) + ')" >&raquo;</a>'
       else:
         endPos = int(pageAll) + 1
-        endATag = '<a href="#" class="pager"  onClick="pager(' + str(pageAll) + ')" >&raquo;</a>'
+        endATag = '<a href="#" class="pager" data-link="' + str(pageAll) + '" onClick="pager(' + str(pageAll) + ')" >&raquo;</a>'
       
       # aタグ生成
       atag = startATag
       
       for i in range(startPos,endPos):
         if int(pageNum) == i:
-          atag += '<a href="#" class="pager clicked" onClick="pager(' + str(i) + ')" >' + str(i) + '</a>';
+          atag += '<a href="#" class="pager clicked" data-link="' + str(i) + '" onClick="pager(' + str(i) + ')" >' + str(i) + '</a>';
         else:
-          atag += '<a href="#" class="pager" onClick="pager(' + str(i) + ')" >' + str(i) + '</a>';
+          atag += '<a href="#" class="pager" data-link="' + str(i) + '" onClick="pager(' + str(i) + ')" >' + str(i) + '</a>';
       
       atag += endATag
 

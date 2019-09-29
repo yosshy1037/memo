@@ -15,6 +15,7 @@ class dbMain():
     self.__cur = ""
     self.__sql = ""
     self.__result = ""
+    self.__resultCount = 0
     self.__log = logClass.logger()
     self.__bindVal = []
     self.__host = const.dbHost
@@ -27,12 +28,14 @@ class dbMain():
   def execute(self,sql,sqlMode,fetchStatus):
 
     self.__sql = sql
+    self.__resultCount = 0
     
     # カーソルOPEN
     self.__dbCursorOpen()
     try:
       # 実行
       self.__cur.execute(self.__sql,self.__bindVal)
+      self.__resultCount += 1
     except psycopg2.Error as e:
       self.__log.value = 'psycopg2.Error occurred:' + e.args[0]
       self.__log.write('error')
@@ -146,6 +149,10 @@ class dbMain():
   @property
   def result(self):
     return self.__result
+    
+  @property
+  def resultCount(self):
+    return self.__resultCount
     
   @property
   def bindVal(self):

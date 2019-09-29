@@ -31,6 +31,12 @@ $.ajaxSetup({
 });
 
 $(document).ready(function(){
+  <!--メニュータグ操作-->
+  $('#menu').click(function() {
+    var linkUrl = '/memo/memoAdMenu/';
+    window.location.href=linkUrl;
+    return false;
+  });
   <!--ログアウト管理画面-->
   $('#logoutAdmin').on('click', function(){
     var url = "/memo/logout/";

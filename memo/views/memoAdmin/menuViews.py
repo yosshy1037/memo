@@ -4,8 +4,8 @@ import traceback
 from ...common import const,constDef,sessionClass,commonFuncClass,exceptionClass,logClass
 from ...memoAdmin import adminSearchForms
 
-## 管理画面
-class searchView(View):
+## メニュー画面
+class menuView(View):
   # initMethod
   def __init__(self, **kwargs):
   
@@ -17,12 +17,10 @@ class searchView(View):
     self.__exc = exceptionClass.dispatchException()
     self.errMes = {}
     self.__form = "";
-    self.__css = 'adminSearch.css'
+    self.__css = 'adminMenu.css'
     self.__js = '<script src="/static/js/admin/jquery.admin.js"></script>'
-    self.__veiwUrl = 'memo/admin/memoAdminSearch.html'
-    self.__menuAtag = '<a class="menu" id="menu" href="#">メニューへ</a>'
+    self.__veiwUrl = 'memo/admin/memoAdminMenu.html'
     self.__logoutAtag = '<a class="logout" id="logoutAdmin" href="#">ログアウト</a>'
-    self.__registButton = '<input type="submit" value="新規登録" class="registPage" />'
   
   # GetMethod
   def get(self, request, *args, **kwargs):
@@ -50,9 +48,8 @@ class searchView(View):
       self.__com.postExceptDispos(self.__exc, self.__log, e, traceback.format_exc())
       return redirect("error")
       
-    # 検索画面を描画する処理
+    # メニュー画面を描画する処理
     d = {
-      'menuButton': self.__menuAtag,
       'logout' : self.__logoutAtag,
       'form': self.__form,
       'css' : self.__css,
@@ -76,9 +73,8 @@ class searchView(View):
       self.__com.postExceptDispos(self.__exc, self.__log, e, traceback.format_exc())
       return redirect("error")
       
-    # 検索画面を描画する処理
+    # メニュー画面を描画する処理
     d = {
-      'menuButton': self.__menuAtag,
       'logout' : self.__logoutAtag,
       'form': self.__form,
       'css' : self.__css,

@@ -21,6 +21,7 @@ class loginView(View):
     self.__mes = ""
     self.__errMesHtml = ""
     self.__css = 'adminLogin.css'
+    self.__js = ''
     self.__veiwUrl = 'memo/admin/memoAdminLogin.html'
   
   # GetMethod
@@ -53,6 +54,7 @@ class loginView(View):
       'errMes' : self.__errMesHtml,
       'form': self.__form,
       'css' : self.__css,
+      'js' : self.__js,
     }
     return render(self.__ses.request, self.__veiwUrl, d)
 
@@ -83,7 +85,7 @@ class loginView(View):
         self.__ses.valueList = self.__model.valueList
         self.__ses.setSession()
         # 検索画面へ遷移
-        return redirect("adSsearchView")
+        return redirect("adMenuView")
       
     except exceptionClass.OriginException as e:
       # Exception継承処理
@@ -101,5 +103,6 @@ class loginView(View):
       'errMes' : self.__errMesHtml,
       'form': self.__form,
       'css' : self.__css,
+      'js' : self.__js,
     }
     return render(request, self.__veiwUrl, d)

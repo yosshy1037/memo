@@ -1,0 +1,24 @@
+{% extends "common/baseAdmin.html" %}
+
+{% block body %}
+    
+    <form name="testForm" method="post" action="">
+      <div id="formErea">
+        <div id="subHeader">
+          <h2>TEST RESULT</h2>
+        </div><!--id subHeader-->
+        <table>
+          <tr>
+            <th></th>
+            <td class="testSuccessMes" >テスト完了しました。</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td class="buttonErea" ><input type="submit" value="テスト再度実行する" class="returnTest" /></td>
+          </tr>
+        </table>
+      </div><!--id formErea-->
+    {% csrf_token %}
+    </form>
+  </div><!--id container-->
+{% endblock%}

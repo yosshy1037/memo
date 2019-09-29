@@ -80,10 +80,10 @@
   width:100px;
 }
 #linkErea a.pager:hover{
-  background-color:#D9EDF7;
+  background-color:#EFFDF9;
 }
 #linkErea a.clicked{
-  border:1px solid #E2E2D2;
+  background-color:#D9EDF7;
 }
 
 /*--resultErea--*/
@@ -152,7 +152,8 @@
   vertical-align:middle;
 }
 .detailedConfirm{
-  width:60%;
+  width:70%;
+  text-align:center;
   margin:1%;
 }
 .registButtonErea input:hover,.detailedConfirm:hover{

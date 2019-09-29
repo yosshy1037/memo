@@ -54,18 +54,18 @@ class registPost(View):
       self.__db.dbCommit()
       self.__db.dbClose()
 
-      successMes = '登録完了'
+      successMes = '<p class="mes">登録処理 ' + str(self.__db.resultCount) + '件正常終了しました。</p>'
 
     except exceptionClass.OriginException as e:
       # Exception継承処理
       self.__db.dbRollback()
       self.__db.dbClose()
-      successMes = self.__com.postExceptDispos(e, self.__log, e, traceback.format_exc(), '登録失敗')
+      successMes = self.__com.postExceptDispos(e, self.__log, e, traceback.format_exc(), '<p class="mes">登録処理 異常終了しました。</p>')
     except Exception as e:
       # Exception処理
       self.__db.dbRollback()
       self.__db.dbClose()
-      successMes = self.__com.postExceptDispos(self.__exc, self.__log, e, traceback.format_exc(), '登録失敗')
+      successMes = self.__com.postExceptDispos(self.__exc, self.__log, e, traceback.format_exc(), '<p class="mes">登録処理 異常終了しました。</p>')
 
     # レスポンス返却
     response = json.dumps({'result':successMes})

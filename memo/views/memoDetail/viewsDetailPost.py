@@ -56,7 +56,7 @@ class detailPost(View):
         # コミット処理
         self.__db.dbCommit()
         
-        successMes = '更新完了'
+        successMes = '<p class="mes">更新処理 ' + str(self.__db.resultCount) + '件正常終了しました。</p>'
         
       else:
       # 削除処理
@@ -74,7 +74,7 @@ class detailPost(View):
         # コミット処理
         self.__db.dbCommit()
         
-        successMes = '削除完了'
+        successMes = '<p class="mes">削除処理 ' + str(self.__db.resultCount) + '件正常終了しました。</p>'
     
       # DB閉脚
       self.__db.dbClose()
@@ -83,12 +83,12 @@ class detailPost(View):
       # Exception継承処理
       self.__db.dbRollback()
       self.__db.dbClose()
-      successMes = self.__com.postExceptDispos(e, self.__log, e, traceback.format_exc(), '更新失敗')
+      successMes = self.__com.postExceptDispos(e, self.__log, e, traceback.format_exc(), '<p class="mes">更新処理 異常終了しました。</p>')
     except Exception as e:
       # Exception処理
       self.__db.dbRollback()
       self.__db.dbClose()
-      successMes = self.__com.postExceptDispos(self.__exc, self.__log, e, traceback.format_exc(), '更新失敗')
+      successMes = self.__com.postExceptDispos(self.__exc, self.__log, e, traceback.format_exc(), '<p class="mes">更新処理 異常終了しました。</p>')
 
     # レスポンス返却
     response = json.dumps({'result':successMes})

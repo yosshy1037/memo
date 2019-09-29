@@ -25,7 +25,9 @@ class detailSql():
         continue
       elif colName == "DETAILQUERY":
         self.__where += " AND ID = %s"
-        self.__bindVal += [int((self.__valueList[colName][1]).replace('?detailNum=', ''))]
+        urlParam = str(self.__valueList[colName][1]).replace('?', '').split("&")
+        id = urlParam[0].split("=")[1]
+        self.__bindVal += [int(id)]
       else:
         if ct == 0:
           if self.__valueList[colName][0] == "str" or self.__valueList[colName][0] == "date":
@@ -65,7 +67,9 @@ class detailSql():
         self.__bindVal += [0]
       elif colName == "DETAILQUERY":
         self.__where += " AND ID = %s"
-        self.__bindVal += [int((self.__valueList[colName][1]).replace('?detailNum=', ''))]
+        urlParam = str(self.__valueList[colName][1]).replace('?', '').split("&")
+        id = urlParam[0].split("=")[1]
+        self.__bindVal += [int(id)]
     
     self.__sql +=  self.__collum + self.__where + ";"
   

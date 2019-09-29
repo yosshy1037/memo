@@ -8,8 +8,9 @@ from .views.memoRegist.viewsRegistPost import registPost
 from .views.memoSearch.viewsSearchPost import searchListPost
 from .views.logout.views import logout
 from .views.error.views import error
-from .views.memoTest.views import memoTest
+from .views.memoAdmin.testViews import memoTest
 from .views.memoAdmin.loginViews import loginView
+from .views.memoAdmin.menuViews import menuView
 from .views.memoAdmin.searchViews import searchView
 from .views.memoAdmin.searchViewsPost import adSearchListPost
 
@@ -23,8 +24,9 @@ urlpatterns = [
     url(r'^update/$', detailPost.as_view(), name='detailPost'),
     url(r'^logout/$', logout.as_view(), name='logout'),
     url(r'^error/$', error.as_view(), name='error'),
-    url(r'^memoTest/$', memoTest.as_view(), name='memoTest'),
+    url(r'^memoAdTest/$', memoTest.as_view(), name='memoAdTest'),
     url(r'^memoAdLogin/$', loginView.as_view(), name='adLoginView'),
+    url(r'^memoAdMenu/$', menuView.as_view(), name='adMenuView'),
     url(r'^memoAdSearch/$', searchView.as_view(), name='adSsearchView'),
     url(r'^memoAdList/$', adSearchListPost.as_view(), name='adSearchListPost'),
 ]

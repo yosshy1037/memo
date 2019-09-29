@@ -17,7 +17,7 @@
   <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
   <script src="{% static "js/jquery.min.js" %}"></script>
   <script src="{% static "js/jquery.common.js" %}"></script>
-  <script src="{% static "js/admin/jquery.admin.js" %}"></script>
+  {{ js | safe }}
 </head>
 <body>
   <div id="container">
@@ -26,6 +26,7 @@
         <h1>管理画面</h1>
       </div><!--id header_left-->
       <div id="header_right">
+        {{ menuButton | safe }}
         {{ logout | safe }}
       </div><!--id header_right-->
     </div><!--id header-->
