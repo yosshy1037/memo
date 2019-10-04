@@ -57,12 +57,12 @@ class searchSql():
       elif self.__valueList[col][0] == "date":
         if col == "REGISTSTARTDATE":
           if str(self.__valueList[col][1]) != '1999-01-01 00:00:00' and str(self.__valueList[col][1]) != "":
-            self.__bindVal += [str(self.__valueList[col][1])]
-            self.__where += " AND REGIST_DATE >= to_date('%s 00:00:00','YYYY-MM-DD HH24:MI:SS')"
+            self.__bindVal += [str(self.__valueList[col][1] + ' 00:00:00')]
+            self.__where += " AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS')"
         elif col == "REGISTENDDATE":
           if str(self.__valueList[col][1]) != '1999-01-01 00:00:00' and str(self.__valueList[col][1]) != "":
-            self.__bindVal += [str(self.__valueList[col][1])]
-            self.__where += " AND REGIST_DATE < to_date('%s 00:00:00','YYYY-MM-DD HH24:MI:SS')"
+            self.__bindVal += [str(self.__valueList[col][1] +  ' 00:00:00')]
+            self.__where += " AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS')"
         else:
           if str(self.__valueList[col][1]) != '1999-01-01 00:00:00' and str(self.__valueList[col][1]) != "":
             self.__bindVal += [str(self.__valueList[col][1])]

@@ -11,8 +11,18 @@ class session():
   
     # プライベート変数
     self.__request = ""
+    self.__value = ""
     self.__valueList = {}
     self.__loginFlg = False
+
+  # セッション登録処理(単一値)
+  def setSessionUnit(self,key,value):
+    self.__request.session[key] = value
+
+  # セッション取得処理
+  def getSession(self,key):
+    if key in self.__request.session:
+      self.__value = self.__request.session[key]
 
   # セッション登録処理
   def setSession(self):
@@ -62,6 +72,15 @@ class session():
   @valueList.setter
   def valueList(self,valueList):
     self.__valueList = valueList
+    
+  # セッションの値
+  @property
+  def value(self):
+    return self.__value
+    
+  @value.setter
+  def value(self,value):
+    self.__value = value
 
   # ログイン済みチェック
   @property

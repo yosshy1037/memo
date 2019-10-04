@@ -26,8 +26,7 @@ class searchListPost(View):
     atag = ""
     
     try:
-      # モデルへ値格納
-      self.__model = searchModel.searchModel()
+      #-- モデルへ値格納
       self.__model.request = request
       self.__model.json = json
       self.__model.collumList = ['part','name','registStartDate','registEndDate','keyWord','pageNum']
@@ -37,10 +36,10 @@ class searchListPost(View):
       endPos = 0
       pageNum = self.__model.valueList['PAGENUM'][1]
       
-      # DB処理
+      #-- DB処理
       self.__db.dbConnection()
       
-      # 件数取得クエリ
+      #-- 件数取得クエリ
       self.__ssSql.request = request
       self.__ssSql.valueList = self.__model.valueList
       self.__ssSql.searchSelectCountSql()
@@ -50,12 +49,22 @@ class searchListPost(View):
       if pageFull == 0:
         pageNum = 1
       
-      # 値取得クエリ
+      # 全ページ数取得
+      pageAll = math.ceil(int(pageFull)/const.intervalPageNum)
+      if pageAll == 0:
+        pageAll = 1
+      
+      # 自ページの制御
+      if int(pageNum) > int(pageAll):
+        pageNum = pageAll
+        self.__model.valueList['PAGENUM'][1] = pageAll
+      
+      #-- 値取得クエリ
       self.__ssSql.searchSelectSql()
       self.__db.bindVal = self.__ssSql.bindVal
       self.__db.execute(self.__ssSql.sql,const.sel,const.fetchModeTwo)
       
-      # DB閉じる
+      #-- DB閉じる
       self.__db.dbClose()
       
       # 一覧表示用値整形
@@ -63,42 +72,43 @@ class searchListPost(View):
       self.__model.result = self.__db.result
       self.__model.viewListCreate()
       
-      # aタグ作成
+      #-- aタグ作成
       atag = ''
       startATag = ''
       endATag = ''
-      pageAll = math.ceil(int(pageFull)/const.intervalPageNum)
-      if pageAll == 0:
-        pageAll = 1
+
       
-      # aタグ制御
+      #-- aタグ制御
+      # 1ページ目処理
       if int(pageNum) == 1:
         startPos = 1
       else:
         startPos = int(pageNum) - 1
-        startATag = '<a href="#" class="pager" data-link="1" onClick="pager(1)" >&laquo;</a>'
+        startATag = '<a href="#" class="pager" data-link="1" onClick="pager(1,'')" >&laquo;</a>'
       
+      # 選択ページ=最終ページ
       if int(pageNum) == int(pageAll):
         endPos = int(pageAll) + 1
       elif const.intervalPageNum > int(pageAll):
         endPos = int(pageAll) + 1
-        endATag = '<a href="#" class="pager" data-link="' + str(pageAll) + '"  onClick="pager(' + str(pageAll) + ')" >&raquo;</a>'
+        endATag = '<a href="#" class="pager" data-link="' + str(pageAll) + '"  onClick="pager(' + str(pageAll) + ','')" >&raquo;</a>'
       else:
         endPos = int(pageAll) + 1
-        endATag = '<a href="#" class="pager" data-link="' + str(pageAll) + '" onClick="pager(' + str(pageAll) + ')" >&raquo;</a>'
+        endATag = '<a href="#" class="pager" data-link="' + str(pageAll) + '" onClick="pager(' + str(pageAll) + ','')" >&raquo;</a>'
       
-      # aタグ生成
+      #-- aタグ生成
       atag = startATag
       
+      # ページ作成
       for i in range(startPos,endPos):
         if int(pageNum) == i:
-          atag += '<a href="#" class="pager clicked" data-link="' + str(i) + '" onClick="pager(' + str(i) + ')" >' + str(i) + '</a>';
+          atag += '<a href="#" class="pager clicked" data-link="' + str(i) + '" onClick="pager(' + str(i) + ','')" >' + str(i) + '</a>';
         else:
-          atag += '<a href="#" class="pager" data-link="' + str(i) + '" onClick="pager(' + str(i) + ')" >' + str(i) + '</a>';
+          atag += '<a href="#" class="pager" data-link="' + str(i) + '" onClick="pager(' + str(i) + ','')" >' + str(i) + '</a>';
       
       atag += endATag
 
-      # 一覧作成
+      #-- 一覧作成
       tag = '<table>'
       
       tag += '<tr>'
@@ -109,7 +119,7 @@ class searchListPost(View):
       tag += '  <th class="bikoHeader">備考</th>'
       tag += '  <th class="detailedConfirmHeader"></th>'
       tag += '</tr>'
-      
+
       for row in self.__model.dateRow:
         tag += '    <tr>'
         tag += '      <td>' + str(self.__model.dateRow[row]["PART"]) + '</td>'

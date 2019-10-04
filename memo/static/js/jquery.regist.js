@@ -15,9 +15,8 @@ $(document).ready(function(){
   <!--検索画面へ戻る-->
   $('.searchReturn').on('click', function(){
     var url = "/memo/memoSearch/";
-    var urlParam = $(location).attr('search');
-    pageNum = urlParam.split('=')[1];
-    window.location.href=url;
+    $('form').attr('action', url);
+    $('form').submit();
     return false;
   });
 });

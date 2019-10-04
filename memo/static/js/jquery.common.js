@@ -56,6 +56,7 @@ $(document).ready(function(){
   <!--ログイン画面へ戻る-->
   $('.loginReturn').on('click', function(){
     var url = "/memo/logout/";
+    url = url + "?status=" + 'normal';
     $('form').attr('action', url);
     $('form').submit();
     return false;
@@ -98,4 +99,33 @@ function ajaxPost(url,postData,listErea,atagErea,mesErea){
         alert("XMLHttpRequest : " + XMLHttpRequest.status + "/" + "errorThrown    : " + errorThrown.message );
       },
     });
+}
+
+// undefinedCheck用関数
+function undefinedCheck(value){
+  var flg = false;
+  if(typeof value === "undefined"){
+    flg = true;
+  }
+  return flg;
+}
+
+// 現在日時取得関数
+function getDate(interval){
+  // 日付取得
+  var today = new Date();
+  var year = today.getFullYear() - interval;
+  var month = today.getMonth() + 1;
+  var day = today.getDate();
+  var hour = today.getHours();
+  var sec = today.getSeconds();
+  var min = today.getMilliseconds();
+  date = year + "-" + zeroPadding(month,2) + "-" + zeroPadding(day,2);
+  hours = hour + ":" + sec + ":" + min;
+  return date;
+}
+
+// 0埋め関数
+function zeroPadding(num,length){
+    return ('0000000000' + num).slice(-length);
 }

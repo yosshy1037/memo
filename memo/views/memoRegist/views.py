@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
 import traceback
-from ...common import const,constDef,formValidateClass,sessionClass,commonFuncClass,exceptionClass,logClass
-from ...memoRegist import registForms
+from ...common import const,constDef,formValidateClass,sessionClass,commonFuncClass,exceptionClass,logClass,tempFileClass
+from ...memoRegist import registForms,registModel
+import json
 
 ## 登録画面
 class memoRegist(View):
@@ -10,10 +11,12 @@ class memoRegist(View):
   def __init__(self, **kwargs):
   
     # インスタンス用変数
+    self.__model = registModel.registModel()
     self.__ses = sessionClass.session()
     self.__com = commonFuncClass.commonFunc()
     self.__log = logClass.logger()
     self.__exc = exceptionClass.dispatchException()
+    self.__temp = tempFileClass.tempFile()
     self.errMes = {}
     self.__registForm = "";
     self.__css = 'regist.css'
@@ -38,7 +41,7 @@ class memoRegist(View):
       
       # フォーム生成
       self.__registForm = registForms.registForm(None);
-
+      
     except exceptionClass.OriginException as e:
       # Exception継承処理
       self.__com.postExceptDispos(e, self.__log, e, traceback.format_exc())
@@ -61,9 +64,22 @@ class memoRegist(View):
   def post(self, request, *args, **kwargs):
     
     try:
+    
+      # モデルセット
+      self.__model.request = request
+      self.__model.json = json
+    
+      # 値生成
+      self.__model.collumList = ['part','name','registStartDate','registEndDate','keyWord','pageNum']
+      self.__model.valueListCreate()
+    
       # フォーム生成
       self.__registForm = registForms.registForm(request.POST);
-
+      
+      # tempデータ書き込み
+      self.__temp.writeData = self.__model.valueList
+      self.__temp.tempFileCreate()
+      
     except exceptionClass.OriginException as e:
       # Exception継承処理
       self.__com.postExceptDispos(e, self.__log, e, traceback.format_exc())

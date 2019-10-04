@@ -43,7 +43,7 @@ class memoDetail(View):
       # フォーム生成
       self.__detailForm = detailForms.detailForm(None);
       
-      # DB取得処理
+      # フォーム値設定
       self.__initVal()
     
     except exceptionClass.OriginException as e:
@@ -78,7 +78,7 @@ class memoDetail(View):
       # フォーム生成
       self.__detailForm = detailForms.detailForm(request.POST);
     
-      # DB取得処理
+      # フォーム値設定
       self.__initVal()
     
     except exceptionClass.OriginException as e:
@@ -102,7 +102,7 @@ class memoDetail(View):
     }
     return render(request, self.__veiwUrl, d)
 
-  # DB初期値取得
+  # フォーム初期状態取得処理
   def __initVal(self):
     self.__db.dbConnection()
     self.__ddSql.detailNum = self.__ses.request.GET.get('detailNum')

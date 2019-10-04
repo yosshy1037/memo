@@ -65,7 +65,7 @@ class searchModel():
       elif col == "pageNum":
         type = 'int'
         init = 0
-        value = self.__postData[col]
+        value = int(self.__postData[col])
       else:
         value = self.__postData[col]
       self.__valueList[col.upper()] = [type,value]

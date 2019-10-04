@@ -1,0 +1,1274 @@
+2019-10-04 00:01:57,419 ERROR AttributeError | 存在しない属性を参照したエラー
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py", line 98, in post
+    self.__initVal()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py", line 133, in __initVal
+    self.__form.part.initial = self.__dict['PART'][1]
+AttributeError: 'searchForm' object has no attribute 'part'
+
+2019-10-04 00:02:04,446 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 00:02:47,974 INFO SELECT COUNT(LOGINUSER) OVER() CT,ROLE FROM memoLogin WHERE 1 = 1  and LOGINUSER = %s and pgp_sym_decrypt(LOGINPASSWORD, 'Yosshy3499') = %s ;
+2019-10-04 00:02:48,287 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 00:02:48,288 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:02:53,517 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 00:02:53,519 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:04:52,773 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 00:06:00,201 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 00:06:00,202 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:06:05,240 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 00:06:05,241 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:06:28,676 ERROR Internal Server Error: /memo/memoSearch/
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py", line 128, in post
+    return render(request, self.__veiwUrl, d)
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\template\loaders\base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\template\base.py", line 156, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\template\base.py", line 194, in compile_nodelist
+    return parser.parse()
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\template\loader_tags.py", line 266, in do_extends
+    nodelist = parser.parse()
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\template\loader_tags.py", line 209, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\template\base.py", line 449, in parse
+    raise self.error(token, e)
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\template\base.py", line 447, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\template\base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Work\python\pythonSource\djagoWork\project\env\lib\site-packages\django\template\base.py", line 663, in __init__
+    "from '%s'" % (token[upto:], token))
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '(form.part)' from 'print(form.part)'
+2019-10-04 00:07:06,514 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 00:07:10,167 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 00:07:10,168 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:07:13,985 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 00:07:13,986 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:07:38,110 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 00:07:38,111 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:07:45,539 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 00:08:27,658 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 00:08:27,659 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:08:30,369 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 00:08:30,370 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 5 limit 5;
+2019-10-04 00:08:32,851 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 00:08:32,852 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 5 limit 5;
+2019-10-04 00:08:39,428 INFO SELECT COUNT(LOGINUSER) OVER() CT,ROLE FROM memoLogin WHERE 1 = 1  and LOGINUSER = %s and pgp_sym_decrypt(LOGINPASSWORD, 'Yosshy3499') = %s ;
+2019-10-04 00:08:39,741 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 00:08:39,741 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:08:45,336 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 00:08:45,337 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:08:53,240 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 00:09:56,895 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 00:09:56,896 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:11:02,933 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 00:11:06,793 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 00:11:06,795 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:11:09,737 ERROR AttributeError | 存在しない属性を参照したエラー
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py", line 98, in post
+    self.__initVal()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py", line 132, in __initVal
+    print(self.__form.fields['part'].values())
+AttributeError: 'CharField' object has no attribute 'values'
+
+2019-10-04 00:14:06,823 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 00:14:12,112 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1 ;
+2019-10-04 00:14:12,112 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:14:15,424 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1 ;
+2019-10-04 00:14:15,426 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:14:24,798 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 70, in valueListCreate
+    value = self.__postData[col]
+KeyError: 'part'
+
+2019-10-04 00:14:26,727 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND NAME = %s;
+2019-10-04 00:14:26,727 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND NAME = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:14:29,345 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND NAME = %s;
+2019-10-04 00:14:29,345 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND NAME = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:16:01,753 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 00:16:04,860 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1 ;
+2019-10-04 00:16:04,860 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:16:07,443 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1 ;
+2019-10-04 00:16:07,443 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:16:14,379 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s;
+2019-10-04 00:16:14,379 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s ORDER BY ID ASC offset 5 limit 5;
+2019-10-04 00:16:15,542 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s;
+2019-10-04 00:16:15,542 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:16:18,626 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s;
+2019-10-04 00:16:18,626 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:17:48,208 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 00:17:53,378 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1 ;
+2019-10-04 00:17:53,378 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:17:57,593 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s;
+2019-10-04 00:17:57,593 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:18:30,085 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s;
+2019-10-04 00:18:30,085 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:18:32,371 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s;
+2019-10-04 00:18:32,371 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:18:53,594 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 00:18:59,166 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s;
+2019-10-04 00:18:59,182 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:19:01,569 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s;
+2019-10-04 00:19:01,570 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 00:20:26,352 INFO C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchForms.py changed, reloading.
+2019-10-04 12:31:58,489 WARNING Not Found: /favicon.ico
+2019-10-04 12:32:02,499 INFO SELECT COUNT(LOGINUSER) OVER() CT,ROLE FROM memoLogin WHERE 1 = 1  and LOGINUSER = %s and pgp_sym_decrypt(LOGINPASSWORD, 'Yosshy3499') = %s ;
+2019-10-04 12:32:02,972 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:32:02,974 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:32:06,253 ERROR AttributeError | 存在しない属性を参照したエラー
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py", line 93, in post
+    val = super().get_context_data(**kwargs)
+AttributeError: 'super' object has no attribute 'get_context_data'
+
+2019-10-04 12:32:43,550 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 12:32:54,218 INFO SELECT COUNT(LOGINUSER) OVER() CT,ROLE FROM memoLogin WHERE 1 = 1  and LOGINUSER = %s and pgp_sym_decrypt(LOGINPASSWORD, 'Yosshy3499') = %s ;
+2019-10-04 12:32:54,555 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:32:54,555 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:32:57,071 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:32:57,071 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:33:07,301 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:33:07,333 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:33:25,151 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 12:33:33,110 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:33:33,110 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:33:49,801 INFO SELECT COUNT(LOGINUSER) OVER() CT,ROLE FROM memoLogin WHERE 1 = 1  and LOGINUSER = %s and pgp_sym_decrypt(LOGINPASSWORD, 'Yosshy3499') = %s ;
+2019-10-04 12:33:50,139 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:33:50,140 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:33:52,495 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:33:52,495 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:35:41,489 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 12:36:17,497 ERROR TypeError | データ型誤りエラー
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py", line 98, in post
+    self.__initVal()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py", line 133, in __initVal
+    searchForms(initial = {'part': self.__dict['PART'][1]})
+TypeError: 'module' object is not callable
+
+2019-10-04 12:36:46,721 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 12:36:54,500 INFO SELECT COUNT(LOGINUSER) OVER() CT,ROLE FROM memoLogin WHERE 1 = 1  and LOGINUSER = %s and pgp_sym_decrypt(LOGINPASSWORD, 'Yosshy3499') = %s ;
+2019-10-04 12:36:54,858 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:36:54,858 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:36:57,465 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:36:57,465 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:37:20,236 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 12:37:27,160 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:37:27,160 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:37:29,395 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:37:29,395 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:37:30,334 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:37:30,334 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:37:30,893 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:37:30,894 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:37:33,659 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:37:33,659 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:37:34,271 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:37:34,271 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:37:34,726 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:37:34,726 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:37:36,480 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:37:36,481 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:37:38,189 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:37:38,190 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:37:40,033 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:37:40,034 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:37:41,675 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE FROM memo WHERE ID = 51
+2019-10-04 12:37:42,038 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:37:42,039 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:37:43,225 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:37:43,227 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:37:53,753 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE FROM memo WHERE ID = 50
+2019-10-04 12:37:54,035 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:37:54,036 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:37:55,767 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:37:55,768 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:38:07,570 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:38:07,570 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:40:15,211 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 12:41:27,653 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:41:27,654 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:41:29,908 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:41:29,909 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:41:42,043 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:41:42,044 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:41:44,028 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:41:44,029 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:45:28,091 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 12:45:31,560 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:45:31,561 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:45:34,951 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:45:34,953 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:49:08,025 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:49:08,026 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:47:31,036 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 12:49:44,190 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:49:44,205 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:49:47,217 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:49:47,218 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:50:03,522 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 12:50:07,962 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:50:07,963 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:50:34,539 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 12:50:43,898 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:50:43,899 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:50:46,117 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py", line 98, in post
+    self.__initVal()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py", line 132, in __initVal
+    self.__form.fields['registPart'].initial = self.__dict['PART'][1]
+KeyError: 'registPart'
+
+2019-10-04 12:51:58,549 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 12:52:19,238 INFO SELECT COUNT(LOGINUSER) OVER() CT,ROLE FROM memoLogin WHERE 1 = 1  and LOGINUSER = %s and pgp_sym_decrypt(LOGINPASSWORD, 'Yosshy3499') = %s ;
+2019-10-04 12:52:22,196 INFO SELECT COUNT(LOGINUSER) OVER() CT,ROLE FROM memoLogin WHERE 1 = 1  and LOGINUSER = %s and pgp_sym_decrypt(LOGINPASSWORD, 'Yosshy3499') = %s ;
+2019-10-04 12:52:22,525 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:52:22,526 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:52:27,432 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:52:27,433 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:52:52,114 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 12:53:00,136 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:53:00,137 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:53:11,594 INFO C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchForms.py changed, reloading.
+2019-10-04 12:53:15,047 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:53:15,048 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:53:17,236 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:53:17,238 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:54:32,859 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 12:54:35,836 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:54:35,837 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:55:53,944 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 12:55:57,437 ERROR AttributeError | 存在しない属性を参照したエラー
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py", line 91, in post
+    self.__form.fields['part'].initial = 'test'
+AttributeError: 'str' object has no attribute 'fields'
+
+2019-10-04 12:56:15,824 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 12:56:30,487 INFO SELECT COUNT(LOGINUSER) OVER() CT,ROLE FROM memoLogin WHERE 1 = 1  and LOGINUSER = %s and pgp_sym_decrypt(LOGINPASSWORD, 'Yosshy3499') = %s ;
+2019-10-04 12:56:30,802 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:56:30,803 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:56:36,372 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:56:36,373 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:56:52,264 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:56:52,265 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:57:09,683 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 12:57:22,609 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:57:22,610 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:57:24,210 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:57:24,212 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:57:25,205 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:57:25,206 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:57:36,858 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 12:57:36,859 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 12:58:17,280 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 13:07:07,746 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:07:07,747 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:07:09,838 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:07:09,838 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:07:40,076 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 13:08:05,849 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:08:05,850 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:08:47,890 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 13:08:50,951 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:08:50,952 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:09:02,922 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:09:02,923 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:09:09,855 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:09:09,855 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:09:44,094 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:09:44,095 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:10:39,889 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 13:11:51,908 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:11:51,908 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:11:54,108 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:11:54,109 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:11:54,696 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:11:54,697 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:11:55,154 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:11:55,154 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:12:29,616 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 13:17:41,911 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:17:41,912 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:17:44,609 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:17:44,610 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:17:46,493 ERROR TypeError | データ型誤りエラー
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py", line 106, in post
+    self.__initVal()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py", line 141, in __initVal
+    if 'registPart' in self.__ses.request.POST & 'registName' in self.__ses.request.POST:
+TypeError: unsupported operand type(s) for &: 'QueryDict' and 'str'
+
+2019-10-04 13:18:18,976 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 13:18:26,565 INFO SELECT COUNT(LOGINUSER) OVER() CT,ROLE FROM memoLogin WHERE 1 = 1  and LOGINUSER = %s and pgp_sym_decrypt(LOGINPASSWORD, 'Yosshy3499') = %s ;
+2019-10-04 13:18:26,877 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:18:26,877 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:18:31,356 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:18:31,356 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:18:45,961 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:18:45,962 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:18:48,939 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:18:48,940 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:18:51,150 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:18:51,151 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:18:52,359 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:18:52,360 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 5 limit 5;
+2019-10-04 13:18:56,317 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:18:56,318 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:19:05,628 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:19:05,629 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:19:06,837 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:19:06,838 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 5 limit 5;
+2019-10-04 13:19:08,728 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:19:08,729 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 5 limit 5;
+2019-10-04 13:19:35,964 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 13:21:25,185 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:21:25,186 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:21:27,397 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:21:27,398 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:21:54,735 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 13:21:57,586 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:21:57,587 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:22:11,726 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 13:22:13,428 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:22:13,429 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:22:17,103 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:22:17,105 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:22:43,627 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 13:28:56,638 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:28:56,639 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:28:59,053 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:28:59,054 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:29:03,731 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:29:03,732 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:29:09,749 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:29:09,750 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:30:09,085 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 13:30:40,397 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:30:40,398 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:30:44,693 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:30:44,694 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:30:56,779 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:30:56,780 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:31:46,057 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE FROM memo WHERE ID = 50
+2019-10-04 13:31:47,032 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:31:47,034 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:31:48,234 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:31:48,235 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:31:50,862 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:31:50,863 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:39:57,391 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:39:57,392 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:41:33,902 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:41:33,903 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:41:34,900 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:41:34,901 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:41:35,682 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:41:35,683 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:41:36,367 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:41:36,367 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:41:55,425 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:41:55,427 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:41:59,054 WARNING Not Found: /favicon.ico
+2019-10-04 13:41:59,184 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:41:59,185 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:01,316 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:01,317 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:01,482 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:01,483 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:02,225 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:02,226 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:02,365 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:02,366 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:03,008 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:03,010 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:03,182 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:03,183 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:03,863 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:03,865 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:04,006 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:04,006 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:17,124 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:17,126 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:17,306 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:17,307 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:17,882 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:17,883 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:18,013 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:18,014 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:18,683 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:18,684 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:19,335 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:19,337 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:19,473 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:19,474 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:20,751 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:20,752 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:21,938 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:21,940 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:23,246 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:23,249 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:23,366 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:23,367 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:37,157 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:37,158 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:38,032 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:38,033 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:38,994 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:38,995 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:40,912 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:40,913 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:43,347 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:43,348 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:44,731 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:44,731 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:50,477 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:50,478 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:53,409 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:53,410 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:42:55,011 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:42:55,012 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:43:08,531 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:43:08,532 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:43:11,517 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:43:11,517 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:43:12,575 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:43:12,576 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:43:20,891 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:43:20,892 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:43:55,085 WARNING Not Found: /favicon.ico
+2019-10-04 13:43:55,217 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:43:55,218 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:43:57,166 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:43:57,167 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:43:58,123 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:43:58,124 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 5 limit 5;
+2019-10-04 13:43:58,963 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:43:58,964 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 5 limit 5;
+2019-10-04 13:44:00,635 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:44:00,636 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:44:08,559 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:44:08,560 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:44:13,266 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:44:13,267 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:54:41,759 WARNING Not Found: /favicon.ico
+2019-10-04 13:54:41,902 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:54:41,903 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:54:44,828 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:54:44,829 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:54:47,044 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:54:47,045 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:54:50,223 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:54:50,224 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:54:51,177 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:54:51,178 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:54:52,148 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:54:52,149 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:55:11,585 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:55:11,587 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:55:12,757 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:55:12,758 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:55:13,478 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:55:13,479 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:55:14,242 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:55:14,243 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:55:14,809 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:55:14,810 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:55:15,364 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:55:15,365 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:55:16,113 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:55:16,115 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:55:16,836 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:55:16,838 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:55:18,240 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:55:18,242 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:55:19,010 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:55:19,011 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:55:54,350 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:55:54,351 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:55:55,995 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:55:55,996 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:55:58,154 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:55:58,155 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 5 limit 5;
+2019-10-04 13:56:02,523 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:56:02,524 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:56:30,501 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:56:30,502 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:56:34,795 WARNING Not Found: /favicon.ico
+2019-10-04 13:56:34,941 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:56:34,943 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:56:37,462 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:56:37,463 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:57:12,862 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:57:12,863 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:57:14,454 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:57:14,455 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:57:15,274 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:57:15,275 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:57:19,412 WARNING Not Found: /favicon.ico
+2019-10-04 13:57:19,569 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:57:19,570 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:57:22,116 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:57:22,117 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:57:22,867 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:57:22,868 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:57:25,240 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:57:25,241 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:57:26,050 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:57:26,051 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:57:31,143 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:57:31,144 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND NAME = %s AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:57:34,683 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:57:34,684 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:57:36,663 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:57:36,665 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:57:38,228 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:57:38,230 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:57:41,108 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:57:41,109 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:58:22,214 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:58:22,215 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:58:23,781 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:58:23,782 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:58:24,578 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:58:24,579 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:58:27,987 WARNING Not Found: /favicon.ico
+2019-10-04 13:58:28,117 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:58:28,118 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:58:29,901 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:58:29,901 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:58:39,171 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:58:39,172 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:58:39,833 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:58:39,834 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:58:40,690 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:58:40,691 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:58:44,889 WARNING Not Found: /favicon.ico
+2019-10-04 13:58:45,052 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:58:45,054 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:58:46,880 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:58:46,880 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:58:57,514 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:58:57,515 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:58:59,376 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:58:59,377 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:59:10,977 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:59:10,978 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 13:59:11,783 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 13:59:11,784 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:01:17,846 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:01:17,847 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:01:18,611 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:01:18,612 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:01:21,144 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:01:21,145 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:01:36,866 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:01:36,867 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:01:40,745 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:01:40,746 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:02:19,822 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:02:19,823 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:02:21,078 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:02:21,078 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:04:01,396 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:04:01,399 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:04:03,340 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:04:03,341 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:04:07,285 WARNING Not Found: /favicon.ico
+2019-10-04 14:04:07,417 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:04:07,419 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:04:09,420 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:04:09,421 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:06:27,254 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:06:27,255 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:06:28,050 ERROR psycopg2.Error occurred:"2019"またはその近辺で構文エラー
+LINE 1: ...OM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(''2019-10-04...
+                                                             ^
+
+2019-10-04 14:06:28,050 ERROR psycopg2.Error occurred:no results to fetch
+2019-10-04 14:06:28,050 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date('%s 00:00:00','YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date('%s 00:00:00','YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:06:28,050 ERROR TypeError | データ型誤りエラー
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 48, in post
+    pageFull = self.__db.result[0]
+TypeError: 'NoneType' object is not subscriptable
+
+2019-10-04 14:07:28,214 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:07:28,215 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:07:28,878 ERROR psycopg2.Error occurred:"2017"またはその近辺で構文エラー
+LINE 1: ...OM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(''2017-10-04...
+                                                             ^
+
+2019-10-04 14:07:28,878 ERROR psycopg2.Error occurred:no results to fetch
+2019-10-04 14:07:28,878 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date('%s 00:00:00','YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date('%s 00:00:00','YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:07:28,879 ERROR TypeError | データ型誤りエラー
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 48, in post
+    pageFull = self.__db.result[0]
+TypeError: 'NoneType' object is not subscriptable
+
+2019-10-04 14:07:32,967 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:07:46,703 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:07:48,902 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:07:53,958 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:09:06,935 INFO C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchDb.py changed, reloading.
+2019-10-04 14:09:10,263 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:09:17,286 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:09:17,686 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:09:18,126 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:09:18,622 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:09:20,279 ERROR psycopg2.Error occurred:"2017"またはその近辺で構文エラー
+LINE 1: ...OM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(''2017-10-04...
+                                                             ^
+
+2019-10-04 14:09:20,279 ERROR psycopg2.Error occurred:no results to fetch
+2019-10-04 14:09:20,279 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date('%s 00:00:00','YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date('%s 00:00:00','YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:09:20,281 ERROR TypeError | データ型誤りエラー
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 48, in post
+    pageFull = self.__db.result[0]
+TypeError: 'NoneType' object is not subscriptable
+
+2019-10-04 14:09:20,775 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:09:47,409 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:09:51,038 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:09:51,375 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:09:57,167 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:09:58,167 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:10:00,710 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:10:00,711 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:10:00,713 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:10:00,826 ERROR psycopg2.Error occurred:"2017"またはその近辺で構文エラー
+LINE 1: ...OM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(''2017-10-04...
+                                                             ^
+
+2019-10-04 14:10:00,826 ERROR psycopg2.Error occurred:no results to fetch
+2019-10-04 14:10:00,826 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date('%s 00:00:00','YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date('%s 00:00:00','YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:10:00,827 ERROR TypeError | データ型誤りエラー
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 48, in post
+    pageFull = self.__db.result[0]
+TypeError: 'NoneType' object is not subscriptable
+
+2019-10-04 14:10:16,300 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:10:39,740 INFO C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchDb.py changed, reloading.
+2019-10-04 14:10:42,779 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:10:44,935 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:10:45,102 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:10:45,294 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:10:45,478 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:10:45,679 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:10:47,622 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:10:51,158 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:10:52,860 ERROR psycopg2.Error occurred:"2017"またはその近辺で構文エラー
+LINE 1: ...OM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(''2017-10-04...
+                                                             ^
+
+2019-10-04 14:10:52,860 ERROR psycopg2.Error occurred:no results to fetch
+2019-10-04 14:10:52,860 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date('%s 00:00:00','YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date('%s 00:00:00','YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:10:52,860 ERROR TypeError | データ型誤りエラー
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 48, in post
+    pageFull = self.__db.result[0]
+TypeError: 'NoneType' object is not subscriptable
+
+2019-10-04 14:10:53,358 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:12:08,861 INFO C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchDb.py changed, reloading.
+2019-10-04 14:12:37,628 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:12:40,518 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:12:42,025 ERROR psycopg2.Error occurred:"2017"またはその近辺で構文エラー
+LINE 1: ...OM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(''2017-10-04...
+                                                             ^
+
+2019-10-04 14:12:42,025 ERROR psycopg2.Error occurred:no results to fetch
+2019-10-04 14:12:42,025 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date('%s 00:00:00','YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date('%s 00:00:00','YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:12:42,026 ERROR TypeError | データ型誤りエラー
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 48, in post
+    pageFull = self.__db.result[0]
+TypeError: 'NoneType' object is not subscriptable
+
+2019-10-04 14:12:44,447 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:13:14,143 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:13:17,245 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:13:22,836 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:13:23,638 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:13:23,870 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:15:09,759 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:15:23,875 INFO C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchDb.py changed, reloading.
+2019-10-04 14:15:37,084 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 69, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:16:44,705 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:16:44,705 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:16:48,190 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:16:48,190 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:16:50,261 ERROR psycopg2.Error occurred:"2017"またはその近辺で構文エラー
+LINE 1: ...OM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(''2017-10-04...
+                                                             ^
+
+2019-10-04 14:16:50,261 ERROR psycopg2.Error occurred:no results to fetch
+2019-10-04 14:16:50,261 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date('%s 00:00:00','YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date('%s 00:00:00','YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:16:50,262 ERROR TypeError | データ型誤りエラー
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 48, in post
+    pageFull = self.__db.result[0]
+TypeError: 'NoneType' object is not subscriptable
+
+2019-10-04 14:16:52,967 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 69, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:17:05,403 INFO C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py changed, reloading.
+2019-10-04 14:17:18,024 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:17:18,025 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:17:20,467 ERROR psycopg2.Error occurred:"2017"またはその近辺で構文エラー
+LINE 1: ...OM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(''2017-10-04...
+                                                             ^
+
+2019-10-04 14:17:20,467 ERROR psycopg2.Error occurred:no results to fetch
+2019-10-04 14:17:20,467 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date('%s 00:00:00','YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date('%s 00:00:00','YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:17:20,468 ERROR TypeError | データ型誤りエラー
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 48, in post
+    pageFull = self.__db.result[0]
+TypeError: 'NoneType' object is not subscriptable
+
+2019-10-04 14:18:44,327 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py changed, reloading.
+2019-10-04 14:18:56,829 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:19:10,717 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:19:10,717 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:19:12,652 ERROR psycopg2.Error occurred:"2017"またはその近辺で構文エラー
+LINE 1: ...OM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(''2017-10-04...
+                                                             ^
+
+2019-10-04 14:19:12,652 ERROR psycopg2.Error occurred:no results to fetch
+2019-10-04 14:19:12,652 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date('%s 00:00:00','YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date('%s 00:00:00','YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:19:12,653 ERROR TypeError | データ型誤りエラー
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 50, in post
+    pageFull = self.__db.result[0]
+TypeError: 'NoneType' object is not subscriptable
+
+2019-10-04 14:22:37,965 INFO C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchDb.py changed, reloading.
+2019-10-04 14:23:09,581 ERROR KeyError | KeyError
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py", line 33, in post
+    self.__model.valueListCreate()
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\memoSearch\searchModel.py", line 68, in valueListCreate
+    value = int(self.__postData[col])
+KeyError: 'pageNum'
+
+2019-10-04 14:23:20,132 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:23:20,132 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:23:22,405 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:23:22,406 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:23:23,969 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:23:23,970 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:23:26,060 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:23:26,061 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:23:28,965 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND NAME = %s AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:23:28,966 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND NAME = %s AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:23:32,038 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:23:32,039 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:23:32,709 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:23:32,710 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:23:40,566 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:23:40,567 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:23:52,067 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\viewsSearchPost.py changed, reloading.
+2019-10-04 14:23:54,919 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:23:54,920 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:23:55,762 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:23:55,763 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:23:59,932 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:23:59,933 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:24:01,203 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:24:01,204 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:24:08,601 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:24:08,602 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:24:11,963 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE FROM memo WHERE ID = 50
+2019-10-04 14:24:13,032 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:24:13,033 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:24:14,312 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:24:14,313 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:24:40,466 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:24:40,467 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 5 limit 5;
+2019-10-04 14:24:44,085 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:24:44,086 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 5 limit 5;
+2019-10-04 14:24:49,809 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:24:49,810 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:27:53,614 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 14:27:55,947 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:27:55,949 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:27:57,458 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:27:57,459 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:27:58,658 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:27:58,659 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:28:00,740 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:28:00,741 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:28:02,890 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:28:02,891 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:29:04,513 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 14:29:30,894 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:29:30,895 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:29:39,925 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 14:29:42,314 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:29:42,315 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:29:50,157 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 14:29:58,165 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:29:58,166 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND NAME = %s AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:30:09,475 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 14:30:12,768 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:30:12,769 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:32:11,346 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 14:35:45,527 ERROR TypeError | データ型誤りエラー
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py", line 95, in post
+    self.__initVal('search')
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py", line 149, in __initVal
+    retentionPeriodNow = datetime.now() - timedelta(year=2)
+TypeError: 'year' is an invalid keyword argument for __new__()
+
+2019-10-04 14:36:35,760 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 14:41:54,145 INFO SELECT COUNT(LOGINUSER) OVER() CT,ROLE FROM memoLogin WHERE 1 = 1  and LOGINUSER = %s and pgp_sym_decrypt(LOGINPASSWORD, 'Yosshy3499') = %s ;
+2019-10-04 14:41:54,472 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:41:54,473 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:42:00,175 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:42:00,176 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:43:01,501 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 14:43:14,930 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:43:14,930 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:43:20,334 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:43:20,335 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:43:32,103 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 14:43:44,295 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:43:44,296 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:43:47,868 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:43:47,869 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:43:50,273 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:43:50,274 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:43:51,572 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:43:51,573 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:43:52,377 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:43:52,378 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:43:55,799 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:43:55,800 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:43:56,947 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:43:56,948 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:44:29,772 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 14:44:44,525 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:44:44,526 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:44:45,231 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:44:45,232 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:44:46,056 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:44:46,057 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:44:59,246 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 14:45:05,934 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:45:05,950 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:45:18,458 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 14:45:27,620 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:45:27,621 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:45:33,883 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 14:46:03,176 ERROR NameError | 存在しない名前を参照したエラー
+Traceback (most recent call last):
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py", line 49, in get
+    self.__initVal('search')
+  File "C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py", line 153, in __initVal
+    retentionPeriodNow = datetime.today() - relativedelta(year)
+NameError: name 'year' is not defined
+
+2019-10-04 14:47:19,323 INFO C:\Work\python\pythonSource\djagoWork\project\memo\views\memoSearch\views.py changed, reloading.
+2019-10-04 14:47:27,507 INFO SELECT COUNT(LOGINUSER) OVER() CT,ROLE FROM memoLogin WHERE 1 = 1  and LOGINUSER = %s and pgp_sym_decrypt(LOGINPASSWORD, 'Yosshy3499') = %s ;
+2019-10-04 14:47:27,839 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:47:27,855 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:47:31,980 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:47:31,981 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:47:33,738 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:47:33,739 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 5 limit 5;
+2019-10-04 14:47:34,699 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:47:34,700 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 5 limit 5;
+2019-10-04 14:47:36,152 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:47:36,154 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:47:38,698 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:47:38,699 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND ( PART LIKE %s OR NAME LIKE %s OR CONTENTS LIKE %s OR BIKO LIKE %s ) AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:47:40,004 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:47:40,004 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:47:42,553 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:47:42,554 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:47:43,437 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:47:43,437 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:47:46,003 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:47:46,004 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND PART = %s AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:47:46,855 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:47:46,856 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:48:16,316 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:48:16,317 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:48:19,373 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:48:19,374 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 10 limit 5;
+2019-10-04 14:48:21,805 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:48:21,806 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 10 limit 5;
+2019-10-04 14:48:23,280 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:48:23,281 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 10 limit 5;
+2019-10-04 14:48:24,728 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:48:24,728 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:50:44,958 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:50:44,959 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:50:45,852 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:50:45,853 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:50:46,426 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:50:46,426 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:50:46,542 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:50:46,542 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:50:46,683 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:50:46,684 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:50:47,165 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:50:47,166 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 5 limit 5;
+2019-10-04 14:50:48,309 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:50:48,311 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 10 limit 5;
+2019-10-04 14:50:55,405 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:50:55,405 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 10 limit 5;
+2019-10-04 14:51:04,082 INFO INSERT INTO memo (PART,NAME,CONTENTS,BIKO,REGIST_DATE,REGIST_NAME,UPDATE_DATE,UPDATE_NAME,DELETE_DATE,DELETE_NAME,DELETE_FLG) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);
+2019-10-04 14:51:05,141 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:51:05,142 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 10 limit 5;
+2019-10-04 14:51:07,852 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:51:07,852 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:51:09,238 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:51:09,240 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 10 limit 5;
+2019-10-04 14:51:12,486 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE FROM memo WHERE ID = 69
+2019-10-04 14:51:13,041 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:51:13,042 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:51:14,182 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:51:14,183 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 10 limit 5;
+2019-10-04 14:51:15,600 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:51:15,600 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:51:18,973 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:51:18,974 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 5 limit 5;
+2019-10-04 14:51:21,275 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:51:21,276 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 10 limit 5;
+2019-10-04 14:51:24,432 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE FROM memo WHERE ID = 69
+2019-10-04 14:51:25,039 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:51:25,041 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:51:28,047 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:51:28,048 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 10 limit 5;
+2019-10-04 14:51:29,458 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE FROM memo WHERE ID = 69
+2019-10-04 14:51:30,036 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:51:30,037 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:51:31,801 INFO UPDATE memo SET PART = %s,NAME = %s,CONTENTS = %s,BIKO = %s,UPDATE_DATE = %s,UPDATE_NAME = %s WHERE 1 = 1  AND DELETE_FLG = %s AND ID = %s;
+2019-10-04 14:51:32,577 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:51:32,578 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 10 limit 5;
+2019-10-04 14:51:34,721 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:51:34,721 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;
+2019-10-04 14:51:36,157 INFO SELECT COUNT(*) AS FULLCT FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s;
+2019-10-04 14:51:36,158 INFO SELECT ID,PART,NAME,CONTENTS,BIKO,REGIST_DATE,DELETE_DATE FROM memo WHERE 1 = 1  AND REGIST_DATE >= to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_DATE < to_date(%s,'YYYY-MM-DD HH24:MI:SS') AND REGIST_NAME = %s AND DELETE_FLG = %s ORDER BY ID ASC offset 0 limit 5;

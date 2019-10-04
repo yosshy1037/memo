@@ -1,6 +1,6 @@
 from . import const,constDef,constTest
 from selenium import webdriver
-import os,time,re
+import os,time,re,subprocess
 
 ## テスト実施クラス
 class unitTest():
@@ -44,7 +44,9 @@ class unitTest():
     # URLチェック
     if re.search("memoSearch\/", self.__chromeBrowser.current_url) != None:
       self.__testSuccessStatus = True
-    print(self.__testSuccessStatus)
+    
+    # スナップショット取得
+    self.__screenShotFull(self.__chromeBrowser, 'C:\Work\python\chapt')
     
     # 時間待ち
     time.sleep(5)
@@ -64,3 +66,28 @@ class unitTest():
   @request.setter
   def request(self,request):
     self.__request = request
+  
+  # スクリーンショット取得関数
+  def __screenShotFull(self, driver, filename, timeout=30):
+    '''フルページ スクリーンショット'''
+    # url取得
+    url = driver.current_url
+    
+    # ページサイズ取得
+    w = driver.execute_script("return document.body.scrollWidth;")
+    h = driver.execute_script("return document.body.scrollHeight;")
+    
+    # コマンド作成
+    cmd = 'gtimeout ' + str(timeout)  \
+        + ' "/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"' \
+        + ' --headless' \
+        + ' --hide-scrollbars' \
+        + ' --incognito' \
+        + ' --screenshot=' + filename + '.png' \
+        + ' --window-size=' + str(w) + ',' + str(h) \
+        + ' ' + url
+    
+    # コマンド実行
+    subprocess.Popen(cmd, shell=True,
+                     stdout=subprocess.PIPE,
+                     stderr=subprocess.STDOUT)
