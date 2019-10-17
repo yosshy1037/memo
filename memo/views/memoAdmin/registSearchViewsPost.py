@@ -88,18 +88,18 @@ class adRegistSearchViewsPost(View):
           
         # 削除処理
         elif postData['status'] == 'delete':
-        
           # 値生成
-          self.__model.collumList = ['loginUserId','id']
+          if postData['loginUserId'] != '':
+            self.__model.collumList = ['loginUserId','id']
+          else:
+            self.__model.collumList = ['id']
           self.__model.valueListCreate()
           
-          # TODO : 削除クエリを設定する
-          # TODO : 削除クエリを設定する
           # 削除実行
           self.__arcSql.valueList = self.__model.valueList
-          self.__arcSql.registUpdateSql()
+          self.__arcSql.registDeleteSql()
           self.__db.bindVal = self.__arcSql.bindVal
-          self.__db.execute(self.__arcSql.sql,const.upd,'')
+          self.__db.execute(self.__arcSql.sql,const.ins,'')
           self.__proc = '削除処理'
         
         # コミット

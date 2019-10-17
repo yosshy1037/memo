@@ -46,6 +46,7 @@ function registIdDelete(id){
     postData['status'] = 'delete';
     postData['id'] = id
     postData['loginUserId'] = $('input[name="loginUserId"]').val();
+    postData['registId'] = $('input[name="registId"]').val();
     
     ajaxPost(url,postData,listErea,atagErea,mesErea);
     return false;

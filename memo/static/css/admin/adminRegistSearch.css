@@ -99,12 +99,12 @@
   padding:2px;
 }
 #resultErea table input.registIdRegist{
-  width:20%;
+  width:25%;
   border-radius: 3px 3px 3px 3px;
   border: 1px solid #ccc;
 }
 input.registIdUpdate,input.registIdDelete{
-  width:20%;
+  width:25%;
   border-radius: 3px 3px 3px 3px;
   border: 1px solid #ccc;
 }
