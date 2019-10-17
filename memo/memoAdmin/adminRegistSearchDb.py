@@ -123,6 +123,28 @@ class registConnectSql():
     
     self.__sql += ") VALUES (" + value + ");"
     
+  # 削除クエリ
+  def registDeleteSql(self):
+    self.__where = " WHERE 1 = 1 "
+    self.__bindVal = []
+    self.__bindWhereVal = []
+    self.__sql =  "DELETE FROM memoRegistUser "
+    
+    # ループして取得
+    ct = 0
+    for colName in self.__valueList:
+      if colName == 'ID':
+        # 条件生成
+        self.__bindWhereVal += [int(self.__valueList[colName][1])]
+        self.__where += " AND " + str(colName) + " = %s"
+      if colName == 'LOGINUSERID':
+        # 条件生成
+        self.__bindWhereVal += [str(self.__valueList[colName][1])]
+        self.__where += " AND " + str(colName) + " = %s"
+    self.__bindVal += self.__bindWhereVal
+    
+    self.__sql +=  self.__where + ";"
+    
   @property
   def valueList(self):
     return self.__valueList

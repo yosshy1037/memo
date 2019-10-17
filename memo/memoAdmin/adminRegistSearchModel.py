@@ -54,6 +54,9 @@ class registSearchModel():
       elif col == "id":
         type = 'int'
         value = str(self.__postData[col])
+      elif col == "loginUserId":
+        type = 'str'
+        value = str(self.__postData[col])
       else:
         value = str(self.__postData[col])
       self.__valueList[col.upper()] = [type,value]
