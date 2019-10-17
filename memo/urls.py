@@ -13,6 +13,8 @@ from .views.memoAdmin.loginViews import loginView
 from .views.memoAdmin.menuViews import menuView
 from .views.memoAdmin.searchViews import searchView
 from .views.memoAdmin.searchViewsPost import adSearchListPost
+from .views.memoAdmin.registSearchViews import registSearchView
+from .views.memoAdmin.registSearchViewsPost import adRegistSearchViewsPost
 
 urlpatterns = [
     url(r'^$', memoLogin.as_view(), name='memo'),
@@ -29,4 +31,6 @@ urlpatterns = [
     url(r'^memoAdMenu/$', menuView.as_view(), name='adMenuView'),
     url(r'^memoAdSearch/$', searchView.as_view(), name='adSsearchView'),
     url(r'^memoAdList/$', adSearchListPost.as_view(), name='adSearchListPost'),
+    url(r'^memoAdRegistSearch/$', registSearchView.as_view(), name='adRegistSsearchView'),
+    url(r'^memoAdRegistSearchList/$', adRegistSearchViewsPost.as_view(), name='adRegistSearchListPost'),
 ]

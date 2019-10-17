@@ -28,6 +28,7 @@ class dbMain():
   def execute(self,sql,sqlMode,fetchStatus):
 
     self.__sql = sql
+    self.__result = ""
     self.__resultCount = 0
     
     # カーソルOPEN

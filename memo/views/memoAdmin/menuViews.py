@@ -18,7 +18,7 @@ class menuView(View):
     self.errMes = {}
     self.__form = "";
     self.__css = 'adminMenu.css'
-    self.__js = '<script src="/static/js/admin/jquery.admin.js"></script>'
+    self.__js = '<script src="/static/js/admin/jquery.adminMenu.js"></script>'
     self.__veiwUrl = 'memo/admin/memoAdminMenu.html'
     self.__logoutAtag = '<a class="logout" id="logoutAdmin" href="#">ログアウト</a>'
   

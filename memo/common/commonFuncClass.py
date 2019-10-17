@@ -22,14 +22,20 @@ class commonFunc():
     exp.dispatch(e, traceback)
     
   # ユーザ権限の制御処理
-  def userRoleDispos(self, request, tag,):
+  def userRoleDispos(self, request, tag, formStatus):
+    tagTmp = ''
+    self.__result = ''
     if 'ROLE' in request.session:
       if request.session['ROLE'] == 'a':
         self.__result = tag
       elif request.session['ROLE'] == 'rw':
         self.__result = tag
       else:
-        self.__result = ''
+        if formStatus == 'disabled':
+          tagTmp = tag.split("/")
+          self.__result += tagTmp[0] + 'disabled="disabled" /' + tagTmp[1]
+        else:
+          self.__result = ''
     else:
       self.__result = ''
 

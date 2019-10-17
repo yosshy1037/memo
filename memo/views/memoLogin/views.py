@@ -81,6 +81,7 @@ class memoLogin(View):
       else:
         # ログイン情報チェックOKの場合
         self.__ses.valueList = self.__model.valueList
+        self.__ses.valueList['dispStatus'] = ['str','normal']
         self.__ses.setSession()
         # 検索画面へ遷移
         return redirect("memoSearch")

@@ -155,10 +155,6 @@ class memoSearch(View):
         self.__form.fields['registStartDate'].initial = datetime.strftime(retentionPeriodAgo,"%Y-%m-%d")
         self.__form.fields['registEndDate'].initial = datetime.strftime(retentionPeriodNow,"%Y-%m-%d")
       
-      # 登録ボタン制御
-      self.__com.userRoleDispos(self.__ses.request, self.__registButton)
-      self.__registButton = self.__com.result
-      
     elif disp == 'regist':
       # 登録画面よりPOST時処理
       if 'registPart' in self.__ses.request.POST and 'registName' in self.__ses.request.POST:
@@ -167,7 +163,3 @@ class memoSearch(View):
         self.__form.fields['registStartDate'].initial = self.__dict['REGISTSTARTDATE'][1]
         self.__form.fields['registEndDate'].initial = self.__dict['REGISTENDDATE'][1]
         self.__form.fields['keyWord'].initial = self.__dict['KEYWORD'][1]
-    
-      # 登録ボタン制御
-      self.__com.userRoleDispos(self.__ses.request, self.__registButton)
-      self.__registButton = self.__com.result

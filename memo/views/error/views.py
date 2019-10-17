@@ -10,6 +10,7 @@ class error(View):
     self.__css = 'error.css'
     self.__js = ''
     self.__listJs = ''
+    self.__dispStatus = ''
     self.__veiwUrl = 'memo/memoErrorView.html'
     self.__logoutAtag = ''
     
@@ -17,14 +18,17 @@ class error(View):
   def get(self, request, *args, **kwargs):
     self.__ses = sessionClass.session()
     self.__ses.request = request
+    if 'dispStatus' in self.__ses.request.session:
+      self.__dispStatus = '<input type="hidden" name="dispStatus" value="' + self.__ses.request.session['dispStatus'] + '"/>'
     # セッション情報削除
     self.__ses.logout()
-
+    
     d = {
       'logout' : self.__logoutAtag,
       'css' : self.__css,
       'disp_js' : self.__js,
       'resutList_js' : self.__listJs,
+      'inputHiddenSessionDisp' : self.__dispStatus,
     }
     return render(self.__ses.request, self.__veiwUrl, d)
   

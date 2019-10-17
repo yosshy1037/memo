@@ -46,6 +46,8 @@ class session():
       del self.__request.session['ADLOGINUSER']
     elif 'ADLOGINPASSWORD' in self.__request.session and not self.__request.session['ADLOGINPASSWORD'] != '' and  self.__request.session['ADLOGINPASSWORD'] is not None:
       del self.__request.session['ADLOGINPASSWORD']
+    elif 'dispStatus' in self.__request.session and not self.__request.session['dispStatus'] != '' and  self.__request.session['dispStatus'] is not None:
+      del self.__request.session['dispStatus']
     self.__request.session.clear()
     
   # 管理ログイン情報確認処理

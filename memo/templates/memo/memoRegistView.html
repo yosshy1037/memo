@@ -34,7 +34,7 @@
         <div class="registMessage">
         </div><!--class registMessage-->
         <div class="buttonErea">
-          <input type="submit" value="登録" class="regist" />
+          {{ registButton | safe }}
           <input type="submit" value="検索画面へ戻る" class="searchReturn" />
           <input type="hidden" name="pageNum" />
         </div><!--class buttonErea-->

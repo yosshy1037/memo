@@ -1,0 +1,32 @@
+{% extends "common/baseAdmin.html" %}
+
+{% block body %}
+    
+    <form name="memoForm" method="post" action="">
+      <div id="adminErea">
+        <div id="subHeader">
+          <h2>検索条件</h2>
+        </div><!--id subHeader-->
+        <table>
+          <tr>
+            <th>{{ form.loginUserId.label }}</th>
+            <td>{{ form.loginUserId }}</td>
+          </tr>
+          <tr>
+            <th>{{ form.registId.label }}</th>
+            <td>{{ form.registId }}</td>
+          </tr>
+        </table>
+        <div class="buttonErea">
+          <input type="submit" value="検索" class="search" />
+          <input type="submit" value="クリア" class="clear" />
+        </div><!--class buttonErea-->
+      </div><!--id adminErea-->
+      <div id="resultErea">
+      </div><!--id resultErea-->
+      <div id="mes">
+      </div><!--class registMessage-->
+    {% csrf_token %}
+    </form>
+  </div><!--id container-->
+{% endblock%}

@@ -1,0 +1,122 @@
+/*---subHeader---*/
+#subHeader{
+  width:100%;
+  color:#B4B4B4;
+  background-color:#F5F5F5;
+  border-bottom: solid 1px #E6E6D6;
+  border-radius: 8px 8px 0px 0px;
+  margin-bottom:15px;
+}
+#subHeader h2{
+  font-size:18px;
+  padding-top:5px;
+  margin:0px 0px 5px 5px;
+}
+/*---table---*/
+#adminErea table{
+  width:100%;
+  margin-left:20px;
+}
+#adminErea table th{
+  width:25%;
+  text-align:right;
+}
+#adminErea table td input.loginUserId,input.registId{
+  width:45%;
+  line-height:26px;
+  padding-left:1%;
+}
+#adminErea table td input.registEndDate{
+  margin-top:3%;
+}
+#adminErea table td input{
+  border-radius: 3px 3px 3px 3px;
+  border: 1px solid #ccc;
+}
+#adminErea table td input.loginUserId,input.registId{
+  margin-left:30px;
+}
+#adminErea table th,#adminErea table td{
+  vertical-align:middle;
+  padding:10px 0px;
+}
+/*---button---*/
+.buttonErea{
+  width:95%;
+  text-align:center;
+  margin:10px 0px;
+}
+.buttonErea input.search,.buttonErea input.clear{
+  display:inline;
+  text-align:center;
+  font-size:14px;
+  width:15%;
+  border-radius: 3px 3px 3px 3px;
+  border: 1px solid #ccc;
+  padding:5px;
+  vertical-align:middle;
+}
+.buttonErea input.search:hover,.buttonErea input.clear:hover,input.registIdRegist:hover,input.registIdUpdate:hover,input.registIdDelete:hover{
+  background-color:#D9EDF7;
+}
+
+/*--resultErea--*/
+#resultErea{
+  width:100%;
+  margin-bottom:20px;
+}
+#resultErea table{
+  width:98%;
+  margin-left:1%;
+  margin-right:1%;
+  border-collapse: separate;
+  border-radius: 5px;
+  border-spacing: 0;
+}
+#resultErea table tr{
+  border-radius: 3px 3px 3px 3px;
+}
+#resultErea table th{
+  border: solid 1px #E6E6D6;
+  background-color:#D9EDF7;
+  border-radius: 3px 3px 3px 3px;
+  vertical-align:middle;
+  padding:3px;
+}
+/*----resultErea table header width----*/
+#resultErea table th.loginUserId{
+  min-width:5%;
+}
+#resultErea table th.registId{
+  min-width:5%;
+}
+#resultErea table th.registUpdateButton{
+  min-width:5%;
+}
+#resultErea table td{
+  border: solid 1px #E6E6D6;
+  border-radius: 3px 3px 3px 3px;
+  padding:2px;
+}
+#resultErea table input.registIdRegist{
+  width:20%;
+  border-radius: 3px 3px 3px 3px;
+  border: 1px solid #ccc;
+}
+input.registIdUpdate,input.registIdDelete{
+  width:20%;
+  border-radius: 3px 3px 3px 3px;
+  border: 1px solid #ccc;
+}
+input.registIdDelete{
+  margin-left:1%;
+}
+/*----id mes----*/
+#mes{
+  width:94%;
+  text-align:center;
+  vertical-align:middle;
+  line-height:100%;
+  color:red;
+}
+

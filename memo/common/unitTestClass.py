@@ -1,74 +1,53 @@
+from abc import ABCMeta
+from abc import abstractmethod
 from . import const,constDef,constTest
 from selenium import webdriver
 import os,time,re,subprocess
 
 ## テスト実施クラス
-class unitTest():
+class unitTest(metaclass = ABCMeta):
 
   # コンストラクタ
-  def __init__(self):
+  def __init__(self ,testNo):
   
     # プライベート変数
-    self.__chromeBrowser = ""
-    self.__opt = ""
-    self.__chromeDriver = const.chromeDriver
-    self.__targetSiteUrl = const.targetSiteUrl
-    self.__uriInfo = ""
-    self.__testSuccessStatus = False
+    self.chromeBrowser = ""
+    self.opt = ""
+    self.chromeDriver = const.chromeDriver
+    self.targetSiteUrl = const.targetSiteUrl
+    self.uriInfo = ""
+    self.testSuccessStatus = False
+    self.testNumber = int(testNo)
+    self.time = time
+    self.re = re
+    #self.request = request
     
     # テスト対象サイトOpen
-    self.__openTestSite()
+    self.openTestSite()
 
   # テスト対象サイトOpen
-  def __openTestSite(self):
+  def openTestSite(self):
     # driverSET
-    self.__opt = webdriver.ChromeOptions()
+    self.opt = webdriver.ChromeOptions()
     if const.viewDisable:
-      self.__opt.add_argument('--headless')
-    self.__opt.add_argument('--disable-gpu')
-    self.__chromeBrowser = webdriver.Chrome(options=self.__opt, executable_path=self.__chromeDriver)
+      self.opt.add_argument('--headless')
+    self.opt.add_argument('--disable-gpu')
+    self.chromeBrowser = webdriver.Chrome(options=self.opt, executable_path=self.chromeDriver)
     
     # memoサイト
-    self.__chromeBrowser.get(self.__targetSiteUrl)
+    self.chromeBrowser.get(self.targetSiteUrl)
   
-  # ログイン実施テスト
-  def loginTest(self):
-  
-    # user/passSET
-    eleUser = self.__chromeBrowser.find_element_by_name('loginUser').send_keys("Ykanai")
-    elePass = self.__chromeBrowser.find_element_by_name('loginPassword').send_keys("Ykanai01")
-    
-    # ログイン押下
-    self.__chromeBrowser.find_element_by_class_name('login').click()
-    
-    # URLチェック
-    if re.search("memoSearch\/", self.__chromeBrowser.current_url) != None:
-      self.__testSuccessStatus = True
-    
-    # スナップショット取得
-    self.__screenShotFull(self.__chromeBrowser, 'C:\Work\python\chapt')
-    
-    # 時間待ち
-    time.sleep(5)
-    
-    # 終了処理
-    self.__quit();
+  # テストメソッド
+  @abstractmethod
+  def test(self):
+    pass
   
   # 終了処理
-  def __quit(self):
-    self.__chromeBrowser.quit()
-
-  # リクエスト
-  @property
-  def request(self):
-    return self.__request
-
-  @request.setter
-  def request(self,request):
-    self.__request = request
+  def quit(self):
+    self.chromeBrowser.quit()
   
   # スクリーンショット取得関数
-  def __screenShotFull(self, driver, filename, timeout=30):
+  def screenShotFull(self, driver, filename, timeout=30):
     '''フルページ スクリーンショット'''
     # url取得
     url = driver.current_url

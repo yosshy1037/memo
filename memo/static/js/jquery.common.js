@@ -56,7 +56,8 @@ $(document).ready(function(){
   <!--ログイン画面へ戻る-->
   $('.loginReturn').on('click', function(){
     var url = "/memo/logout/";
-    url = url + "?status=" + 'normal';
+    var status = $('input[name="dispStatus"]').val();
+    url = url + "?status=" + status;
     $('form').attr('action', url);
     $('form').submit();
     return false;

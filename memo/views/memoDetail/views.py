@@ -116,9 +116,9 @@ class memoDetail(View):
     self.__detailForm.fields['detailBiko'].initial = self.__db.result[0][4]
     
     # 更新ボタン制御
-    self.__com.userRoleDispos(self.__ses.request, self.__updateButton)
+    self.__com.userRoleDispos(self.__ses.request, self.__updateButton, 'disabled')
     self.__updateButton = self.__com.result
     
     # 削除ボタン制御
-    self.__com.userRoleDispos(self.__ses.request, self.__deleteButton)
+    self.__com.userRoleDispos(self.__ses.request, self.__deleteButton, 'disabled')
     self.__deleteButton = self.__com.result

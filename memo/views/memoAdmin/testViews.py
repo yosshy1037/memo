@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
 import traceback
-from ...common import const,constDef,sessionClass,commonFuncClass,exceptionClass,logClass,unitTestClass
+from ...common import const,constDef,sessionClass,commonFuncClass,exceptionClass,logClass
+from ...memoAdmin.adminTest import unitTestNo1
 
 ## テスト処理
 class memoTest(View):
@@ -12,7 +13,7 @@ class memoTest(View):
     self.__ses = sessionClass.session()
     self.__model = ""
     self.__com = commonFuncClass.commonFunc()
-    self.__unit = unitTestClass.unitTest()
+    self.__unit = unitTestNo1.loginTest(1)
     self.__log = logClass.logger()
     self.__exc = exceptionClass.dispatchException()
     self.errMes = {}
@@ -26,12 +27,12 @@ class memoTest(View):
   def get(self, request, *args, **kwargs):
   
     # request情報を格納
-    self.__unit.request = request
+    #self.__unit.request = request
     
     try:
       
       # ログイン実施テスト
-      self.__unit.loginTest()
+      self.__unit.test()
       
     except exceptionClass.OriginException as e:
       # Exception継承処理
@@ -55,7 +56,7 @@ class memoTest(View):
   # POSTMethod
   def post(self, request, *args, **kwargs):
     
-    self.__unit.request = request
+    #self.__unit.request = request
     
     try:
       

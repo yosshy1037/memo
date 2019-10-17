@@ -1,4 +1,4 @@
-from . import commonFuncClass
+from . import commonFuncClass,pathControlClass
 from datetime import datetime, timedelta
 import logging,os
 
@@ -11,6 +11,7 @@ class logger():
     # プライベート変数
     self.__logfile = ""
     self.__logging = ""
+    self.__pathCon = pathControlClass.pathControl()
     self.__open()
     self.__com = commonFuncClass.commonFunc()
     self.__value = ""
@@ -19,29 +20,30 @@ class logger():
   
   # ログファイル選択
   def __open(self):
-    # 過去ログ削除
-    for day in range(3, 11):
-      retentionPeriod = datetime.now() - timedelta(day)
-      self.__dir = os.path.dirname(os.path.dirname(__file__))
-      deleteLog = self.__dir + "\static\logs\memo_" + retentionPeriod.strftime("%Y%m%d") +  ".log"
-      if os.path.exists(deleteLog) == True:
-        os.remove(deleteLog)
-    
-    # ログディレクトリ作成
-    new_dir_path = self.__dir + "\static\logs"
-    if os.path.exists(new_dir_path) == False:
-      os.mkdir(new_dir_path)
-    # オープン処理
-    self.__logfile = self.__dir + "\static\logs\memo_" + datetime.now().strftime("%Y%m%d") +  ".log"
-    self.__logging = logging
-    self.__logging.basicConfig(
-      filename=self.__logfile,
-      format = '%(asctime)s %(levelname)s %(message)s',
-      level=logging.DEBUG,
-      filemode = 'a'
-    )
-  
-  
+    self.__pathCon.status = "log"
+    self.__pathCon.pathCrearte()
+    try:
+      # 過去ログ削除
+      for day in range(3, 11):
+        retentionPeriod = datetime.now() - timedelta(day)
+        deleteLog = self.__pathCon.dirPath + "memo_" + retentionPeriod.strftime("%Y%m%d") +  ".log"
+        if os.path.exists(deleteLog) == True:
+          os.remove(deleteLog)
+      
+      # ログディレクトリ作成
+      if os.path.exists(self.__pathCon.dirPath) == False:
+        os.mkdir(self.__pathCon.dirPath)
+      # オープン処理
+      self.__logfile = self.__pathCon.dirPath + "memo_" + datetime.now().strftime("%Y%m%d") +  ".log"
+      self.__logging = logging
+      self.__logging.basicConfig(
+        filename=self.__logfile,
+        format = '%(asctime)s %(levelname)s %(message)s',
+        level=logging.DEBUG,
+        filemode = 'a'
+      )
+    except:
+     pass
   
   # ログ書き込み処理
   def write(self,level):

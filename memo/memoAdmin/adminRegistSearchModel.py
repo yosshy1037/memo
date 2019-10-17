@@ -5,59 +5,44 @@ from ..common import const,constDef
 from datetime import datetime
 import copy
 
-class registModel():
+class registSearchModel():
 
   # コンストラクタ
   def __init__(self):
   
     # プライベート変数
     self.__request = ""
-    self.__json = ""
     self.__collumList = []
     self.__collumAddList = []
     self.__valueList = {}
+    
+    self.__com = ""
+    self.__result = ""
+    self.__dateRow = {}
+    self.__dataResult = {}
+    self.__postData = {}
+    self.__num = 0
     
     self.Tmp = []
 
   # 値配列作成処理
   def valueListCreate(self):
-    postData = ""
-    if 'postData' in self.__request.POST:
-      postData = self.__json.loads(self.__request.POST.get('postData'))
-      postDataFlg = True
-    else:
-      postDataFlg = False
-    
+    self.__valueList = {}
     self.__collumList.extend(self.__collumAddList)
     for col in self.__collumList:
       value = ''
       init = ''
       type = 'str'
-      if col == "loginUserId":
-        if 'LOGINUSER' in self.__request.session:
-          value = str(self.__request.session['LOGINUSER'])
-        else:
-          value = ""
-      elif col == "pageNum":
-        getData = int(self.__request.GET.get('pageNum'))
-        type = 'int'
-        value = getData
-      elif col == "regist_date":
+      if col == "regist_date":
         type = 'date'
         value = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
       elif col == "regist_name":
-        if 'LOGINUSER' in self.__request.session:
-          value = str(self.__request.session['LOGINUSER'])
-        else:
-          value = ""
+        value = str(self.__request.session['ADLOGINUSER'])
       elif col == "update_date":
         type = 'date'
         value = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
       elif col == "update_name":
-        if 'LOGINUSER' in self.__request.session:
-          value = str(self.__request.session['LOGINUSER'])
-        else:
-          value = ""
+        value = str(self.__request.session['ADLOGINUSER'])
       elif col == "delete_date":
         type = 'date'
         value = '1999-01-01 00:00:00'
@@ -66,13 +51,23 @@ class registModel():
       elif col == "delete_flg":
         type = 'int'
         value = 0
+      elif col == "id":
+        type = 'int'
+        value = str(self.__postData[col])
       else:
-        if postDataFlg:
-          value = postData[col]
-        else:
-          value = self.__request.POST.get(col)
+        value = str(self.__postData[col])
       self.__valueList[col.upper()] = [type,value]
-  
+  # 一覧表示用値整形
+  def viewListCreate(self):
+    # ループして取得
+    for row in self.__result:
+      self.__dataResult["ID"] = row[0]
+      self.__dataResult["LOGINUSERID"] = row[1]
+      self.__dataResult["REGISTID"] = row[2]
+      self.__dateRow[self.__num] = self.__dataResult
+      self.__dataResult = {}
+      self.__num += 1
+
   # カラム配列
   @property
   def collumList(self):
@@ -80,6 +75,7 @@ class registModel():
 
   @collumList.setter
   def collumList(self,collumList):
+    self.__collumList = []
     self.__collumList = collumList
     self.Tmp = copy.deepcopy(collumList)
     
@@ -90,6 +86,7 @@ class registModel():
 
   @collumList.setter
   def collumAddList(self,collumAddList):
+    self.__collumAddList = []
     self.__collumAddList = collumAddList
   
   # リクエスト
@@ -101,15 +98,6 @@ class registModel():
   def request(self,request):
     self.__request = request
   
-  # JSON
-  @property
-  def json(self):
-    return self.__json
-
-  @json.setter
-  def json(self,json):
-    self.__json = json
-  
   # 整形後配列
   @property
   def valueList(self):
@@ -118,3 +106,30 @@ class registModel():
   @valueList.setter
   def valueList(self,valueList):
     self.__valueList = valueList
+    
+  # 整形後配列
+  @property
+  def postData(self):
+    return self.__postData
+
+  @postData.setter
+  def postData(self,postData):
+    self.__postData = postData
+
+  # DB値取得
+  @property
+  def result(self):
+    return self.__result
+
+  @result.setter
+  def result(self,result):
+    self.__result = result
+
+  # 一覧表示用値
+  @property
+  def dateRow(self):
+    return self.__dateRow
+
+  @dateRow.setter
+  def dateRow(self,dateRow):
+    self.__dateRow = dateRow
